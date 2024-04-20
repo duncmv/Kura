@@ -1,0 +1,14 @@
+# Ignore Git files
+.git/
+
+# Ignore pycache files
+__pycache__/
+
+# Ignore VSCode files
+.vscode/
+
+# ignore .jason files
+*.jason
+
+# Ignore any test files
+test.py
