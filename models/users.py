@@ -6,6 +6,7 @@ from models.base_model import BaseModel, Base
 from models.choices import Choice
 from models.polls import Poll
 from models.tags import Tag
+from models.choices import Choice
 
 
 class User(BaseModel, Base):
@@ -46,5 +47,5 @@ class User(BaseModel, Base):
 
     verified = Column(BOOLEAN, default=False)
 
-    answers = orm.relationship('Answer', secondary='choices',back_populates='users', viewonly=False)
+    choices = orm.relationship('Choice', back_populates='user', viewonly=False)
     taged_polls = orm.relationship('Poll', secondary='tags', viewonly=False)

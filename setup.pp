@@ -31,8 +31,3 @@ package { 'psycopg2-binary':
   ensure   => latest,
   provider => 'pip3',
 }
-
-run { 'create-database':
-  command => 'sudo psql -U postgres -d postgres -f set_db.sql',
-  require => Package['postgresql'],
-}

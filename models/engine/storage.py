@@ -22,6 +22,7 @@ class PDBStorage:
         """query on the current database session
 all objects depending of the class name cls"""
 
+        from models.base_model import BaseModel
         from models.answers import Answer
         from models.countries import Country
         from models.districts import District
@@ -30,6 +31,8 @@ all objects depending of the class name cls"""
         from models.polls import Poll
         from models.questions import Question
         from models.users import User
+        from models.choices import Choice
+        from models.tags import Tag
 
         classes = [Answer,
                    Country,
@@ -37,7 +40,7 @@ all objects depending of the class name cls"""
                    Institution,
                    LegalEntity,
                    Poll, Question,
-                   User
+                   User, Choice, Tag
                    ]
 
         all_obj_dict = []

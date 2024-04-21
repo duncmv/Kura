@@ -4,6 +4,7 @@
 from sqlalchemy import Column, String, ForeignKey, orm
 from models.base_model import BaseModel, Base
 from models.users import User
+from models.choices import Choice
 
 
 class Answer(BaseModel, Base):
@@ -17,4 +18,4 @@ class Answer(BaseModel, Base):
         nullable=False
         )
 
-    users = orm.relationship('User', secondary='choices',back_populates='answers', viewonly=False)
+    choices = orm.relationship('Choice', back_populates='answer', viewonly=False)
