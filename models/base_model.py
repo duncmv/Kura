@@ -48,6 +48,7 @@ class BaseModel:
         """Deletes the current instance from Storage"""
         from models import Storage
         Storage.delete(self)
+        Storage.save()
 
     def to_dict(self):
         """Convert instance into dict format"""

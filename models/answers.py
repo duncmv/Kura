@@ -17,4 +17,4 @@ class Answer(BaseModel, Base):
         nullable=False
         )
 
-    users = orm.relationship('User', secondary='choices', viewonly=False)
+    users = orm.relationship('User', secondary='choices',back_populates='answers', viewonly=False)

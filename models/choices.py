@@ -19,5 +19,5 @@ class Choice(BaseModel, Base):
     answer_id = Column(
         String(60),
         ForeignKey('answers.id', onupdate='CASCADE', ondelete='CASCADE'),
-        nullable=False
+        primary_key=True
         )

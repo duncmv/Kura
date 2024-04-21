@@ -4,7 +4,6 @@
 from sqlalchemy import Column, String, DATE, INTEGER, ForeignKey, orm
 from models.base_model import BaseModel, Base
 from models.users import User
-from datetime import date
 
 
 class Institution(BaseModel, Base):
@@ -34,7 +33,7 @@ class Institution(BaseModel, Base):
         nullable=False
         )
 
-    legal_intity_id = Column(
+    legal_entity_id = Column(
         String(60),
         ForeignKey('legal_entities.id'),
         nullable=False

@@ -23,7 +23,6 @@ class PDBStorage:
 all objects depending of the class name cls"""
 
         from models.answers import Answer
-        from models.base_model import BaseModel
         from models.countries import Country
         from models.districts import District
         from models.institutions import Institution
@@ -33,7 +32,6 @@ all objects depending of the class name cls"""
         from models.users import User
 
         classes = [Answer,
-                   BaseModel,
                    Country,
                    District,
                    Institution,

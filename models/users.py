@@ -46,5 +46,5 @@ class User(BaseModel, Base):
 
     verified = Column(BOOLEAN, default=False)
 
-    answers = orm.relationship('Answer', secondary='choices', viewonly=False)
+    answers = orm.relationship('Answer', secondary='choices',back_populates='users', viewonly=False)
     taged_polls = orm.relationship('Poll', secondary='tags', viewonly=False)
