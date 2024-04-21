@@ -294,3 +294,90 @@
 	))
 	Storage.save()
 	```
+	Another way
+	```python
+	from models.polls import Poll
+	from models.questions import Question
+	from models import Storage
+
+	poll1 = Storage.get(Poll, "some_id")
+	poll1.questions.append(Question(
+		text=""
+	))
+	Storage.save()
+	```
+5) **Create new answer(s)**
+	```python
+	from models.questions import Question
+	from models.answers import Answer
+	from models import Storage
+
+	Storage.new(Answer(
+		text="",
+		question_id=""
+	))
+	Storage.save()
+	```
+	Another way
+	```python
+	from models.polls import Poll
+	from models.questions import Question
+	from models.answers import Answer
+	from models import Storage
+
+	question1 = Storage.get(Question, "some_id")
+	poll1.questions.extend([
+		Answer(text=""),
+		Answer(text=""),
+		Answer(text="")
+	])
+	Storage.save()
+	```
+6) **A user choosing an answer**
+	```python
+	from models.users import User
+	from models.polls import Poll
+	from models.questions import Question
+	from models.answers import Answer
+	from models.choices import Choice
+	from models import Storage
+
+	user1 = Storage.get(User, "some_id")
+	answer1 = Storage.get(Answer, "some_id")
+	# choose from the following
+ 
+	#1 Storage.new(Choice(user=user1, answer=answer1))
+	#2 Storage.new(Choice(user_id=user1.id, answer_id=answer1.id))
+	#3 user1.choices.append(Choice(answer=answer1))
+	#4 user1.choices.append(Choice(answer_id=answer1.id))
+	#5 answer1.choices.append(Choice(user=user1))
+	#6 answer1.choices.append(Choice(user_id=user1.id))
+	Storage.save()
+	```
+7) **Get all the polls voted on by a user**
+	```python
+	from models.users import User
+	from models.polls import Poll
+	from models.questions import Question
+	from models.answers import Answer
+	from models.choices import Choice
+	from models import Storage
+
+	user1 = Storage.get(User, "some_id")
+	voted_polls = [choice.answer.question.poll for choice in user1.choices]
+	```
+8) **A user tagging a poll**
+	```python
+	from models.users import User
+	from models.tags import Tag
+	from models.polls import Poll
+	from models import Storage
+
+	user1 = Storage.get(User, "some_user_id")
+	poll1 = Storage.get(Poll, "some_poll_id")
+	user1.taged_polls.append(poll1)  # the other way do not work -> poll1.users.append(user1)
+
+	# Now to retrieve all the tagged polls
+
+	my_daved_polls = user1.taged_polls
+	```
