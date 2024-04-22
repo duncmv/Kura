@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """starts a polls route"""
 from api.v1.views import app_views
-from flask import jsonify, request, abort
+from flask import jsonify, request, make_response, abort
 from models import Storage
 from models.polls import Poll
-from models.users import User
 
 
 @app_views.route("/polls", strict_slashes=False,
@@ -59,3 +58,22 @@ def polls_by_user(user_id):
                         if poll.id not in u_polls:
                             u_polls.append(poll.id)
     return jsonify(u_polls)
+
+@app_views.route('/institutions/<institution_id>/polls', strict_slashes=False,
+                 methods=['GET', 'POST'])
+def polls_by_institution(institution_id):
+    """CRUD operations on polls by institution"""
+    if request.method == 'GET':
+        polls = [poll.id for poll in Storage.all(Poll) if poll.institution_id == institution_id]
+        return jsonify(polls)
+
+    if request.method == 'POST':
+        params = request.get_json(silent=True)
+        if not params:
+            return make_response("Not a JSON\n", 400)
+        if 'title' not in params:
+            return make_response("Missing title\n", 400)
+        params['institution_id'] = institution_id
+        new = Poll(**params)
+        new.save()
+        return jsonify(new.to_dict()), 201

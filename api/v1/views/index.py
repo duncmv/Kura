@@ -8,6 +8,7 @@ from models.institutions import Institution
 from models.users import User
 from models.districts import District
 from models.choices import Choice
+from models.legal_entity import LegalEntity
 
 @app_views.route('/status', strict_slashes=False)
 def status():
@@ -23,6 +24,7 @@ def stats():
         "institutions": Storage.count(Institution),
         "users": Storage.count(User),
         "districts": Storage.count(District),
-        "choices": Storage.count(Choice)
+        "choices": Storage.count(Choice),
+        "legal_entities": Storage.count(LegalEntity)
     }
     return jsonify(stats)

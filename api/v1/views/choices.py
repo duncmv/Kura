@@ -4,7 +4,6 @@ from api.v1.views import app_views
 from flask import jsonify, request, make_response, abort
 from models import Storage
 from models.choices import Choice
-from models.users import User
 
 
 @app_views.route("users/<user_id>/<answer_id>/", strict_slashes=False,

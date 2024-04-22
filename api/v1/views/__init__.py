@@ -12,6 +12,7 @@ from api.v1.views.institutions import *
 from api.v1.views.users import *
 from api.v1.views.polls import *
 from api.v1.views.choices import *
-#from api.v1.views.questions import *
-#from api.v1.views.answers import *
-#from api.v1.views.legal_entity import *
+from api.v1.views.questions import *
+from api.v1.views.answers import *
+from api.v1.views.legal_entity import *
+from api.v1.views.tags import *
