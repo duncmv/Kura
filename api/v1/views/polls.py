@@ -56,6 +56,6 @@ def polls_by_user(user_id):
             for answer in question.answers:
                 for choice in answer.choices:
                     if choice.user_id == user_id:
-                        if poll not in u_polls:
+                        if poll.id not in u_polls:
                             u_polls.append(poll.id)
     return jsonify(u_polls)
