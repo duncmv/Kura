@@ -9,7 +9,7 @@ const card = `px-5 py-10 border rounded-lg shadow-md max-w-90 lg:basis-1/3 hover
               after:h-1 after:bg-blue-500 after:rounded-t-lg`;
 
 const gap = 'space-x-4 sm:space-x-6 md:space-x-8 lg:space-x-10 xl:space-x-12';
-const container = 'min-h-[83vh] w-11/12 mx-auto flex flex-col justify-center';
+const container = 'min-h-[83vh] w-11/12 mx-auto flex flex-col justify-center overflow-hidden';
 const form = 'py-10 px-5 border-2 shadow-md basis-1/2';
 const formContainer = 'flex flex-col gap-5 py-2 sm:flex-row justify-center';
 
