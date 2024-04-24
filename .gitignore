@@ -14,4 +14,4 @@ __pycache__/
 test.py
 
 #ignore env files
-env/*
+venv/*

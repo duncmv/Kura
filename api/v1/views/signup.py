@@ -59,11 +59,11 @@ def signup():
         id_card.save(file_path)
         try:
             id_details = textract.extract(file_path)
+            params.update(id_details)
+            params['verified'] = True
         except Exception:
-            return make_response('Couldnt verify ID\n', 400)
+            pass
         params.pop('class')
-        params['verified'] = True
-        params.update(id_details)
         new = User(**params)
         new.save()
     else:

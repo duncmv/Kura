@@ -16,7 +16,6 @@ def login():
         It expects a JSON payload containing the necessary information for login.
         The structure of the JSON payload for login should be as follows:
         {
-            "class": "user" or "institution",
             "email": "<user/institution email>",
             "password": "<password>"
         }
