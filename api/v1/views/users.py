@@ -11,7 +11,22 @@ from models.users import User
 @app_views.route('/users/<user_id>', strict_slashes=False,
                  methods=['GET', 'DELETE', 'PUT'])
 def user(user_id=None):
-    """performs CRUD on user objects"""
+    """Handles CRUD operations on user objects.
+
+        This route handles the retrieval, deletion, and updating of user objects.
+
+        Returns:
+            GET: A JSON response containing the requested user details and a status code of 200 if successful.
+                 If no user_id is provided, it returns a list of all users.
+            DELETE: A JSON response with a status code of 200 and an empty body if successful.
+            PUT: A JSON response containing the updated user details and a status code of 200 if successful.
+
+            A response with an error message and a status code of 404 if the
+            user is not found.
+
+        Raises:
+            Exception: If there was an error during the CRUD process.
+    """
     if request.method == 'GET':
         if user_id is None:
             all = [user.to_dict() for user in Storage.all(User)]

@@ -11,7 +11,15 @@ from models.choices import Choice
 @app_views.route('answers/<answer_id>/', strict_slashes=False,
                  methods=['GET'])
 def choice(user_id=None, answer_id=None):
-    """performs CRUD on choice objects"""
+    """This route handles the retrieval, creation, and deletion of choice objects associated with a specific user and answer.
+
+        Returns:
+            GET: A JSON response containing the count of choices associated with the answer and a status code of 200 if successful.
+            POST: A JSON response with a status code of 201 and a body containing "done" if successful.
+            DELETE: A JSON response with a status code of 200 and a body containing "deleted" if successful.
+
+            A response with an error message and a status code of 404 if no choices are found for the user and answer.
+    """
     if request.method == 'GET':
         choices = len([choice for choice in Storage.all(Choice) if choice.answer_id == answer_id])
         return jsonify(choices)

@@ -9,7 +9,15 @@ from models.tags import Tag
 @app_views.route('user/<user_id>/tags/<poll_id>', strict_slashes=False,
                  methods=['GET', 'POST', 'DELETE'])
 def tag(user_id, poll_id=None):
-    """performs CRUD on tag objects"""
+    """This route handles the retrieval, creation, and deletion of tag objects associated with a specific user and poll.
+
+        Returns:
+            GET: A JSON response containing a list of poll IDs tagged by the user and a status code of 200 if successful.
+            POST: A JSON response containing the details of the newly created tag and a status code of 201 if successful.
+            DELETE: A JSON response with a status code of 200 and an empty body if successful.
+
+            A response with an error message and a status code of 404 if no tags are found for the user.
+    """
     if request.method == 'GET':
         tags = Storage.all(Tag)
         if tags is None:
@@ -26,4 +34,5 @@ def tag(user_id, poll_id=None):
         for tag in Storage.all(Tag):
             if tag.user_id == user_id and tag.poll_id == poll_id:
                 tag.delete()
-                
+                return jsonify({})
+        abort(404)
