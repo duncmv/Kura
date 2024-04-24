@@ -1,6 +1,8 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { button, input, a, h2, h3, form, formContainer, container, card} from '../../../components/styleVar';
+import { getCurrentUser } from '../../../api/auth';
+import { useRouter } from 'next/navigation';
 
 export default function RegisterPage() {
     const pureCard = card + ' cursor-pointer';
@@ -10,6 +12,14 @@ export default function RegisterPage() {
     const [card2, setCard2] = useState(pureCard);
     const [showContent, setShowContent] = useState(false);
     const [showInitialContent, setShowInitialContent] = useState(true);
+    const router = useRouter();
+
+    // Check if user is already logged in
+    getCurrentUser().then(() => {
+        router.push("/");
+    }).catch(() => {
+        console.log('Not logged in');
+    });
 
     const handleType = (type: string) => {
         setType(type);
