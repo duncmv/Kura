@@ -13,15 +13,16 @@ class Institution(BaseModel, Base):
 
     email = Column(String(128), nullable=False, unique=True)
     password = Column(String(128), nullable=False)
+    username = Column(String(128))
 
     name = Column(String(128), nullable=False)
 
-    industry_classification = Column(String(128), nullable=False)
+    industry_id = Column(String(60), ForeignKey('industries.id'), nullable=False)
     registration_number = Column(String(64), nullable=False, unique=True)
-    date_of_establishment = Column(DATE, nullable=False)
+    date_of_establishment = Column(DATE)
 
     postal_code = Column(INTEGER)
-    phone_number = Column(String(14), nullable=False)
+    phone_number = Column(String(14))
 
     parent_company = Column(String(128))
 
