@@ -88,11 +88,10 @@ def extract(file_name):
     kvs = get_kv_relationship(key_map, value_map, block_map)
     kvs['last_name'] = kvs.pop('surname')
     kvs['id_card_number'] = kvs.pop('nin')
-    try:
-        kvs['first_name'], kvs['middle_name'] = kvs.pop('given_name').split(' ')
-    except ValueError:
-    # If there's only one name, assign it to 'first_name'
-        kvs['first_name'] = kvs.pop('given_name')
+    names = list(kvs.pop('given_name').split(' '))
+    kvs['first_name'] = names[0]
+    if len(names) > 1:
+        kvs['middle_name'] = names[1]
     old_date = datetime.strptime(kvs.pop('date_of_birth'), "%d.%m.%Y")
     kvs['date_of_birth'] = old_date.strftime("%Y-%m-%d")
     kvs.pop('date_of_expiry')
