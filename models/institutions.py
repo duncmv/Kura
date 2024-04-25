@@ -17,7 +17,7 @@ class Institution(BaseModel, Base):
 
     name = Column(String(128), nullable=False)
 
-    industry_id = Column(String(60), ForeignKey('industries.id'), nullable=False)
+    
     registration_number = Column(String(64), nullable=False, unique=True)
     date_of_establishment = Column(DATE)
 
@@ -39,7 +39,7 @@ class Institution(BaseModel, Base):
         ForeignKey('legal_entities.id'),
         nullable=False
         )
-
+    industry_id = Column(String(60), ForeignKey('industries.id'), nullable=False)
     users = orm.relationship('User', backref='company')
 
     polls = orm.relationship(

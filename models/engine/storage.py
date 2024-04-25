@@ -33,6 +33,7 @@ all objects depending of the class name cls"""
         from models.users import User
         from models.choices import Choice
         from models.tags import Tag
+        from models.industries import Industry
 
         classes = [Answer,
                    Country,
@@ -40,7 +41,8 @@ all objects depending of the class name cls"""
                    Institution,
                    LegalEntity,
                    Poll, Question,
-                   User, Choice, Tag
+                   User, Choice, Tag,
+                   Industry
                    ]
 
         all_obj_dict = []
@@ -80,6 +82,7 @@ all objects depending of the class name cls"""
         from models.polls import Poll
         from models.questions import Question
         from models.users import User
+        from models.industries import Industry
 
         Base.metadata.create_all(self.__engine)
         Session_factory = orm.sessionmaker(bind=self.__engine,
