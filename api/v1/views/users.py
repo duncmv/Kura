@@ -60,6 +60,5 @@ def user(user_id=None):
         try:
             user.save()
         except IntegrityError:
-            Storage.rollback()
             return make_response("Credentials already exist", 400)
         return jsonify(user.to_dict())
