@@ -4,6 +4,7 @@ from api.v1.views import app_views
 from flask import jsonify, request, make_response, abort
 from models import Storage
 from models.users import User
+from sqlalchemy.exc import IntegrityError
 
 
 @app_views.route("/users", strict_slashes=False,
@@ -56,5 +57,9 @@ def user(user_id=None):
             params.pop(k, None)
         for k, v in params.items():
             setattr(user, k, v)
-        user.save()
+        try:
+            user.save()
+        except IntegrityError:
+            Storage.rollback()
+            return make_response("Credentials already exist", 400)
         return jsonify(user.to_dict())

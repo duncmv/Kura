@@ -21,7 +21,7 @@ class User(BaseModel, Base):
     middle_name = Column(String(128))
     last_name = Column(String(128))
 
-    id_card_number = Column(String(64), nullable=False, unique=True)
+    id_card_number = Column(String(64), nullable=True, unique=True)
 
     date_of_birth = Column(DATE)
 
