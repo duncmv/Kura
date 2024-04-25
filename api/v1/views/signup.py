@@ -7,6 +7,7 @@ from models.users import User
 from models.institutions import Institution
 from api.v1.ext import textract
 import json
+from sqlalchemy.exc import IntegrityError
 
 @app_views.route('/signup', strict_slashes=False,
                  methods=['POST'])
@@ -64,10 +65,16 @@ def signup():
         except Exception:
             pass
         params.pop('class')
-        new = User(**params)
-        new.save()
+        try:
+            new = User(**params)
+            new.save()
+        except IntegrityError:
+            return jsonify({'error': 'User  with these credentials already exists'}), 400
     else:
         params.pop('class')
-        new = Institution(**params)
-        new.save()
+        try:
+            new = Institution(**params)
+            new.save()
+        except IntegrityError:
+            return jsonify({'error': 'Institution already exists'}), 400
     return jsonify(new.to_dict()), 201

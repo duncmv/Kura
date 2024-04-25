@@ -28,13 +28,3 @@ def stats():
         "legal_entities": Storage.count(LegalEntity)
     }
     return jsonify(stats)
-
-@app_views.route('/docs/<path:filename>', methods=['GET'])
-def docs(filename):
-    """returns the documentation"""
-    return send_from_directory('../_build/html', filename)
-
-@app_views.route('/docs/_static/<path:filename>', methods=['GET'])
-def docs_static(filename):
-    """returns the static files for the documentation"""
-    return send_from_directory('../_build/html/_static', filename)

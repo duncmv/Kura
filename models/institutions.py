@@ -13,7 +13,7 @@ class Institution(BaseModel, Base):
 
     email = Column(String(128), nullable=False, unique=True)
     password = Column(String(128), nullable=False)
-    username = Column(String(128))
+    username = Column(String(128), unique=True)
 
     name = Column(String(128), nullable=False)
 
