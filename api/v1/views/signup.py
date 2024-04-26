@@ -55,10 +55,10 @@ def signup():
     """
     params = json.load(request.files['json'])
     if params['class'] == 'user':
-        id_card = request.files['id_snippet']
-        file_path = '/tmp/' + params['email']
-        id_card.save(file_path)
         try:
+            id_card = request.files['id_snippet']
+            file_path = '/tmp/' + params['email']
+            id_card.save(file_path)
             id_details = textract.extract(file_path)
             params.update(id_details)
             params['verified'] = True
