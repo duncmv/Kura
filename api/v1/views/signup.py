@@ -31,7 +31,11 @@ def signup():
         "class": "institution",
         "email": "institution@example.com",
         "name": "ABC Institution",
-        "password": "password123"
+        "password": "password123",
+        "registration_number": "agcacg",
+        "district_id": "<valid_district_id>"
+        "legal_entity_id": "<valid_legal_entity_id>",
+        "industry_id": "<valid_industry_id>"
         }
     }
 
@@ -55,10 +59,10 @@ def signup():
     """
     params = json.load(request.files['json'])
     if params['class'] == 'user':
-        id_card = request.files['id_snippet']
-        file_path = '/tmp/' + params['email']
-        id_card.save(file_path)
         try:
+            id_card = request.files['id_snippet']
+            file_path = '/tmp/' + params['email']
+            id_card.save(file_path)
             id_details = textract.extract(file_path)
             params.update(id_details)
             params['verified'] = True
