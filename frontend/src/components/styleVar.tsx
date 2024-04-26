@@ -1,6 +1,6 @@
 const button = 'px-7 py-2 mt-5 mb-1 sm:px-10 sm:py-3 font-bold text-lg hover:bg-blue-300 active:bg-blue-400 rounded-md focus:outline-none focus:ring focus:ring-blue-200 border transition duration-300 ease-in-out relative';
 const input = 'border focus:outline-none focus:ring-2 focus:ring-blue-200 text-md block w-full p-2 rounded-md my-2';
-const a = 'text-blue-500 hover:text-blue-700 active:text-blue-900 transition duration-300 ease-in-out underline';
+const a = 'text-blue-500 hover:text-blue-700 active:text-blue-900 transition duration-300 ease-in-out ';
 const h2 = 'font-bold text-lg';
 const h3 = 'font-bold text-md';
 const card = `px-5 py-10 border rounded-lg shadow-md max-w-90 lg:basis-1/3 hover:bg-blue-300

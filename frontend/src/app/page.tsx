@@ -1,23 +1,10 @@
 'use client';
-import { getCurrentUser } from '@/api/auth';
-import { useEffect, useState } from 'react';
+import { getUserData } from '@/api/auth';
 import HombePage from './home';
 import LandingPage from './landing';
 
 export default function Home () {
-  const [userData, setUserData] = useState(Object.create(null));
-
-  useEffect(() => {
-    getCurrentUser().then((user) => {
-      if (user) {
-        setUserData(user);
-      }
-    }).catch((e) => {
-      console.log('Not logged in');
-      setUserData(null);
-    });
-  }, []);
-
+  const userData = getUserData();
   if (userData) {
     return (
       <HombePage userData={userData} />
