@@ -1,6 +1,16 @@
 #!/usr/bin/python3
-"""
-This module structures the table 'tags'
+""" tags.py
+    This module contains the `Tag` class which represents the `tags` table in the database.
+    Imports:
+        - `Column`, `String`, `ForeignKey` from `sqlalchemy`:
+            These are used to define the columns in the `tags` table.
+        - `Base` from `models.base_model`:
+            `Base` is the declarative base class from SQLAlchemy.
+    Classes:
+        - `Tag`: This class represents the `tags` table in the database.
+            It has the following attributes:
+                - `user_id`: The ID of the user that created the tag.
+                - `poll_id`: The ID of the poll that the tag is associated with.
 """
 
 from models.base_model import Base
@@ -8,7 +18,11 @@ from sqlalchemy import Column, String, ForeignKey
 
 
 class Tag(Base):
-    " tags table that holds the tagged polls by a user "
+    """ This class structures a tags table in the database
+    Attributes:
+        user_id: The ID of the user that created the tag
+        poll_id: The ID of the poll that the tag is associated with
+    """
 
     __tablename__ = "tags"
     user_id = Column(

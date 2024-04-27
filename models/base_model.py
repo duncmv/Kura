@@ -1,3 +1,13 @@
+"""
+base_model.py
+
+This module contains the `BaseModel` class
+which serves as the base class for other models in the application.
+
+Classes:
+- `BaseModel`: The `BaseModel` class is the base class for other models.
+It includes common attributes and methods that will be inherited by all other models.
+"""
 from uuid import uuid4
 from datetime import datetime
 from sqlalchemy import Column, String, DateTime
@@ -7,7 +17,25 @@ Base = declarative_base()
 
 
 class BaseModel:
-    """A base class for all kura models"""
+    """
+    BaseModel class
+
+    Attributes:
+    - `id`: A string that represents the unique identifier of the instance.
+        It's a primary key in the database.
+    - `created_at`: A datetime object that represents when the instance was created.
+    - `updated_at`: A datetime object that represents when the instance was last updated.
+
+    Methods:
+    - `__init__(self, **kwargs)`: This method initializes a new instance of the model.
+        It takes in keyword arguments and sets the attributes of the instance accordingly.
+        If an attribute is not included in the keyword arguments, it's set to a default value.
+    - `save(self)`: This method updates the `updated_at` attribute
+        with the current datetime and saves the instance to the database.
+    - `delete(self)`: This method deletes the current instance from the database
+        and saves the changes.
+    - `__str__(self)`: This method returns a string representation of the instance.
+    """
 
     id = Column(String(60), nullable=False, primary_key=True)
     created_at = Column(DateTime, nullable=False, default=datetime.utcnow())
@@ -38,30 +66,18 @@ class BaseModel:
             self.updated_at = datetime.utcnow()
 
     def save(self):
-        """Updates the attribute 'updated_at' with the current datetime"""
+        """Updates the attribute 'updated_at' with the current datetime and saves the instance"""
         self.updated_at = datetime.utcnow()
         from models import Storage
         Storage.new(self)
         Storage.save()
 
     def delete(self):
-        """Deletes the current instance from Storage"""
+        """Deletes the current instance from Storage and saves the changes"""
         from models import Storage
         Storage.delete(self)
         Storage.save()
 
-    def to_dict(self):
-        """Convert instance into dict format"""
-        dictionary = {}
-        dictionary.update(self.__dict__)
-        if '_sa_instance_state' in dictionary.keys():
-            dictionary.pop('_sa_instance_state')
-        dictionary.update({'__class__':
-                          (str(type(self)).split('.')[-1]).split('\'')[0]})
-        dictionary['created_at'] = self.created_at.isoformat()
-        dictionary['updated_at'] = self.updated_at.isoformat()
-        return dictionary
-
     def __str__(self):
-        """Return string representation of instance"""
+        """Return string representation of the instance"""
         return "{}".format(self.to_dict())

@@ -1,6 +1,34 @@
 #!/usr/bin/python3
 """
-This module structures the table 'choices'
+choices.py
+
+This module contains the `Choice` class
+which represents the `choices` table in the database.
+
+Imports:
+- `Column`, `String`, `ForeignKey`, `orm` from `sqlalchemy`:
+    These are used to define the columns in the `choices` table.
+- `BaseModel`, `Base` from `models.base_model`:
+    `BaseModel` is the base class for all models
+    and `Base` is the declarative base class from SQLAlchemy.
+
+Classes:
+- `Choice`: This class represents the `choices` table in the database.
+    It has the following attributes:
+        - `user_id`: A string that represents the ID of the user
+            who made this choice. It's a foreign key that references
+            the `id` column in the `users` table. It cannot be null
+            and is a primary key in the `choices` table.
+        - `answer_id`: A string that represents the ID of the answer
+            that was chosen. It's a foreign key that references
+            the `id` column in the `answers` table.
+            It cannot be null and is a primary key in the `choices` table.
+        - `user`: This attribute is not represented as a column
+            in the `choices` table
+            but it is an instance of the user who made the choice.
+        - `answer`: This attribute is not represented as a column
+            in the `choices` table
+            but it is an instance of the answer that was chosen.
 """
 
 from models.base_model import BaseModel, Base
@@ -8,7 +36,14 @@ from sqlalchemy import Column, String, ForeignKey, orm
 
 
 class Choice(BaseModel, Base):
-    " choices table that holds the answer of each user "
+    """
+    This class is a structure for the table choices with the following columns:
+    Attributes :
+        user_id: the id of the user who made this choice
+        answer_id: the id of the answer that was chosen
+        user: an instance of the user that made the choice
+        answer: an instance of the answer that was chosen
+    """
 
     __tablename__ = "choices"
     user_id = Column(
@@ -22,5 +57,13 @@ class Choice(BaseModel, Base):
         primary_key=True
         )
 
-    user = orm.relationship('User', back_populates='choices', viewonly=False)
-    answer = orm.relationship('Answer', back_populates='choices', viewonly=False)
+    user = orm.relationship(
+        'User',
+        back_populates='choices',
+        viewonly=False)
+
+    answer = orm.relationship(
+        'Answer',
+        back_populates='choices',
+        viewonly=False
+        )
