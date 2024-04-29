@@ -13,7 +13,7 @@ export default function header ({userData = null}: {userData?: any}) {
 
 function DefaultHeader () {
   return (
-    <header className='w-full p-1.5 sm:p-2 md:p-5 border-b shadow-sm relative'>
+    <header className='w-full p-1.5 sm:p-2 md:p-5 border-b shadow-sm relative z-50 bg-white sticky top-0'>
       <div className='w-[100px]'>
         <Link href='/'>
           <h1 className={`text-blue-500 text-3xl sm:text-3xl md:text-4xl font-bold ml-5 w-10
@@ -29,7 +29,7 @@ function DefaultHeader () {
 
 function HomeHeader ({userData}: {userData: any}) {
   return (
-    <header className='w-full p-1.5 sm:p-2 md:p-5 border-b shadow-sm relative flex flex-row justify-between'>
+    <header className='w-full p-1.5 sm:p-2 md:p-5 border-b shadow-sm relative flex flex-row justify-between z-50 bg-white sticky top-0'>
       <div className='w-[100px]'>
         <Link href='/'>
           <h1 className={`text-blue-500 text-3xl sm:text-3xl md:text-4xl font-bold ml-5 w-10
