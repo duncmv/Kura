@@ -36,3 +36,13 @@ class Tag(Base):
         ForeignKey('polls.id', onupdate='CASCADE', ondelete='CASCADE'),
         primary_key=True
         )
+
+    def to_dict(self):
+        """ This method returns a dictionary representation of this tag
+        Returns:
+            A dictionary representation of this tag
+        """
+        return {
+            'user_id': self.user_id,
+            'poll_id': self.poll_id
+        }

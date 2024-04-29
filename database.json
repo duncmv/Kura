@@ -1,0 +1,2070 @@
+[
+    {
+        "__class__": "Country",
+        "id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "created_at": "2024-04-29T15:42:15.149268",
+        "updated_at": "2024-04-29T15:42:15.149273",
+        "name": "Uganda"
+    },
+    {
+        "__class__": "District",
+        "id": "73cb4294-31e0-4480-9d10-1235c78ecb93",
+        "created_at": "2024-04-29T15:42:15.191367",
+        "updated_at": "2024-04-29T15:42:15.191371",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Abim",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "38ba3a52-1a3a-4af1-94ce-cef8b482db58",
+        "created_at": "2024-04-29T15:42:15.191453",
+        "updated_at": "2024-04-29T15:42:15.191455",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Adjumani",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "be23cba0-6388-4719-88be-612c2a149135",
+        "created_at": "2024-04-29T15:42:15.191513",
+        "updated_at": "2024-04-29T15:42:15.191515",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Agago",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "a00959d1-5e7f-4b68-ae3e-8ac7714cd1ae",
+        "created_at": "2024-04-29T15:42:15.191573",
+        "updated_at": "2024-04-29T15:42:15.191576",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Alebtong",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "b93279e4-0490-4a5e-8e48-b539c2470a4a",
+        "created_at": "2024-04-29T15:42:15.191626",
+        "updated_at": "2024-04-29T15:42:15.191628",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Amolatar",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "824ec0f2-a24f-453a-aefd-0c7c76bbc9d5",
+        "created_at": "2024-04-29T15:42:15.191676",
+        "updated_at": "2024-04-29T15:42:15.191678",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Amudat",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "ae70c65e-ea19-4c62-a54d-4303c9295a12",
+        "created_at": "2024-04-29T15:42:15.191725",
+        "updated_at": "2024-04-29T15:42:15.191727",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Amuria",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "ce31ea86-9001-479a-9052-eccec027e2b8",
+        "created_at": "2024-04-29T15:42:15.191772",
+        "updated_at": "2024-04-29T15:42:15.191777",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Amuru",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "fa491cdb-9e18-40e2-bcbd-b72902249115",
+        "created_at": "2024-04-29T15:42:15.191824",
+        "updated_at": "2024-04-29T15:42:15.191826",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Apac",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "f336240b-8d02-4bd2-97c0-fd43a0da671b",
+        "created_at": "2024-04-29T15:42:15.191872",
+        "updated_at": "2024-04-29T15:42:15.191874",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Arua",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "256e6039-a5d4-4ab1-bc17-98b71d423520",
+        "created_at": "2024-04-29T15:42:15.191919",
+        "updated_at": "2024-04-29T15:42:15.191921",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Budaka",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "77623d94-1133-4fad-b13e-88e6c94866f1",
+        "created_at": "2024-04-29T15:42:15.191967",
+        "updated_at": "2024-04-29T15:42:15.191969",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Bududa",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "3185c266-7c53-4bf7-991f-4084d3b8cc5d",
+        "created_at": "2024-04-29T15:42:15.192014",
+        "updated_at": "2024-04-29T15:42:15.192019",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Bugiri",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "35c32bec-04e7-4b3e-b50a-bca5d108dc16",
+        "created_at": "2024-04-29T15:42:15.192066",
+        "updated_at": "2024-04-29T15:42:15.192068",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Bugweri",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "1b939356-a082-41c5-801f-aecad76cdf10",
+        "created_at": "2024-04-29T15:42:15.192113",
+        "updated_at": "2024-04-29T15:42:15.192115",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Buhweju",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "f62c88c2-3ce8-4f16-a592-63e6cb9c6fc1",
+        "created_at": "2024-04-29T15:42:15.192160",
+        "updated_at": "2024-04-29T15:42:15.192162",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Buikwe",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "0ed4be70-226b-4183-9c20-7e9e7b180b24",
+        "created_at": "2024-04-29T15:42:15.192211",
+        "updated_at": "2024-04-29T15:42:15.192213",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Bukedea",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "ce1c8bd3-1a89-4753-b33f-92a82b5e706b",
+        "created_at": "2024-04-29T15:42:15.192263",
+        "updated_at": "2024-04-29T15:42:15.192265",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Bukomansimbi",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "12ec28ec-1b3a-4b76-ae65-352e63facce6",
+        "created_at": "2024-04-29T15:42:15.192312",
+        "updated_at": "2024-04-29T15:42:15.192314",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Bukwa",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "b6252fea-9567-4b39-b223-60793281e685",
+        "created_at": "2024-04-29T15:42:15.192359",
+        "updated_at": "2024-04-29T15:42:15.192361",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Bulambuli",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "8c54d599-d80e-422c-b8db-7056cfc7b489",
+        "created_at": "2024-04-29T15:42:15.192406",
+        "updated_at": "2024-04-29T15:42:15.192408",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Buliisa",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "e870f7b0-f0e0-4ee6-96d8-d054a2366e92",
+        "created_at": "2024-04-29T15:42:15.192469",
+        "updated_at": "2024-04-29T15:42:15.192472",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Bundibugyo",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "679e1ff7-0fb0-406a-8f50-78c976d47a56",
+        "created_at": "2024-04-29T15:42:15.192519",
+        "updated_at": "2024-04-29T15:42:15.192521",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Bunyangabu",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "67d5ab7c-0aee-429e-b1e6-1d034cd97058",
+        "created_at": "2024-04-29T15:42:15.192567",
+        "updated_at": "2024-04-29T15:42:15.192569",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Bushenyi",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "3ec05ecc-68bf-4b20-99e5-800711539112",
+        "created_at": "2024-04-29T15:42:15.192618",
+        "updated_at": "2024-04-29T15:42:15.192620",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Busia",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "eed331e4-3960-4266-b04d-8fc389329470",
+        "created_at": "2024-04-29T15:42:15.192667",
+        "updated_at": "2024-04-29T15:42:15.192672",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Butaleja",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "816593aa-46d4-4bb7-97fe-b77977dd98fa",
+        "created_at": "2024-04-29T15:42:15.192719",
+        "updated_at": "2024-04-29T15:42:15.192721",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Butambala",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "b716ffba-abdb-40ea-a5da-8357a17e7a2e",
+        "created_at": "2024-04-29T15:42:15.192765",
+        "updated_at": "2024-04-29T15:42:15.192767",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Butebo",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "2a2ab530-3405-49f2-8d4a-52f3ed8fadb2",
+        "created_at": "2024-04-29T15:42:15.192811",
+        "updated_at": "2024-04-29T15:42:15.192813",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Buvuma",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "f1270ab2-4441-4888-99e8-1f6a18194a24",
+        "created_at": "2024-04-29T15:42:15.192858",
+        "updated_at": "2024-04-29T15:42:15.192860",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Buyende",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "bd0e8635-7ffb-4081-b3b1-b0d5d8d31359",
+        "created_at": "2024-04-29T15:42:15.192908",
+        "updated_at": "2024-04-29T15:42:15.192911",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Dokolo",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "e7127b43-70c8-4945-afc9-3311c9ed66a9",
+        "created_at": "2024-04-29T15:42:15.192955",
+        "updated_at": "2024-04-29T15:42:15.192957",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Gomba",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "64a6ba71-af91-46cd-8b56-9c6f73aa121b",
+        "created_at": "2024-04-29T15:42:15.193007",
+        "updated_at": "2024-04-29T15:42:15.193010",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Gulu",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "273ec75a-6131-4e0a-9595-5898b9e2288f",
+        "created_at": "2024-04-29T15:42:15.193056",
+        "updated_at": "2024-04-29T15:42:15.193058",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Hoima",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "d1733ae1-4ac0-496e-82b2-a09c6a47f2ca",
+        "created_at": "2024-04-29T15:42:15.193102",
+        "updated_at": "2024-04-29T15:42:15.193107",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Ibanda",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "a55bee23-112b-4f75-b9b1-fd5b2fc332bd",
+        "created_at": "2024-04-29T15:42:15.193153",
+        "updated_at": "2024-04-29T15:42:15.193155",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Iganga",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "9dd7f3f7-98f6-405b-83af-2d16e0d0debf",
+        "created_at": "2024-04-29T15:42:15.193200",
+        "updated_at": "2024-04-29T15:42:15.193202",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Isingiro",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "a26c484a-4da9-42e8-a470-47fdf0f8ee5f",
+        "created_at": "2024-04-29T15:42:15.193247",
+        "updated_at": "2024-04-29T15:42:15.193249",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Jinja",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "077bcd87-9d0c-4cca-8b33-713a798209aa",
+        "created_at": "2024-04-29T15:42:15.193294",
+        "updated_at": "2024-04-29T15:42:15.193296",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kaabong",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "ef99dd52-e97e-46eb-ba54-286fa4eeda5a",
+        "created_at": "2024-04-29T15:42:15.193345",
+        "updated_at": "2024-04-29T15:42:15.193347",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kabale",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "0806f2be-1232-4e98-b632-774a5b297138",
+        "created_at": "2024-04-29T15:42:15.193392",
+        "updated_at": "2024-04-29T15:42:15.193394",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kabarole",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "2bf0f709-e59d-47b2-834c-a72904c3e28e",
+        "created_at": "2024-04-29T15:42:15.193439",
+        "updated_at": "2024-04-29T15:42:15.193441",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kaberamaido",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "cdc200f9-e6a2-4ae3-8ebf-75f164c81b3c",
+        "created_at": "2024-04-29T15:42:15.193485",
+        "updated_at": "2024-04-29T15:42:15.193487",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kagadi",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "de8d1b9d-8ecf-43d4-bd93-490f21696481",
+        "created_at": "2024-04-29T15:42:15.193540",
+        "updated_at": "2024-04-29T15:42:15.193542",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kakumiro",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "ad6798ef-596e-4fc2-a059-49dec3a7f1f0",
+        "created_at": "2024-04-29T15:42:15.193587",
+        "updated_at": "2024-04-29T15:42:15.193590",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kalangala",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "5c0c7945-b29b-45f9-92ce-192233c424e2",
+        "created_at": "2024-04-29T15:42:15.193634",
+        "updated_at": "2024-04-29T15:42:15.193636",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kaliro",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "6dca494d-d07c-49d5-9d6f-e91ce1c6a01a",
+        "created_at": "2024-04-29T15:42:15.193684",
+        "updated_at": "2024-04-29T15:42:15.193687",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kalungu",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "8c2318d9-5d04-471a-baf0-c9a06a6ce6a2",
+        "created_at": "2024-04-29T15:42:15.193731",
+        "updated_at": "2024-04-29T15:42:15.193733",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kampala",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "a0e30515-c6ce-4860-8d68-c2d13632b07e",
+        "created_at": "2024-04-29T15:42:15.193784",
+        "updated_at": "2024-04-29T15:42:15.193787",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kamuli",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "dd03f5e5-b7a9-4565-b0d2-63b49fd49e82",
+        "created_at": "2024-04-29T15:42:15.193833",
+        "updated_at": "2024-04-29T15:42:15.193835",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kamwenge",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "b5030c99-7c7d-4df7-b45a-19185a357f12",
+        "created_at": "2024-04-29T15:42:15.193879",
+        "updated_at": "2024-04-29T15:42:15.193881",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kanungu",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "b1fa7f5b-b77b-4fd4-83fb-46b1a905ccff",
+        "created_at": "2024-04-29T15:42:15.193925",
+        "updated_at": "2024-04-29T15:42:15.193927",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kapchorwa",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "f64eb0a4-4395-4b4b-9de5-33aa94ef4f4b",
+        "created_at": "2024-04-29T15:42:15.193975",
+        "updated_at": "2024-04-29T15:42:15.193977",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kapelebyong",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "32491285-cbbe-4744-85c3-503782c238b8",
+        "created_at": "2024-04-29T15:42:15.194025",
+        "updated_at": "2024-04-29T15:42:15.194027",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kasanda",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "f7906a2a-c607-4a49-8796-3f30ef3e5bef",
+        "created_at": "2024-04-29T15:42:15.194072",
+        "updated_at": "2024-04-29T15:42:15.194074",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kasese",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "df832ceb-411b-4405-8470-43bd4585098d",
+        "created_at": "2024-04-29T15:42:15.194118",
+        "updated_at": "2024-04-29T15:42:15.194120",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Katakwi",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "5f6c462b-a75d-4922-9fed-253a1069e2e7",
+        "created_at": "2024-04-29T15:42:15.194164",
+        "updated_at": "2024-04-29T15:42:15.194169",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kayunga",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "d3f91d14-e73b-492f-8110-fdc8c81ddd30",
+        "created_at": "2024-04-29T15:42:15.194215",
+        "updated_at": "2024-04-29T15:42:15.194217",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kibaale",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "6dac6ce9-974b-48fa-a58a-7194409ff637",
+        "created_at": "2024-04-29T15:42:15.194261",
+        "updated_at": "2024-04-29T15:42:15.194263",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kiboga",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "af2b6ae7-363b-40a9-9c0c-e56851836b6f",
+        "created_at": "2024-04-29T15:42:15.194306",
+        "updated_at": "2024-04-29T15:42:15.194308",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kibuku",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "a957fcbc-3cb8-42b7-bd8d-e6976ff443bb",
+        "created_at": "2024-04-29T15:42:15.194352",
+        "updated_at": "2024-04-29T15:42:15.194355",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kikuube",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "e2568b28-7f3a-48cd-99f2-a8bb5bab5485",
+        "created_at": "2024-04-29T15:42:15.194405",
+        "updated_at": "2024-04-29T15:42:15.194407",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kiruhura",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "da4dd707-228a-45f9-96b7-6fd7ae15b992",
+        "created_at": "2024-04-29T15:42:15.194452",
+        "updated_at": "2024-04-29T15:42:15.194454",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kiryandongo",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "5e51bc01-304d-4b89-9335-070a8a353984",
+        "created_at": "2024-04-29T15:42:15.194498",
+        "updated_at": "2024-04-29T15:42:15.194500",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kisoro",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "450c1d33-a356-4774-85ef-c7357fb74492",
+        "created_at": "2024-04-29T15:42:15.194547",
+        "updated_at": "2024-04-29T15:42:15.194549",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kitgum",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "7c42cba7-b288-4a5e-8e91-fd650d0d8473",
+        "created_at": "2024-04-29T15:42:15.194594",
+        "updated_at": "2024-04-29T15:42:15.194599",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Koboko",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "d4f834b2-4ccb-490d-9f5f-9c8b52a66260",
+        "created_at": "2024-04-29T15:42:15.194645",
+        "updated_at": "2024-04-29T15:42:15.194647",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kole",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "89dc0e87-14c3-4af7-8a49-8615403fe1f1",
+        "created_at": "2024-04-29T15:42:15.194698",
+        "updated_at": "2024-04-29T15:42:15.194700",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kotido",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "2971ccb6-7b0e-4c4c-960b-5630544c8df5",
+        "created_at": "2024-04-29T15:42:15.194746",
+        "updated_at": "2024-04-29T15:42:15.194748",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kumi",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "c3c1e4be-f24c-4325-8fb9-2a32476fbc1f",
+        "created_at": "2024-04-29T15:42:15.194862",
+        "updated_at": "2024-04-29T15:42:15.194864",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kwania",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "5b797ac1-f9e3-4e21-b158-72b61227afaf",
+        "created_at": "2024-04-29T15:42:15.194916",
+        "updated_at": "2024-04-29T15:42:15.194918",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kween",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "081d9bf2-da39-4426-aa6e-4abe4e789dc8",
+        "created_at": "2024-04-29T15:42:15.194965",
+        "updated_at": "2024-04-29T15:42:15.194967",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kyankwanzi",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "36806257-c8ab-4325-9e82-7fc167d55e6c",
+        "created_at": "2024-04-29T15:42:15.195012",
+        "updated_at": "2024-04-29T15:42:15.195014",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kyegegwa",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "f1fa7b96-92f8-4e2f-b92f-de0012fdbb52",
+        "created_at": "2024-04-29T15:42:15.195059",
+        "updated_at": "2024-04-29T15:42:15.195061",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kyenjojo",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "0b67834b-2e69-4ef7-a27d-09512ae317b7",
+        "created_at": "2024-04-29T15:42:15.195111",
+        "updated_at": "2024-04-29T15:42:15.195113",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Kyotera",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "11d67324-4e9c-4c07-80b5-858a4f661732",
+        "created_at": "2024-04-29T15:42:15.195158",
+        "updated_at": "2024-04-29T15:42:15.195160",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Lamwo",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "875fc525-054f-4a42-8e1f-f17f57aa7ba6",
+        "created_at": "2024-04-29T15:42:15.195205",
+        "updated_at": "2024-04-29T15:42:15.195207",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Lira",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "44ec151a-a765-4234-b5c7-40e76ffe09bd",
+        "created_at": "2024-04-29T15:42:15.195252",
+        "updated_at": "2024-04-29T15:42:15.195254",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Luuka",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "d6aa3435-16e1-46f0-b71c-53f97d9977f2",
+        "created_at": "2024-04-29T15:42:15.195298",
+        "updated_at": "2024-04-29T15:42:15.195303",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Luwero",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "2a04e493-c0ea-44f0-91c7-160dcfab1cb7",
+        "created_at": "2024-04-29T15:42:15.195352",
+        "updated_at": "2024-04-29T15:42:15.195354",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Lwengo",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "42e1ecf9-a4e4-462e-99a2-27b7cf2aef68",
+        "created_at": "2024-04-29T15:42:15.195402",
+        "updated_at": "2024-04-29T15:42:15.195404",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Lyantonde",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "27634213-a87e-4928-994f-17f1cfc05000",
+        "created_at": "2024-04-29T15:42:15.195454",
+        "updated_at": "2024-04-29T15:42:15.195456",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Manafwa",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "e5b6a7dd-2674-41df-bcc1-a7c8291fed27",
+        "created_at": "2024-04-29T15:42:15.195503",
+        "updated_at": "2024-04-29T15:42:15.195505",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Maracha",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "23641434-2e32-4210-b569-ffd8e49fae32",
+        "created_at": "2024-04-29T15:42:15.195555",
+        "updated_at": "2024-04-29T15:42:15.195557",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Masaka",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "1bfd9562-9182-49c1-a386-d524c1922b45",
+        "created_at": "2024-04-29T15:42:15.195602",
+        "updated_at": "2024-04-29T15:42:15.195604",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Masindi",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "fd33079d-e1e1-4806-a645-2921442d9f95",
+        "created_at": "2024-04-29T15:42:15.195648",
+        "updated_at": "2024-04-29T15:42:15.195651",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Mayuge",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "9b72151b-d065-47c2-83c1-1f2c3e974608",
+        "created_at": "2024-04-29T15:42:15.195697",
+        "updated_at": "2024-04-29T15:42:15.195699",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Mbale",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "43283bbb-a058-4466-98c1-594d3b9b6ac3",
+        "created_at": "2024-04-29T15:42:15.195742",
+        "updated_at": "2024-04-29T15:42:15.195747",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Mbarara",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "ce7f665b-3289-4550-888b-f96ca4aaddc7",
+        "created_at": "2024-04-29T15:42:15.195795",
+        "updated_at": "2024-04-29T15:42:15.195797",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Mitooma",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "ff1de8ab-add3-487b-97a1-9cde4c897a02",
+        "created_at": "2024-04-29T15:42:15.195841",
+        "updated_at": "2024-04-29T15:42:15.195843",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Mityana",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "e7c82c5b-a4b2-4b10-bc0e-798c40172985",
+        "created_at": "2024-04-29T15:42:15.195887",
+        "updated_at": "2024-04-29T15:42:15.195889",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Moroto",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "91643f14-6240-4787-880d-baeb8dec6075",
+        "created_at": "2024-04-29T15:42:15.195933",
+        "updated_at": "2024-04-29T15:42:15.195935",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Moyo",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "f04eeda7-1d84-40de-a6f5-fc4a7b3ec08d",
+        "created_at": "2024-04-29T15:42:15.195983",
+        "updated_at": "2024-04-29T15:42:15.195985",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Mpigi",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "203404ac-5105-452b-8b1c-8325d58b74fa",
+        "created_at": "2024-04-29T15:42:15.196029",
+        "updated_at": "2024-04-29T15:42:15.196031",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Mubende",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "4326ff8f-8673-41e0-8711-17016d61d5ce",
+        "created_at": "2024-04-29T15:42:15.196075",
+        "updated_at": "2024-04-29T15:42:15.196077",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Mukono",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "6f17ac5b-356b-4210-8665-f9664857dbd5",
+        "created_at": "2024-04-29T15:42:15.196121",
+        "updated_at": "2024-04-29T15:42:15.196123",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Nabilatuk",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "c873b775-2a4c-48b3-9a09-88e66cf8b977",
+        "created_at": "2024-04-29T15:42:15.196174",
+        "updated_at": "2024-04-29T15:42:15.196176",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Nakapiripirit",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "96ec8766-a1e4-43b7-b16f-56d69dc3eee1",
+        "created_at": "2024-04-29T15:42:15.196225",
+        "updated_at": "2024-04-29T15:42:15.196227",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Nakaseke",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "cdea1c95-2fe7-49f4-ada3-33d57d1469b4",
+        "created_at": "2024-04-29T15:42:15.196271",
+        "updated_at": "2024-04-29T15:42:15.196273",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Nakasongola",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "d117cd13-cc06-4337-a1c9-2800dab8818a",
+        "created_at": "2024-04-29T15:42:15.196317",
+        "updated_at": "2024-04-29T15:42:15.196319",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Namayingo",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "03a99336-e601-45ea-8721-7f415b98a6e8",
+        "created_at": "2024-04-29T15:42:15.196364",
+        "updated_at": "2024-04-29T15:42:15.196366",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Namisindwa",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "9992f18e-b628-422f-b075-fdf5b5942293",
+        "created_at": "2024-04-29T15:42:15.196416",
+        "updated_at": "2024-04-29T15:42:15.196418",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Namutumba",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "3b644640-33fe-47a4-9a58-54847ef7f8d8",
+        "created_at": "2024-04-29T15:42:15.196474",
+        "updated_at": "2024-04-29T15:42:15.196476",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Napak",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "82c8c793-3c85-4568-b484-d6f9c475a181",
+        "created_at": "2024-04-29T15:42:15.196521",
+        "updated_at": "2024-04-29T15:42:15.196523",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Nebbi",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "f4c2f444-ed9f-440a-8041-cb51420ca40f",
+        "created_at": "2024-04-29T15:42:15.196567",
+        "updated_at": "2024-04-29T15:42:15.196569",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Ngora",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "bc15328f-5fcc-41c4-a8fa-8c46c09c4ed5",
+        "created_at": "2024-04-29T15:42:15.196624",
+        "updated_at": "2024-04-29T15:42:15.196626",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Ntoroko",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "09842b10-8a5e-4dca-839b-5e2ee8ed2fcc",
+        "created_at": "2024-04-29T15:42:15.196671",
+        "updated_at": "2024-04-29T15:42:15.196674",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Ntungamo",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "a6e0d703-d4a5-43c6-b135-e8048ebed77d",
+        "created_at": "2024-04-29T15:42:15.196718",
+        "updated_at": "2024-04-29T15:42:15.196720",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Nwoya",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "4fc632fd-fce4-4199-9dd5-69703815f5db",
+        "created_at": "2024-04-29T15:42:15.196764",
+        "updated_at": "2024-04-29T15:42:15.196766",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Omoro",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "1a04d2af-c959-4a79-a8f9-24491fd5102f",
+        "created_at": "2024-04-29T15:42:15.196814",
+        "updated_at": "2024-04-29T15:42:15.196818",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Otuke",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "cae47165-441d-45be-af56-130ef24bec24",
+        "created_at": "2024-04-29T15:42:15.196868",
+        "updated_at": "2024-04-29T15:42:15.196870",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Oyam",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "60527810-94bb-4609-b5a9-4e9b95d012cd",
+        "created_at": "2024-04-29T15:42:15.196914",
+        "updated_at": "2024-04-29T15:42:15.196917",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Pader",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "fde416fb-5c09-4368-9a4b-45c24b638383",
+        "created_at": "2024-04-29T15:42:15.196964",
+        "updated_at": "2024-04-29T15:42:15.196966",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Pakwach",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "d1353089-b0a2-4ae6-a359-a801d6f5f453",
+        "created_at": "2024-04-29T15:42:15.197011",
+        "updated_at": "2024-04-29T15:42:15.197013",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Pallisa",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "bf2f262e-ad93-4a54-8074-d46494ed90e5",
+        "created_at": "2024-04-29T15:42:15.197065",
+        "updated_at": "2024-04-29T15:42:15.197067",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Rakai",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "182f2344-acb0-4533-b8d8-5ef718aed5af",
+        "created_at": "2024-04-29T15:42:15.197116",
+        "updated_at": "2024-04-29T15:42:15.197118",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Rubanda",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "4c5a3564-b41c-4310-8fe4-cab269de154b",
+        "created_at": "2024-04-29T15:42:15.197162",
+        "updated_at": "2024-04-29T15:42:15.197164",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Rubirizi",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "d132f0f1-a271-456e-a0b3-419c7cbb9461",
+        "created_at": "2024-04-29T15:42:15.197209",
+        "updated_at": "2024-04-29T15:42:15.197211",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Rukiga",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "b67e7190-dfdb-41f7-a32e-4068932dc240",
+        "created_at": "2024-04-29T15:42:15.197256",
+        "updated_at": "2024-04-29T15:42:15.197260",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Rukungiri",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "f3ac17e2-a772-4092-9858-c8a0345e9fd5",
+        "created_at": "2024-04-29T15:42:15.197307",
+        "updated_at": "2024-04-29T15:42:15.197309",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Sembabule",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "23647982-626d-4153-91ad-08dd4be457e1",
+        "created_at": "2024-04-29T15:42:15.197353",
+        "updated_at": "2024-04-29T15:42:15.197355",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Serere",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "7aa5b1d5-bf15-415c-8caa-1a303baf1dd2",
+        "created_at": "2024-04-29T15:42:15.197399",
+        "updated_at": "2024-04-29T15:42:15.197402",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Sheema",
+        "region_id": "d811b54f-913c-4b7c-bfbf-726f173e150d"
+    },
+    {
+        "__class__": "District",
+        "id": "8c57ad82-0a1d-4322-9208-576616e4c66d",
+        "created_at": "2024-04-29T15:42:15.197445",
+        "updated_at": "2024-04-29T15:42:15.197447",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Sironko",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "dc774923-9179-4153-876e-6e7467600d20",
+        "created_at": "2024-04-29T15:42:15.197496",
+        "updated_at": "2024-04-29T15:42:15.197498",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Soroti",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "7f499d96-bf36-4ca0-a5cd-ebbde0e236c3",
+        "created_at": "2024-04-29T15:42:15.197542",
+        "updated_at": "2024-04-29T15:42:15.197544",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Tororo",
+        "region_id": "45a042bc-f64c-4ab2-a698-dbff01613bb4"
+    },
+    {
+        "__class__": "District",
+        "id": "6e7e4e28-98f2-4626-ad01-22ff9112e0e2",
+        "created_at": "2024-04-29T15:42:15.197588",
+        "updated_at": "2024-04-29T15:42:15.197590",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Wakiso",
+        "region_id": "220eac45-84cb-4589-b7ec-6c78ccf17929"
+    },
+    {
+        "__class__": "District",
+        "id": "a80a707f-a95f-4526-8855-8d74a0f67c3c",
+        "created_at": "2024-04-29T15:42:15.197634",
+        "updated_at": "2024-04-29T15:42:15.197636",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Yumbe",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "District",
+        "id": "ba9ea8a8-eebc-43d6-b8d2-dce93e43b156",
+        "created_at": "2024-04-29T15:42:15.197684",
+        "updated_at": "2024-04-29T15:42:15.197687",
+        "country_id": "bcadf016-7374-4156-a80a-51571e19a274",
+        "name": "Zombo",
+        "region_id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48"
+    },
+    {
+        "__class__": "LegalEntity",
+        "id": "21410616-204b-4f70-829d-cfa4d864619e",
+        "created_at": "2024-04-29T15:42:15.173213",
+        "updated_at": "2024-04-29T15:42:15.173217",
+        "name": "Sole Proprietorship",
+        "description": "A business owned and operated by a single individual. The owner is personally liable for all debts and obligations of the business."
+    },
+    {
+        "__class__": "LegalEntity",
+        "id": "5d08d507-671c-42f1-8ccb-776c495a9b8c",
+        "created_at": "2024-04-29T15:42:15.173294",
+        "updated_at": "2024-04-29T15:42:15.173297",
+        "name": "General Partnership",
+        "description": "A business owned and operated by two or more individuals who share the profits and liabilities of the business."
+    },
+    {
+        "__class__": "LegalEntity",
+        "id": "c814a678-807c-4a75-a544-ec9ab629c98d",
+        "created_at": "2024-04-29T15:42:15.173344",
+        "updated_at": "2024-04-29T15:42:15.173346",
+        "name": "Limited Partnership (LP)",
+        "description": "A partnership consisting of one or more general partners, who manage the business and are personally liable for its debts, and one or more limited partners, who contribute capital but have limited liability."
+    },
+    {
+        "__class__": "LegalEntity",
+        "id": "7aae807d-9640-4ebc-a1be-eab31e6d3ad2",
+        "created_at": "2024-04-29T15:42:15.173388",
+        "updated_at": "2024-04-29T15:42:15.173390",
+        "name": "C Corporation",
+        "description": "A legal entity that is separate from its owners (shareholders). It offers limited liability protection to its shareholders and has its own rights, privileges, and liabilities."
+    },
+    {
+        "__class__": "LegalEntity",
+        "id": "6f4ddcd5-e92a-4905-9b07-91a72d9f3ae1",
+        "created_at": "2024-04-29T15:42:15.173430",
+        "updated_at": "2024-04-29T15:42:15.173432",
+        "name": "S Corporation",
+        "description": "A special type of corporation that meets specific IRS criteria for taxation. It avoids double taxation by passing corporate income, losses, deductions, and credits through to shareholders for federal tax purposes."
+    },
+    {
+        "__class__": "LegalEntity",
+        "id": "9083cef3-fe20-40cf-b75f-6e917d12532a",
+        "created_at": "2024-04-29T15:42:15.173469",
+        "updated_at": "2024-04-29T15:42:15.173472",
+        "name": "Nonprofit Corporation",
+        "description": "A corporation formed for purposes other than generating profit. Nonprofit corporations typically pursue charitable, educational, religious, or scientific goals."
+    },
+    {
+        "__class__": "LegalEntity",
+        "id": "10417e27-f0b6-48fc-a111-f0af5ac6ea88",
+        "created_at": "2024-04-29T15:42:15.173509",
+        "updated_at": "2024-04-29T15:42:15.173511",
+        "name": "Limited Liability Company (LLC)",
+        "description": "A hybrid business structure that combines the limited liability protection of a corporation with the flexibility and tax benefits of a partnership. Owners are called members, and an LLC can have one or more members."
+    },
+    {
+        "__class__": "LegalEntity",
+        "id": "9917cb08-d5b9-49d1-a6b3-3540603a72ff",
+        "created_at": "2024-04-29T15:42:15.173547",
+        "updated_at": "2024-04-29T15:42:15.173549",
+        "name": "Cooperative (Co-op)",
+        "description": "An organization owned and operated by a group of individuals or businesses for their mutual benefit. Members contribute to and democratically control the cooperative."
+    },
+    {
+        "__class__": "LegalEntity",
+        "id": "27383050-b805-4b4c-919c-8f4f6bd33c0d",
+        "created_at": "2024-04-29T15:42:15.173593",
+        "updated_at": "2024-04-29T15:42:15.173595",
+        "name": "Trust",
+        "description": "A legal entity created to hold assets for the benefit of one or more beneficiaries. A trust is managed by a trustee according to the terms of the trust agreement."
+    },
+    {
+        "__class__": "LegalEntity",
+        "id": "7d47cb23-942f-426a-8a9e-1344e93ce8b8",
+        "created_at": "2024-04-29T15:42:15.173632",
+        "updated_at": "2024-04-29T15:42:15.173634",
+        "name": "Limited Liability Partnership (LLP)",
+        "description": "A partnership in which some or all partners have limited liability, meaning they are not personally liable for the debts and obligations of the partnership beyond their investment in the business."
+    },
+    {
+        "__class__": "LegalEntity",
+        "id": "926523cc-b993-4d86-8ef5-5884afab1025",
+        "created_at": "2024-04-29T15:42:15.173671",
+        "updated_at": "2024-04-29T15:42:15.173673",
+        "name": "Professional Corporation (PC)",
+        "description": "A corporation formed by licensed professionals, such as doctors, lawyers, or accountants, to provide professional services. It offers limited liability protection to its shareholders."
+    },
+    {
+        "__class__": "LegalEntity",
+        "id": "2160bc87-23ee-4c29-9b9a-b2dbda8d8ec7",
+        "created_at": "2024-04-29T15:42:15.173708",
+        "updated_at": "2024-04-29T15:42:15.173710",
+        "name": "Benefit Corporation (B Corp)",
+        "description": "A type of corporation that is legally required to consider the impact of its decisions on society, the environment, and its stakeholders, in addition to generating profit for shareholders."
+    },
+    {
+        "__class__": "Industry",
+        "id": "d5aa4b68-deb5-4e5b-b5f4-d9f178b6c7c2",
+        "created_at": "2024-04-29T15:42:15.181583",
+        "updated_at": "2024-04-29T15:42:15.181587",
+        "name": "Agriculture"
+    },
+    {
+        "__class__": "Industry",
+        "id": "13f9b591-6639-4ceb-bf87-8c28970dbb5d",
+        "created_at": "2024-04-29T15:42:15.181662",
+        "updated_at": "2024-04-29T15:42:15.181665",
+        "name": "Manufacturing"
+    },
+    {
+        "__class__": "Industry",
+        "id": "40915434-fe11-4ced-a802-e1adbd970090",
+        "created_at": "2024-04-29T15:42:15.181709",
+        "updated_at": "2024-04-29T15:42:15.181711",
+        "name": "Mining and Extractive Industries"
+    },
+    {
+        "__class__": "Industry",
+        "id": "91fa455d-7409-44e8-acd6-c42c582952c2",
+        "created_at": "2024-04-29T15:42:15.181750",
+        "updated_at": "2024-04-29T15:42:15.181752",
+        "name": "Construction"
+    },
+    {
+        "__class__": "Industry",
+        "id": "55da41d2-24fe-4994-8312-09f8c5f59798",
+        "created_at": "2024-04-29T15:42:15.181787",
+        "updated_at": "2024-04-29T15:42:15.181789",
+        "name": "Services"
+    },
+    {
+        "__class__": "Industry",
+        "id": "65a34145-6485-46bc-95a9-e4c8676139cb",
+        "created_at": "2024-04-29T15:42:15.181824",
+        "updated_at": "2024-04-29T15:42:15.181826",
+        "name": "Tourism"
+    },
+    {
+        "__class__": "Industry",
+        "id": "3209f1d3-5800-4768-98e6-fe10c1a781ce",
+        "created_at": "2024-04-29T15:42:15.181861",
+        "updated_at": "2024-04-29T15:42:15.181863",
+        "name": "Information and Communication Technology (ICT)"
+    },
+    {
+        "__class__": "Industry",
+        "id": "9b662afe-fd1c-45a6-babf-f8158d4a91be",
+        "created_at": "2024-04-29T15:42:15.181896",
+        "updated_at": "2024-04-29T15:42:15.181898",
+        "name": "Energy"
+    },
+    {
+        "__class__": "Industry",
+        "id": "d34bf2d8-4bc8-42b2-afe0-c6114e4a149b",
+        "created_at": "2024-04-29T15:42:15.181932",
+        "updated_at": "2024-04-29T15:42:15.181934",
+        "name": "Financial Services"
+    },
+    {
+        "__class__": "Industry",
+        "id": "e4f12588-468d-4cfa-ad59-1fbe06b8cd63",
+        "created_at": "2024-04-29T15:42:15.181967",
+        "updated_at": "2024-04-29T15:42:15.181969",
+        "name": "Healthcare"
+    },
+    {
+        "__class__": "Industry",
+        "id": "baad3db8-6c4f-4439-b688-6ce8782bbee3",
+        "created_at": "2024-04-29T15:42:15.182003",
+        "updated_at": "2024-04-29T15:42:15.182005",
+        "name": "Education"
+    },
+    {
+        "__class__": "Industry",
+        "id": "1aa8a70d-3d2d-42c9-979b-1c6631f40a6b",
+        "created_at": "2024-04-29T15:42:15.182037",
+        "updated_at": "2024-04-29T15:42:15.182039",
+        "name": "Transportation and Logistics Services"
+    },
+    {
+        "__class__": "Industry",
+        "id": "bd397e4b-e93a-49f8-a93b-a206cde4f8a0",
+        "created_at": "2024-04-29T15:42:15.182070",
+        "updated_at": "2024-04-29T15:42:15.182072",
+        "name": "Real Estate and Property Development"
+    },
+    {
+        "__class__": "Industry",
+        "id": "cb5b2e29-6f21-4e56-98c8-370204725736",
+        "created_at": "2024-04-29T15:42:15.182111",
+        "updated_at": "2024-04-29T15:42:15.182113",
+        "name": "Water and Sanitation"
+    },
+    {
+        "__class__": "Industry",
+        "id": "1f8af85d-8c5a-448a-8f91-8eebf540d15f",
+        "created_at": "2024-04-29T15:42:15.182147",
+        "updated_at": "2024-04-29T15:42:15.182149",
+        "name": "Forestry"
+    },
+    {
+        "__class__": "Industry",
+        "id": "ce8d4d40-2b9c-44c8-a3d5-627aa51da72a",
+        "created_at": "2024-04-29T15:42:15.182182",
+        "updated_at": "2024-04-29T15:42:15.182184",
+        "name": "Textiles and Apparel"
+    },
+    {
+        "__class__": "Industry",
+        "id": "71379305-b914-4bd0-ab4f-05504db23fa7",
+        "created_at": "2024-04-29T15:42:15.182216",
+        "updated_at": "2024-04-29T15:42:15.182218",
+        "name": "Arts and Crafts"
+    },
+    {
+        "__class__": "Industry",
+        "id": "e1eb6c93-98eb-42f2-a2ba-09b5e007a092",
+        "created_at": "2024-04-29T15:42:15.182250",
+        "updated_at": "2024-04-29T15:42:15.182252",
+        "name": "Renewable Energy"
+    },
+    {
+        "__class__": "Industry",
+        "id": "29fdcf42-4087-4f44-b64c-1058bbb67363",
+        "created_at": "2024-04-29T15:42:15.182284",
+        "updated_at": "2024-04-29T15:42:15.182286",
+        "name": "Creative Industries"
+    },
+    {
+        "__class__": "Region",
+        "id": "0486c28e-a829-4b20-b7d3-37fd18fd7f48",
+        "created_at": "2024-04-29T15:42:15.164843",
+        "updated_at": "2024-04-29T15:42:15.164847",
+        "name": "North"
+    },
+    {
+        "__class__": "Region",
+        "id": "c923799e-3337-4342-9cca-dfcc0970ecd2",
+        "created_at": "2024-04-29T15:42:15.164919",
+        "updated_at": "2024-04-29T15:42:15.164922",
+        "name": "South"
+    },
+    {
+        "__class__": "Region",
+        "id": "45a042bc-f64c-4ab2-a698-dbff01613bb4",
+        "created_at": "2024-04-29T15:42:15.164968",
+        "updated_at": "2024-04-29T15:42:15.164970",
+        "name": "East"
+    },
+    {
+        "__class__": "Region",
+        "id": "d811b54f-913c-4b7c-bfbf-726f173e150d",
+        "created_at": "2024-04-29T15:42:15.165009",
+        "updated_at": "2024-04-29T15:42:15.165011",
+        "name": "West"
+    },
+    {
+        "__class__": "Region",
+        "id": "220eac45-84cb-4589-b7ec-6c78ccf17929",
+        "created_at": "2024-04-29T15:42:15.165047",
+        "updated_at": "2024-04-29T15:42:15.165049",
+        "name": "Central"
+    },
+    {
+        "__class__": "Sex",
+        "id": "cce9b754-3419-49fb-96aa-d6ab6a93f603",
+        "created_at": "2024-04-29T15:42:15.156543",
+        "updated_at": "2024-04-29T15:42:15.156547",
+        "type": "male"
+    },
+    {
+        "__class__": "Sex",
+        "id": "28449775-22b4-40c4-a23a-486939303366",
+        "created_at": "2024-04-29T15:42:15.156625",
+        "updated_at": "2024-04-29T15:42:15.156627",
+        "type": "female"
+    },
+    {
+        "__class__": "Sex",
+        "id": "4a1d7813-2524-4dcd-bcff-1e58942f78cd",
+        "created_at": "2024-04-29T15:42:15.156672",
+        "updated_at": "2024-04-29T15:42:15.156674",
+        "type": "other"
+    },
+    {
+        "__class__": "Institution",
+        "id": "40d02bf0-7efc-49ec-b86a-73642c1ba739",
+        "created_at": "2024-04-29T15:42:20.520069",
+        "updated_at": "2024-04-29T15:42:20.520073",
+        "email": "hfhdfkakf.com",
+        "password": "password",
+        "username": null,
+        "name": "New",
+        "pic": null,
+        "registration_number": "vsvjs",
+        "date_of_establishment": null,
+        "postal_code": null,
+        "phone_number": null,
+        "parent_company": null,
+        "website_url": null,
+        "district_id": "0806f2be-1232-4e98-b632-774a5b297138",
+        "legal_entity_id": "10417e27-f0b6-48fc-a111-f0af5ac6ea88",
+        "industry_id": "1aa8a70d-3d2d-42c9-979b-1c6631f40a6b"
+    },
+    {
+        "__class__": "Institution",
+        "id": "f4ec3412-a88a-4d28-982b-7ceb84d985c4",
+        "created_at": "2024-04-29T15:42:20.520160",
+        "updated_at": "2024-04-29T15:42:20.520162",
+        "email": "msrtv365@yahoo.com",
+        "password": "1bbd886460827015e5d605ed44252251",
+        "username": null,
+        "name": "11111",
+        "pic": null,
+        "registration_number": "asdfsafd",
+        "date_of_establishment": null,
+        "postal_code": null,
+        "phone_number": null,
+        "parent_company": null,
+        "website_url": null,
+        "district_id": "7f499d96-bf36-4ca0-a5cd-ebbde0e236c3",
+        "legal_entity_id": "9917cb08-d5b9-49d1-a6b3-3540603a72ff",
+        "industry_id": "29fdcf42-4087-4f44-b64c-1058bbb67363"
+    },
+    {
+        "__class__": "Institution",
+        "id": "8eef2001-bbb6-4053-bad7-8aad0fc9041d",
+        "created_at": "2024-04-29T15:42:20.520221",
+        "updated_at": "2024-04-29T15:42:20.520223",
+        "email": "msrtv365@ysdfahoo.com",
+        "password": "bae5e3208a3c700e3db642b6631e95b9",
+        "username": null,
+        "name": "asdf",
+        "pic": null,
+        "registration_number": "asfsdf",
+        "date_of_establishment": null,
+        "postal_code": null,
+        "phone_number": null,
+        "parent_company": null,
+        "website_url": null,
+        "district_id": "f4c2f444-ed9f-440a-8041-cb51420ca40f",
+        "legal_entity_id": "10417e27-f0b6-48fc-a111-f0af5ac6ea88",
+        "industry_id": "91fa455d-7409-44e8-acd6-c42c582952c2"
+    },
+    {
+        "__class__": "Institution",
+        "id": "0a83c930-9a9a-4dda-9477-f8d994e411ff",
+        "created_at": "2024-04-29T15:42:20.520278",
+        "updated_at": "2024-04-29T15:42:20.520280",
+        "email": "msrtv365@yahoo.comsdfsdf",
+        "password": "1bbd886460827015e5d605ed44252251",
+        "username": null,
+        "name": "asdfsdf",
+        "pic": null,
+        "registration_number": "asdfsadf",
+        "date_of_establishment": null,
+        "postal_code": null,
+        "phone_number": null,
+        "parent_company": null,
+        "website_url": null,
+        "district_id": "d4f834b2-4ccb-490d-9f5f-9c8b52a66260",
+        "legal_entity_id": "7d47cb23-942f-426a-8a9e-1344e93ce8b8",
+        "industry_id": "1aa8a70d-3d2d-42c9-979b-1c6631f40a6b"
+    },
+    {
+        "__class__": "Institution",
+        "id": "ecdba130-bd91-4bde-8064-ca8a9275ae97",
+        "created_at": "2024-04-29T15:42:20.520332",
+        "updated_at": "2024-04-29T15:42:20.520333",
+        "email": "inst@dev.com",
+        "password": "dd4b21e9ef71e1291183a46b913ae6f2",
+        "username": null,
+        "name": "Inst",
+        "pic": null,
+        "registration_number": "32453245345",
+        "date_of_establishment": null,
+        "postal_code": null,
+        "phone_number": null,
+        "parent_company": null,
+        "website_url": null,
+        "district_id": "f4c2f444-ed9f-440a-8041-cb51420ca40f",
+        "legal_entity_id": "7d47cb23-942f-426a-8a9e-1344e93ce8b8",
+        "industry_id": "40915434-fe11-4ced-a802-e1adbd970090"
+    },
+    {
+        "__class__": "Institution",
+        "id": "d3b4ca04-8060-412b-b2bf-490fce88b0e1",
+        "created_at": "2024-04-29T15:42:20.520385",
+        "updated_at": "2024-04-29T15:42:20.520387",
+        "email": "inst@gmail.com",
+        "password": "dd4b21e9ef71e1291183a46b913ae6f2",
+        "username": null,
+        "name": "Best Company",
+        "pic": null,
+        "registration_number": "1092810231208",
+        "date_of_establishment": null,
+        "postal_code": null,
+        "phone_number": null,
+        "parent_company": null,
+        "website_url": null,
+        "district_id": "2a2ab530-3405-49f2-8d4a-52f3ed8fadb2",
+        "legal_entity_id": "c814a678-807c-4a75-a544-ec9ab629c98d",
+        "industry_id": "1aa8a70d-3d2d-42c9-979b-1c6631f40a6b"
+    },
+    {
+        "__class__": "User",
+        "id": "ff169c16-5ce5-4eec-8c48-db8d79beb984",
+        "created_at": "2024-04-29T15:42:20.535167",
+        "updated_at": "2024-04-29T15:42:20.535171",
+        "email": "m@dev",
+        "username": null,
+        "first_name": "HAPPY",
+        "middle_name": null,
+        "last_name": "CHRISTMAS",
+        "sex": {
+            "id": "cce9b754-3419-49fb-96aa-d6ab6a93f603",
+            "type": "male"
+        },
+        "id_card_number": "CF8300910LU69A",
+        "date_of_birth": "1983-12-25",
+        "district_id": "09842b10-8a5e-4dca-839b-5e2ee8ed2fcc",
+        "mobile_number": null,
+        "occupation": null,
+        "ed_speciality": null,
+        "job_role": null,
+        "company_id": "f4ec3412-a88a-4d28-982b-7ceb84d985c4",
+        "jop_description": null,
+        "salary": null,
+        "hobbies": null,
+        "pic": null,
+        "verified": true
+    },
+    {
+        "__class__": "User",
+        "id": "9863a449-0041-40f1-86da-9c267765baf0",
+        "created_at": "2024-04-29T15:42:20.535267",
+        "updated_at": "2024-04-29T15:42:20.535269",
+        "email": "msrtv365@yahoo.com",
+        "username": null,
+        "first_name": "AZZIAD",
+        "middle_name": "KICONCO",
+        "last_name": "NASENYA",
+        "sex": {
+            "id": "cce9b754-3419-49fb-96aa-d6ab6a93f603",
+            "type": "male"
+        },
+        "id_card_number": "CF01708042TPTK",
+        "date_of_birth": "2001-03-06",
+        "district_id": "38ba3a52-1a3a-4af1-94ce-cef8b482db58",
+        "mobile_number": null,
+        "occupation": null,
+        "ed_speciality": null,
+        "job_role": null,
+        "company_id": "d3b4ca04-8060-412b-b2bf-490fce88b0e1",
+        "jop_description": null,
+        "salary": null,
+        "hobbies": null,
+        "pic": null,
+        "verified": true
+    },
+    {
+        "__class__": "User",
+        "id": "54a24d76-fe6f-46fe-9fb0-c32e9dbf6c6b",
+        "created_at": "2024-04-29T15:42:20.535345",
+        "updated_at": "2024-04-29T15:42:20.535348",
+        "email": "msrtv32365@yahoo.com",
+        "username": null,
+        "first_name": "DUNCAN",
+        "middle_name": "TINDIWENSI",
+        "last_name": "ASIIMWE",
+        "sex": {
+            "id": "cce9b754-3419-49fb-96aa-d6ab6a93f603",
+            "type": "male"
+        },
+        "id_card_number": "CM96112105D21G",
+        "date_of_birth": "1996-10-04",
+        "district_id": "8c54d599-d80e-422c-b8db-7056cfc7b489",
+        "mobile_number": null,
+        "occupation": null,
+        "ed_speciality": null,
+        "job_role": null,
+        "company_id": "ecdba130-bd91-4bde-8064-ca8a9275ae97",
+        "jop_description": null,
+        "salary": null,
+        "hobbies": null,
+        "pic": null,
+        "verified": true
+    },
+    {
+        "__class__": "User",
+        "id": "8c629d5d-9dda-4da8-b995-10abf8d5e386",
+        "created_at": "2024-04-29T15:42:20.535419",
+        "updated_at": "2024-04-29T15:42:20.535422",
+        "email": "msrtv3asdf65@yahoo.com",
+        "username": null,
+        "first_name": "LAWRENCE",
+        "middle_name": null,
+        "last_name": "MUGANGA",
+        "sex": {
+            "id": "cce9b754-3419-49fb-96aa-d6ab6a93f603",
+            "type": "male"
+        },
+        "id_card_number": "CM7603210KACCG",
+        "date_of_birth": "1976-02-14",
+        "district_id": "bf2f262e-ad93-4a54-8074-d46494ed90e5",
+        "mobile_number": null,
+        "occupation": null,
+        "ed_speciality": null,
+        "job_role": null,
+        "company_id": "ecdba130-bd91-4bde-8064-ca8a9275ae97",
+        "jop_description": null,
+        "salary": null,
+        "hobbies": null,
+        "pic": null,
+        "verified": true
+    },
+    {
+        "__class__": "Poll",
+        "id": "be540a9d-a0f4-401d-aba6-4ce2e17382c3",
+        "created_at": "2024-04-29T17:03:50.573295",
+        "updated_at": "2024-04-29T17:03:50.573298",
+        "institution": {
+            "id": "d3b4ca04-8060-412b-b2bf-490fce88b0e1",
+            "name": "Best Company",
+            "pic": null
+        },
+        "title": "Employees satisfaction",
+        "description": "This poll is to measure the satisfaction of the employees",
+        "ed_role": null,
+        "industry_of_interest": null,
+        "occupation": null,
+        "company_staff_only": false,
+        "publish_date": "2024-04-29T17:03:50.505848",
+        "end_date": "2024-05-29T17:03:50.505869",
+        "questions": [
+            {
+                "__class__": "Question",
+                "id": "279ed6f4-9870-4c8a-ad13-071e7f06c5d8",
+                "created_at": "2024-04-29T17:03:50.572835",
+                "updated_at": "2024-04-29T17:03:50.572838",
+                "text": "How satisfied are you with the work environment?",
+                "poll_id": "be540a9d-a0f4-401d-aba6-4ce2e17382c3",
+                "answers": [
+                    {
+                        "__class__": "Answer",
+                        "id": "6baad7e4-25a9-4b6c-b1fa-c96a2d23691d",
+                        "created_at": "2024-04-29T17:03:50.572597",
+                        "updated_at": "2024-04-29T17:03:50.572601",
+                        "text": "Very satisfied",
+                        "question_id": "279ed6f4-9870-4c8a-ad13-071e7f06c5d8"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "5f51321b-b792-469d-b0b8-9a752b9ce4e1",
+                        "created_at": "2024-04-29T17:03:50.572626",
+                        "updated_at": "2024-04-29T17:03:50.572627",
+                        "text": "Satisfied",
+                        "question_id": "279ed6f4-9870-4c8a-ad13-071e7f06c5d8"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "4a4e5605-f227-4a17-a5c8-b723507767ae",
+                        "created_at": "2024-04-29T17:03:50.572645",
+                        "updated_at": "2024-04-29T17:03:50.572647",
+                        "text": "Neutral",
+                        "question_id": "279ed6f4-9870-4c8a-ad13-071e7f06c5d8"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "d6821044-7905-407b-a8b6-bee37bafe87a",
+                        "created_at": "2024-04-29T17:03:50.572662",
+                        "updated_at": "2024-04-29T17:03:50.572663",
+                        "text": "Dissatisfied",
+                        "question_id": "279ed6f4-9870-4c8a-ad13-071e7f06c5d8"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "e9ea7b61-cd19-428a-a3ec-c9797cacb010",
+                        "created_at": "2024-04-29T17:03:50.572678",
+                        "updated_at": "2024-04-29T17:03:50.572680",
+                        "text": "Very dissatisfied",
+                        "question_id": "279ed6f4-9870-4c8a-ad13-071e7f06c5d8"
+                    }
+                ]
+            },
+            {
+                "__class__": "Question",
+                "id": "716e4ba4-5123-4170-b2d5-c6e0dfc8dafa",
+                "created_at": "2024-04-29T17:03:50.573025",
+                "updated_at": "2024-04-29T17:03:50.573026",
+                "text": "How satisfied are you with the management?",
+                "poll_id": "be540a9d-a0f4-401d-aba6-4ce2e17382c3",
+                "answers": [
+                    {
+                        "__class__": "Answer",
+                        "id": "1d661114-c55c-41fe-8659-dbabd071af32",
+                        "created_at": "2024-04-29T17:03:50.572859",
+                        "updated_at": "2024-04-29T17:03:50.572861",
+                        "text": "Very satisfied",
+                        "question_id": "716e4ba4-5123-4170-b2d5-c6e0dfc8dafa"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "1a281940-039f-422e-8dac-27c8aaf42d2b",
+                        "created_at": "2024-04-29T17:03:50.572879",
+                        "updated_at": "2024-04-29T17:03:50.572881",
+                        "text": "Satisfied",
+                        "question_id": "716e4ba4-5123-4170-b2d5-c6e0dfc8dafa"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "299f836c-1f7d-4846-9505-330847c5a293",
+                        "created_at": "2024-04-29T17:03:50.572897",
+                        "updated_at": "2024-04-29T17:03:50.572898",
+                        "text": "Neutral",
+                        "question_id": "716e4ba4-5123-4170-b2d5-c6e0dfc8dafa"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "15e47baf-34de-41f5-bde5-eca1953f5fc0",
+                        "created_at": "2024-04-29T17:03:50.572912",
+                        "updated_at": "2024-04-29T17:03:50.572914",
+                        "text": "Dissatisfied",
+                        "question_id": "716e4ba4-5123-4170-b2d5-c6e0dfc8dafa"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "4d5bcb09-1ad2-4e93-9315-1d2d9a7a88c5",
+                        "created_at": "2024-04-29T17:03:50.572927",
+                        "updated_at": "2024-04-29T17:03:50.572929",
+                        "text": "Very dissatisfied",
+                        "question_id": "716e4ba4-5123-4170-b2d5-c6e0dfc8dafa"
+                    }
+                ]
+            },
+            {
+                "__class__": "Question",
+                "id": "820945fa-05f5-4e46-b139-e5e284964d11",
+                "created_at": "2024-04-29T17:03:50.573204",
+                "updated_at": "2024-04-29T17:03:50.573206",
+                "text": "How satisfied are you with the salary?",
+                "poll_id": "be540a9d-a0f4-401d-aba6-4ce2e17382c3",
+                "answers": [
+                    {
+                        "__class__": "Answer",
+                        "id": "c65ccd62-3c80-41b2-9db6-b926f063ad56",
+                        "created_at": "2024-04-29T17:03:50.573048",
+                        "updated_at": "2024-04-29T17:03:50.573050",
+                        "text": "Very satisfied",
+                        "question_id": "820945fa-05f5-4e46-b139-e5e284964d11"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "30294be4-3d43-4b01-a4b0-68738e9eeeca",
+                        "created_at": "2024-04-29T17:03:50.573065",
+                        "updated_at": "2024-04-29T17:03:50.573067",
+                        "text": "Satisfied",
+                        "question_id": "820945fa-05f5-4e46-b139-e5e284964d11"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "f87aa466-d239-463e-9ca3-2f090bf57d57",
+                        "created_at": "2024-04-29T17:03:50.573081",
+                        "updated_at": "2024-04-29T17:03:50.573082",
+                        "text": "Neutral",
+                        "question_id": "820945fa-05f5-4e46-b139-e5e284964d11"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "58d0f791-30b9-4886-af0f-426123f39b4d",
+                        "created_at": "2024-04-29T17:03:50.573098",
+                        "updated_at": "2024-04-29T17:03:50.573100",
+                        "text": "Dissatisfied",
+                        "question_id": "820945fa-05f5-4e46-b139-e5e284964d11"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "ca482949-1672-42f8-a564-0c2c3dd174bd",
+                        "created_at": "2024-04-29T17:03:50.573113",
+                        "updated_at": "2024-04-29T17:03:50.573115",
+                        "text": "Very dissatisfied",
+                        "question_id": "820945fa-05f5-4e46-b139-e5e284964d11"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "__class__": "Poll",
+        "id": "d3335fd8-5c4d-46e8-b7e1-127b072fb7a2",
+        "created_at": "2024-04-29T17:03:50.573925",
+        "updated_at": "2024-04-29T17:03:50.573926",
+        "institution": {
+            "id": "d3b4ca04-8060-412b-b2bf-490fce88b0e1",
+            "name": "Best Company",
+            "pic": null
+        },
+        "title": "Employees survey",
+        "description": "Collecting employees data",
+        "ed_role": null,
+        "industry_of_interest": null,
+        "occupation": null,
+        "company_staff_only": false,
+        "publish_date": "2024-04-29T17:03:50.505848",
+        "end_date": "2024-05-29T17:03:50.505869",
+        "questions": [
+            {
+                "__class__": "Question",
+                "id": "eca5b2c5-0ba4-4c3a-9789-c135034a08d3",
+                "created_at": "2024-04-29T17:03:50.573481",
+                "updated_at": "2024-04-29T17:03:50.573483",
+                "text": "What is your job role?",
+                "poll_id": "d3335fd8-5c4d-46e8-b7e1-127b072fb7a2",
+                "answers": [
+                    {
+                        "__class__": "Answer",
+                        "id": "98fa0f8c-5f68-4e66-a280-ce5b36e1f0f5",
+                        "created_at": "2024-04-29T17:03:50.573323",
+                        "updated_at": "2024-04-29T17:03:50.573324",
+                        "text": "Software Engineer",
+                        "question_id": "eca5b2c5-0ba4-4c3a-9789-c135034a08d3"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "1676b65d-84da-4a43-b1a3-f24ac7b9703d",
+                        "created_at": "2024-04-29T17:03:50.573340",
+                        "updated_at": "2024-04-29T17:03:50.573341",
+                        "text": "QA Engineer",
+                        "question_id": "eca5b2c5-0ba4-4c3a-9789-c135034a08d3"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "1167aa95-cdff-429e-bad7-078750c918dd",
+                        "created_at": "2024-04-29T17:03:50.573355",
+                        "updated_at": "2024-04-29T17:03:50.573356",
+                        "text": "DevOps Engineer",
+                        "question_id": "eca5b2c5-0ba4-4c3a-9789-c135034a08d3"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "5f0f254d-c81c-49f3-9bec-f6375cf060f6",
+                        "created_at": "2024-04-29T17:03:50.573380",
+                        "updated_at": "2024-04-29T17:03:50.573381",
+                        "text": "Data Scientist",
+                        "question_id": "eca5b2c5-0ba4-4c3a-9789-c135034a08d3"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "37bd9049-38cd-4232-b99a-fe8378877959",
+                        "created_at": "2024-04-29T17:03:50.573393",
+                        "updated_at": "2024-04-29T17:03:50.573395",
+                        "text": "Product Manager",
+                        "question_id": "eca5b2c5-0ba4-4c3a-9789-c135034a08d3"
+                    }
+                ]
+            },
+            {
+                "__class__": "Question",
+                "id": "8df29495-e980-4d75-9d8e-d18688de08ce",
+                "created_at": "2024-04-29T17:03:50.573690",
+                "updated_at": "2024-04-29T17:03:50.573692",
+                "text": "What is your educational speciality?",
+                "poll_id": "d3335fd8-5c4d-46e8-b7e1-127b072fb7a2",
+                "answers": [
+                    {
+                        "__class__": "Answer",
+                        "id": "1c475dff-4214-4b3a-9f79-2e465dd5bc01",
+                        "created_at": "2024-04-29T17:03:50.573500",
+                        "updated_at": "2024-04-29T17:03:50.573501",
+                        "text": "Computer Science",
+                        "question_id": "8df29495-e980-4d75-9d8e-d18688de08ce"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "06e5a6ad-86f7-46ee-ab68-f873e49e578e",
+                        "created_at": "2024-04-29T17:03:50.573515",
+                        "updated_at": "2024-04-29T17:03:50.573516",
+                        "text": "Software Engineering",
+                        "question_id": "8df29495-e980-4d75-9d8e-d18688de08ce"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "87a57bfc-c3cb-4ea2-a3c1-2b7e237d8087",
+                        "created_at": "2024-04-29T17:03:50.573529",
+                        "updated_at": "2024-04-29T17:03:50.573530",
+                        "text": "Information Technology",
+                        "question_id": "8df29495-e980-4d75-9d8e-d18688de08ce"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "2044cf25-d5fa-4a11-aa56-e85ffd1a2926",
+                        "created_at": "2024-04-29T17:03:50.573542",
+                        "updated_at": "2024-04-29T17:03:50.573543",
+                        "text": "Data Science",
+                        "question_id": "8df29495-e980-4d75-9d8e-d18688de08ce"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "3729b045-d691-4855-a7a3-49b10f92a096",
+                        "created_at": "2024-04-29T17:03:50.573555",
+                        "updated_at": "2024-04-29T17:03:50.573556",
+                        "text": "Product Management",
+                        "question_id": "8df29495-e980-4d75-9d8e-d18688de08ce"
+                    }
+                ]
+            },
+            {
+                "__class__": "Question",
+                "id": "9ffc93ea-70b6-4d4c-ba49-02f2c1289e08",
+                "created_at": "2024-04-29T17:03:50.573855",
+                "updated_at": "2024-04-29T17:03:50.573857",
+                "text": "What is your salary range?",
+                "poll_id": "d3335fd8-5c4d-46e8-b7e1-127b072fb7a2",
+                "answers": [
+                    {
+                        "__class__": "Answer",
+                        "id": "90d1f5d6-c469-4e78-998a-508d43d97154",
+                        "created_at": "2024-04-29T17:03:50.573709",
+                        "updated_at": "2024-04-29T17:03:50.573710",
+                        "text": "Less than 1000",
+                        "question_id": "9ffc93ea-70b6-4d4c-ba49-02f2c1289e08"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "5c4c559e-fd42-47e4-b9b9-5a098cbcf45b",
+                        "created_at": "2024-04-29T17:03:50.573723",
+                        "updated_at": "2024-04-29T17:03:50.573725",
+                        "text": "1000 - 2000",
+                        "question_id": "9ffc93ea-70b6-4d4c-ba49-02f2c1289e08"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "e3410d57-3161-46de-8b51-594986026525",
+                        "created_at": "2024-04-29T17:03:50.573737",
+                        "updated_at": "2024-04-29T17:03:50.573738",
+                        "text": "2000 - 3000",
+                        "question_id": "9ffc93ea-70b6-4d4c-ba49-02f2c1289e08"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "ba0a15a1-1e91-458e-aa4c-65f9fa0372c0",
+                        "created_at": "2024-04-29T17:03:50.573750",
+                        "updated_at": "2024-04-29T17:03:50.573751",
+                        "text": "3000 - 4000",
+                        "question_id": "9ffc93ea-70b6-4d4c-ba49-02f2c1289e08"
+                    },
+                    {
+                        "__class__": "Answer",
+                        "id": "4081f5df-2866-455d-96dd-f37110062d72",
+                        "created_at": "2024-04-29T17:03:50.573763",
+                        "updated_at": "2024-04-29T17:03:50.573765",
+                        "text": "More than 4000",
+                        "question_id": "9ffc93ea-70b6-4d4c-ba49-02f2c1289e08"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "9bbb9937-dcf5-4b5f-a50e-b214d5f02f00",
+        "created_at": "2024-04-29T17:34:38.308198",
+        "updated_at": "2024-04-29T17:34:38.308203",
+        "user_id": "54a24d76-fe6f-46fe-9fb0-c32e9dbf6c6b",
+        "answer_id": "5f51321b-b792-469d-b0b8-9a752b9ce4e1"
+    },
+    {
+        "id": "6e926694-d090-4f72-8b79-cc85d094cb93",
+        "created_at": "2024-04-29T17:34:38.312186",
+        "updated_at": "2024-04-29T17:34:38.312189",
+        "user_id": "54a24d76-fe6f-46fe-9fb0-c32e9dbf6c6b",
+        "answer_id": "15e47baf-34de-41f5-bde5-eca1953f5fc0"
+    },
+    {
+        "id": "d388e90c-3f13-44ee-af58-8a8a80560e35",
+        "created_at": "2024-04-29T17:34:38.313825",
+        "updated_at": "2024-04-29T17:34:38.313828",
+        "user_id": "54a24d76-fe6f-46fe-9fb0-c32e9dbf6c6b",
+        "answer_id": "f87aa466-d239-463e-9ca3-2f090bf57d57"
+    },
+    {
+        "id": "ea65d6f6-0659-4822-859b-54c424ed3d7b",
+        "created_at": "2024-04-29T17:34:38.315403",
+        "updated_at": "2024-04-29T17:34:38.315406",
+        "user_id": "54a24d76-fe6f-46fe-9fb0-c32e9dbf6c6b",
+        "answer_id": "98fa0f8c-5f68-4e66-a280-ce5b36e1f0f5"
+    },
+    {
+        "id": "013e48a0-e059-49c9-bc3a-0d4a21823e38",
+        "created_at": "2024-04-29T17:34:38.317026",
+        "updated_at": "2024-04-29T17:34:38.317029",
+        "user_id": "54a24d76-fe6f-46fe-9fb0-c32e9dbf6c6b",
+        "answer_id": "06e5a6ad-86f7-46ee-ab68-f873e49e578e"
+    },
+    {
+        "id": "bcf7404e-40a9-4190-8b48-53829722a404",
+        "created_at": "2024-04-29T17:34:38.318450",
+        "updated_at": "2024-04-29T17:34:38.318453",
+        "user_id": "54a24d76-fe6f-46fe-9fb0-c32e9dbf6c6b",
+        "answer_id": "4081f5df-2866-455d-96dd-f37110062d72"
+    },
+    {
+        "user_id": "54a24d76-fe6f-46fe-9fb0-c32e9dbf6c6b",
+        "poll_id": "be540a9d-a0f4-401d-aba6-4ce2e17382c3"
+    },
+    {
+        "user_id": "54a24d76-fe6f-46fe-9fb0-c32e9dbf6c6b",
+        "poll_id": "d3335fd8-5c4d-46e8-b7e1-127b072fb7a2"
+    }
+]

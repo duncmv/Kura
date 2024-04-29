@@ -31,6 +31,7 @@ Classes:
             but it is an instance of the answer that was chosen.
 """
 
+from datetime import datetime
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey, orm
 
@@ -67,3 +68,17 @@ class Choice(BaseModel, Base):
         back_populates='choices',
         viewonly=False
         )
+
+    def to_dict(self):
+        """
+        This method returns a dictionary representation of this choice
+        Returns:
+            A dictionary representation of this choice
+        """
+        return {
+            'id': self.id,
+            'created_at': datetime.isoformat(self.created_at),
+            'updated_at': datetime.isoformat(self.updated_at),
+            'user_id': self.user_id,
+            'answer_id': self.answer_id
+        }

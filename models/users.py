@@ -135,8 +135,8 @@ class User(BaseModel, Base):
             'middle_name': self.middle_name,
             'last_name': self.last_name,
             'sex': {
-                self.sex.id,
-                self.sex.Type
+                'id': self.sex.id,
+                'type': self.sex.type
             },
             'id_card_number': self.id_card_number,
             'date_of_birth': date.isoformat(self.date_of_birth) if self.date_of_birth else None,
