@@ -48,12 +48,8 @@ function HomeHeader ({userData}: {userData: any}) {
           // TODO: Perform search logic
         }}
       />
-      <button className='flex items-center justify-between sm:mr-5 border rounded-full'>
-        <div className='flex items-center'>
-          <Image src={userData.pic ?? '/user-place-holder.png'} alt={userData.fName} width={40} height={40} className=' rounded-full' />
-        </div>
-      </button>
-      <div className="--dropdown-- text-left absolute right-2 bottom-0">
+      <button onClick={() => document.getElementsByClassName('--dropdown--')[0].classList.toggle('hidden')} className='w-10 h-10 inline-block float-left border rounded-full mr-4 ' style={{backgroundImage: 'url(/user-place-holder.png)', backgroundPosition: 'center', backgroundSize: 'cover'}}></button>
+      <div className="--dropdown-- text-left absolute right-2 bottom-0 hidden z-50">
         <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
           <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
             <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Personal information</a>

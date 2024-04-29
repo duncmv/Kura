@@ -182,7 +182,6 @@ function Individual(props: { distList: JSX.Element[], setShowContent: React.Disp
             restInfo.email = restInfo.email.toLowerCase();
             
             const { id_snippet, ...rest} = restInfo;
-            console.log(restInfo)
             const out = new FormData();
             out.append('json', new Blob([JSON.stringify({...rest, 'class': 'user'})], {
                 type: 'application/json'
@@ -190,7 +189,6 @@ function Individual(props: { distList: JSX.Element[], setShowContent: React.Disp
             out.append('id_snippet', new Blob([id_snippet], {
                 type: 'image/*'
             }));
-            console.log(out.has('id_snippet'));
             signup(out);
         } else {
             setCurrentForm(currentForm + 1);

@@ -1,6 +1,6 @@
 'use client';
 import { getUserData } from '@/api/auth';
-import HombePage from './home';
+import HombePage from './(home)/home';
 import LandingPage from './landing';
 
 export default function Home () {

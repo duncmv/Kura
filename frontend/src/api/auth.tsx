@@ -10,22 +10,15 @@ import axios from 'axios';
  * @returns The user object if login is successful, otherwise null.
  */
 export default async function login(email: string, password: string) {
-    const req = fetch('http://18.207.112.170/api/v1/users');
-
-    const res = await req;
-
-    if (res.ok) {
-        password = crypto.createHash('md5').update(password).digest('hex'); // Hash the password before checking
-        email = email.toLowerCase(); // Make the email case insensitive
-        const data = await res.json();
-        const user = data.find((user: any) => user.email === email && user.password === password);
-        if (user) { 
-            sessionStorage.setItem('user', JSON.stringify(user.id));
-            return user;
-        }
-
-        throw new Error('Failed to log in');
-    }
+    email = email.toLocaleLowerCase();
+    password = crypto.createHash('md5').update(password).digest('hex');
+    axios.post('http://18.207.112.170/api/v1/login', { email, password }).then((res) => {
+        sessionStorage.setItem('user', JSON.stringify(res.data.id));
+        window.location.reload();
+    }).catch((e) => {
+        alert('Failed to login'); // TODO: Better error handling
+        console.log(e);
+    });
 }
 
 
@@ -44,9 +37,13 @@ function logout() {
  * @returns The user object if found, otherwise null.
  */
 async function getUserById(id: string) {
-    const req = fetch(`http://18.207.112.170/api/v1/users/${id}`);
+    let req = fetch(`http://18.207.112.170/api/v1/users/${id}`);
+    let res = await req;
 
-    const res = await req;
+    if (!res.ok) {
+        req = fetch(`http://18.207.112.170/api/v1/institutions/${id}`);
+        res = await req;
+    }
 
     if (res.ok) {
         return await res.json();
