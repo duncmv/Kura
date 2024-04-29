@@ -12,10 +12,10 @@ class Sex(BaseModel, Base):
     """
 
     __tablename__ = "sexes"
-    type = Column(String(16), nullable=False)
+    type = Column(String(60), nullable=False)
     
     users = orm.relationship(
         'User',
-        back_populates='sex',
+        backref='sex',
         viewonly=False
         )

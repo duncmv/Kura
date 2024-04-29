@@ -45,6 +45,7 @@
 
 from sqlalchemy import Column, String, DATE, FLOAT, ForeignKey, orm, BOOLEAN
 from models.base_model import BaseModel, Base
+from datetime import date
 
 
 class User(BaseModel, Base):
@@ -85,7 +86,7 @@ class User(BaseModel, Base):
     
     sex_id = Column(
         String(60),
-        ForeignKey("sexes.id")
+        ForeignKey('sexes.id')
         )
 
     id_card_number = Column(String(64), nullable=True, unique=True)

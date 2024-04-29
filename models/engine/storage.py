@@ -59,6 +59,7 @@ class PDBStorage:
         classes = [
             Answer,
             Country,
+            Choice,
             District,
             Institution,
             LegalEntity,
@@ -105,9 +106,11 @@ class PDBStorage:
         from models.polls import Poll
         from models.questions import Question
         from models.users import User
+        from models.choices import Choice
         from models.industries import Industry
         from models.regions import Region
         from models.sex import Sex
+        from models.tags import Tag
 
         Base.metadata.create_all(self.__engine)
         Session_factory = orm.sessionmaker(

@@ -68,10 +68,13 @@ class Poll(BaseModel, Base):
             'id': self.id,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
+            'institution': {
+                'id': self.institution.id,
+                'name': self.institution.name,
+                'pic': self.institution.pic
+                },
             'title': self.title,
             'description': self.description,
-            'institution_id': self.institution_id,
-            'district_id': self.district_id,
             'ed_role': self.ed_role,
             'industry_of_interest': self.industry_of_interest,
             'occupation': self.occupation,

@@ -80,6 +80,8 @@ class Institution(BaseModel, Base):
 
     name = Column(String(128), nullable=False)
 
+    pic = Column(String(128))
+
     registration_number = Column(String(64), nullable=False, unique=True)
     date_of_establishment = Column(DATE)
 
@@ -131,6 +133,7 @@ class Institution(BaseModel, Base):
             'password': self.password,
             'username': self.username,
             'name': self.name,
+            'pic': self.pic,
             'registration_number': self.registration_number,
             'date_of_establishment': self.date_of_establishment,
             'postal_code': self.postal_code,
