@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+from datetime import datetime
 from sqlalchemy import Column, String, orm
 from models.base_model import BaseModel, Base
 
@@ -19,3 +20,13 @@ class Sex(BaseModel, Base):
         backref='sex',
         viewonly=False
         )
+
+    def to_dict(self):
+        """ Returns a dictionary of all the data for this sex. """
+        return {
+            '__class__': self.__class__.__name__,
+            'id': self.id,
+            'created_at': datetime.isoformat(self.created_at),
+            'updated_at': datetime.isoformat(self.updated_at),
+            'type': self.type
+        }

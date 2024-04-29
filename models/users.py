@@ -45,7 +45,7 @@
 
 from sqlalchemy import Column, String, DATE, FLOAT, ForeignKey, orm, BOOLEAN
 from models.base_model import BaseModel, Base
-from datetime import date
+from datetime import datetime, date
 
 
 class User(BaseModel, Base):
@@ -127,8 +127,8 @@ class User(BaseModel, Base):
         return {
             '__class__': self.__class__.__name__,
             'id': self.id,
-            'created_at': self.created_at,
-            'updated_at': self.updated_at,
+            'created_at': datetime.isoformat(self.created_at),
+            'updated_at': datetime.isoformat(self.updated_at),
             'email': self.email,
             'username': self.username,
             'first_name': self.first_name,
@@ -136,7 +136,7 @@ class User(BaseModel, Base):
             'last_name': self.last_name,
             'sex': self.sex.type,
             'id_card_number': self.id_card_number,
-            'date_of_birth': self.date_of_birth,
+            'date_of_birth': date.isoformat(self.date_of_birth),
             'district_id': self.district_id,
             'mobile_number': self.mobile_number,
             'occupation': self.occupation,

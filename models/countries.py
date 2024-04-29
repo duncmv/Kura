@@ -20,6 +20,7 @@ Classes:
             This attribute is not represented as a column in the `countries` table.
 """
 
+from datetime import datetime
 from sqlalchemy import Column, String, orm
 from models.base_model import BaseModel, Base
 
@@ -52,7 +53,7 @@ class Country(BaseModel, Base):
         return {
             '__class__': self.__.class__.__name__,
             'id': self.id,
-            'created_at': self.created_at,
-            'updated_at': self.updated_at,
+            'created_at': datetime.isoformat(self.created_at),
+            'updated_at': datetime.isoformat(self.updated_at),
             'name': self.name
             }

@@ -27,6 +27,7 @@ Methods:
     the class name, id, created_at, and updated_at attributes of the industry.
 """
 
+from datetime import datetime
 from sqlalchemy import Column, String, orm
 from models.base_model import BaseModel, Base
 
@@ -59,7 +60,7 @@ class Industry(BaseModel, Base):
         return {
             '__class__': self.__class__.__name__,
             'id': self.id,
-            'created_at': self.created_at,
-            'updated_at': self.updated_at,
+            'created_at': datetime.isoformat(self.created_at),
+            'updated_at': datetime.isoformat(self.updated_at),
             'name': self.name
         }

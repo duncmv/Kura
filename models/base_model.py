@@ -9,7 +9,7 @@ Classes:
 It includes common attributes and methods that will be inherited by all other models.
 """
 from uuid import uuid4
-from datetime import datetime
+from datetime import datetime, date
 from sqlalchemy import Column, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -51,6 +51,10 @@ class BaseModel:
                     self.created_at = datetime.fromisoformat(value)
                 elif key == 'updated_at':
                     self.updated_at = datetime.fromisoformat(value)
+                elif key == 'date_of_birth':
+                    self.date_of_birth = date.fromisoformat(value)
+                elif key == 'date_of_establishment':
+                    self.date_of_birth = date.fromisoformat(value)
                 else:
                     setattr(self, key, value)
             # if some main attributes are not included in kwargs

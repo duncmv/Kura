@@ -19,7 +19,8 @@ classes:
     - `to_dict`: This method returns a dictionary of the data for this poll. The dictionary includes the class name, id, created_at, and updated_at attributes of the poll.
 """
 
-from sqlalchemy import Column, String, ForeignKey, Boolean, orm
+from datetime import datetime, timedelta
+from sqlalchemy import Column, String, ForeignKey, Boolean, orm, DateTime
 from models.base_model import BaseModel, Base
 
 
@@ -51,6 +52,9 @@ class Poll(BaseModel, Base):
     occupation = Column(String(128))
     company_staff_only = Column(Boolean, default=False)
 
+    publish_date = Column(DateTime, nullable=False, default=datetime.utcnow())
+    end_date = Column(DateTime, nullable=False, default=datetime.utcnow() + timedelta(days=30))
+
     questions = orm.relationship(
         'Question',
         backref='poll',
@@ -66,8 +70,8 @@ class Poll(BaseModel, Base):
         return {
             '__class__': self.__class__.__name__,
             'id': self.id,
-            'created_at': self.created_at,
-            'updated_at': self.updated_at,
+            'created_at': datetime.isoformat(self.created_at),
+            'updated_at': datetime.isoformat(self.updated_at),
             'institution': {
                 'id': self.institution.id,
                 'name': self.institution.name,
@@ -79,5 +83,7 @@ class Poll(BaseModel, Base):
             'industry_of_interest': self.industry_of_interest,
             'occupation': self.occupation,
             'company_staff_only': self.company_staff_only,
+            'publish_date': datetime.isoformat(self.publish_date),
+            'end_date': datetime.isoformat(self.end_date),
             'questions': [question.to_dict() for question in self.questions]
         }

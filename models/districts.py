@@ -29,6 +29,7 @@ Classes:
             It's a relationship that is defined elsewhere in the code.
 """
 
+from datetime import datetime
 from sqlalchemy import Column, String, ForeignKey, orm
 from models.base_model import BaseModel, Base
 
@@ -73,8 +74,8 @@ class District(BaseModel, Base):
         return {
             '__class__': self.__class__.__name__,
             'id': self.id,
-            'created_at': self.created_at,
-            'updated_at': self.updated_at,
+            'created_at': datetime.isoformat(self.created_at),
+            'updated_at': datetime.isoformat(self.updated_at),
             'country_id': self.country_id,
             'name': self.name,
             'region_id': self.region_id

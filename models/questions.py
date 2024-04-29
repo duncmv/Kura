@@ -21,6 +21,7 @@ classes:
             The dictionary includes the class name, id, created_at, and updated_at attributes of the question.
 """
 
+from datetime import datetime
 from sqlalchemy import Column, String, ForeignKey, orm
 from models.base_model import BaseModel, Base
 
@@ -52,8 +53,8 @@ class Question(BaseModel, Base):
         return {
             '__class__': self.__class__.__name__,
             'id': self.id,
-            'created_at': self.created_at,
-            'updated_at': self.updated_at,
+            'created_at': datetime.isoformat(self.created_at),
+            'updated_at': datetime.isoformat(self.updated_at),
             'text': self.text,
             'poll_id': self.poll_id,
             'answers': [answer.to_dict() for answer in self.answers]
