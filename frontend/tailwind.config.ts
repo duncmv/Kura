@@ -18,6 +18,16 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities }: { addUtilities: any }) {
+      const newUtilities = {
+        '.scrollbar-hide': {
+          scrollbarWidth: 'none', 
+          msOverflowStyle: 'none'
+        }
+      }
+      addUtilities(newUtilities)
+    }
+  ],
 };
 export default config;

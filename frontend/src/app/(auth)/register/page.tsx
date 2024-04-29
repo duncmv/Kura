@@ -66,7 +66,7 @@ export default function RegisterPage() {
     return (
         <>
             <Header/>
-            <div className={container + ' py-20'}>
+            <div className={container}>
                 {showInitialContent && ( // Render initial content if showInitialContent is true
                     <>
                         <h2 className={h2 + ' min-[1024px]:pl-[14.5vw]'}>Choose account type</h2>

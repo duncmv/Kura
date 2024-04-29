@@ -70,7 +70,7 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
     
     const handleBack = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-       
+
         if (currentForm - 1 < 0) {
             setTab('home');
         }
@@ -187,7 +187,7 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
                 <label htmlFor='idCard' className='block mb-4'>ID Card</label>
                 <div className='relative'>
                 <input required type="file" id='idCard' name='id_snippet' className={input} style={{ position: 'absolute', left: '-9999px' }} 
-             accept="image/*" />
+                accept="image/*" />
                     <label htmlFor='idCard' className={button + ' w-full h-full text-center cursor-pointer'}>Upload ID Card</label>
                 </div>
             </div>

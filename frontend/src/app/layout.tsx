@@ -18,8 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className.toString()} min-[418px]:h-screen`}>
-        {children}
-        <Footer />
+        <div className="h-[100vh]">
+          {children}
+        </div>
       </body>
     </html>
   );

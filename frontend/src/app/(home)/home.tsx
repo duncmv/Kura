@@ -69,9 +69,9 @@ export default function HombePage({userData}: {userData: any}) {
     <>
       <Header userData={userData} />
       <div onClick={() => {document.getElementsByClassName('--dropdown--')[0].classList.add('hidden');}} 
-           className='--wrapper-- relative max-h-[83vh] lg:w-[80vw] mx-auto flex flex-col items-center bg-gray-100 overflow-y-scroll h-[100%]' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+      className='--wrapper-- relative max-h-[100%] lg:w-[80vw] mx-auto flex flex-col items-center bg-gray-100 overflow-y-scroll h-[100%] scrollbar-hide'>
           {content}
-        <div className="--nav-wrapper-- fixed bottom-[12vh] min-[668px]:bottom-[10vh]  w-full">
+        <div className="--nav-wrapper-- fixed bottom-0 min-[410px]:bottom-[5vh]  w-full">
           <Nav isInst={isInstitution} setTab={setTab}/>
         </div>
       </div>
