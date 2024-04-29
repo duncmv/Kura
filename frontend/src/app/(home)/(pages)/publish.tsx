@@ -31,7 +31,6 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
                 />
             </div>)
         ]);
-        console.log(answers);
     }
 
     // Handle input change
@@ -43,8 +42,6 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
                 ...prevData,
                 [name]: value
             };
-
-            console.log(updatedData, name, value)
     
             // Store data in sessionStorage
             sessionStorage.setItem('data', JSON.stringify(updatedData));
@@ -57,7 +54,6 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
     const handleNext = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        console.log('clicked')
         // Submit form
         if (currentForm + 1 > 1) {
             sessionStorage.removeItem('data');

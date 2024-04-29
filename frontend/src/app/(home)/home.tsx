@@ -30,7 +30,7 @@ export default function HombePage({userData}: {userData: any}) {
         if (tab === 'home') {
           setPage([<Main userData={userData} />]);
         } else if (tab === 'history') {
-          setPage([<History />]);
+          setPage([<History userData={userData}/>]);
         } else if (tab === 'bookmark') {
           setPage([<Bookmarks />]);
         }
@@ -45,7 +45,7 @@ export default function HombePage({userData}: {userData: any}) {
       <div onClick={() => {document.getElementsByClassName('--dropdown--')[0].classList.add('hidden');}} 
       className='--wrapper-- relative lg:w-[80vw] mx-auto flex flex-col items-center bg-gray-100 overflow-y-scroll max-h-[100vh] h-[90vh] scrollbar-hide'>
           {page}
-        <div className="--nav-wrapper-- fixed bottom-0 min-[410px]:bottom-[5vh]  w-full">
+        <div className="--nav-wrapper-- fixed bottom-0 min-[410px]:bottom-[5vh] w-[400px]">
           <Nav isInst={isInstitution} setTab={setTab}/>
         </div>
       </div>

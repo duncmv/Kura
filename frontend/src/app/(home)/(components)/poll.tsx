@@ -1,4 +1,4 @@
-import { h3, h2 } from '../../../components/styleVar';
+import { h3, h2, button } from '../../../components/styleVar';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
@@ -7,17 +7,56 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import React from 'react';
 
-export default function Poll ({ pollData } : { pollData?: any })  {
-    console.log(pollData);
+export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: boolean})  {
     const time = getTime(pollData.created_at);
+    const userId = JSON.parse(sessionStorage.getItem('user')!) as string;
     const [inst, setInst] = useState(Object);
+    const [data, setData] = useState(Array);
+
     useEffect(() => {
         axios.get('http://18.207.112.170/api/v1/institutions/' + pollData.institution_id).then((res) => {
             setInst(res.data);
         });
     }, []);
 
-    console.log(inst);
+    function handleDelete () {
+        if (confirm("Are you sure you want to delete this poll?")) {
+            axios.delete('http://18.207.112.170/api/v1/polls/' + pollData.id)
+            .then((res) => {
+                alert('Successfully deleted');
+                document.location.reload();
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        }
+    }
+
+    function handleBookmark () {
+        axios.post(`http://18.207.112.170/api/v1/user/${userId}/tags/${pollData.id}`)
+        .then((res) => {
+            alert('Saved!');
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+
+    function handleVote () {
+        const answers = Object.values(data);
+
+        if (!answers) { return; }
+
+        for (let answer of answers) {
+            axios.post(`http://18.207.112.170/api/v1/users/${userId}/${answer}/`)
+            .then((res) => {
+                console.log('Successfully voted');
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        }        
+    }
+
     return (
         <div className='w-[100%]'>
             <div className='--poll-wrapper-- bg-white sm:w-[70%] w-[95%] my-5 mx-auto py-4  flex flex-col items-center justify-around bg-gray-200 min-h-[200px]' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
@@ -27,21 +66,29 @@ export default function Poll ({ pollData } : { pollData?: any })  {
                         <h3 className={h3}>{inst.name}</h3>
                         <p className="--time--">{time}</p>
                     </div>
-                    <button className="--settings--">
+                    <button className="--settings--" onClick={() => document.getElementsByClassName(pollData.id + '--poll-dropdown--')[0].classList.toggle('hidden')}>
                         <FontAwesomeIcon icon={faEllipsisH} />
                     </button>
                     <div className={pollData.id + "--poll-dropdown-- text-left absolute right-2 bottom-0 hidden"}>
                         <div className="origin-top-right absolute top-[-20px] right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                            <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">   
-                                <button className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
-                                Sign out
-                                </button>
-                                <button className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
-                                Sign out
-                                </button>
-                                <button className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
-                                Sign out
-                                </button>
+                            <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                {isInst && (
+                                    <>
+                                        <button title='Stop taking votes' className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
+                                            Disable
+                                        </button>
+                                        <button onClick={handleDelete} title='Delete the poll' className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-red-100 hover:text-gray-900" role="menuitem">
+                                            Delete
+                                        </button>
+                                    </>
+                                )}
+                                {!isInst && (
+                                    <>
+                                        <button onClick={handleBookmark} className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
+                                            Bookmark
+                                        </button>
+                                    </>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -53,9 +100,16 @@ export default function Poll ({ pollData } : { pollData?: any })  {
                     </div>
                     <div className="--questions--">
                         {pollData.questions.map((question: any) => {
-                            return <Question questionData={question} key={question.id} />;
+                            return <Question questionData={question} isInst={isInst} setData={setData} key={question.id} />;
                         })}
                     </div>
+                    {!isInst && (
+                        <div className="--poll-footer--">
+                            <button onClick={handleVote} className={button + ' float-right'}>
+                                Vote
+                            </button>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
@@ -93,3 +147,7 @@ function getTime (date: string) {
         return `${diffInYears} years ago`;
     }
 }
+
+// TODO - The bookmark button to work
+// TODO - Bookmark changes to 'bookmarked' when clicked
+// TODO - The disable button to work

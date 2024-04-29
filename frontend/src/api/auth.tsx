@@ -87,8 +87,7 @@ function signup(data: any) {
         sessionStorage.setItem('user', JSON.stringify(res.data.id));
         window.location.reload();
     }).catch((e) => {
-        alert('Failed to sign up'); // TODO: Better error handling
-        console.log(e);
+        return null
     });
 }
 

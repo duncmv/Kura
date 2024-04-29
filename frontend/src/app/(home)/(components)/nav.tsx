@@ -45,7 +45,7 @@ export default function Nav ({isInst, setTab}: {isInst: boolean, setTab: any}) {
       });
     
     return (
-      <div className='w-full flex flex-row justify-evenly items-center bg-white py-4 border max-w-[400px] min-[405px]:rounded-[10px] mx-auto shadow-md'>
+      <div className='flex flex-row justify-evenly items-center bg-white py-4 border max-w-[400px] min-[405px]:rounded-[10px] mx-auto shadow-md'>
         {iconsList}
       </div>
     );
