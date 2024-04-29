@@ -134,9 +134,12 @@ class User(BaseModel, Base):
             'first_name': self.first_name,
             'middle_name': self.middle_name,
             'last_name': self.last_name,
-            'sex': self.sex.type,
+            'sex': {
+                self.sex.id,
+                self.sex.Type
+            },
             'id_card_number': self.id_card_number,
-            'date_of_birth': date.isoformat(self.date_of_birth),
+            'date_of_birth': date.isoformat(self.date_of_birth) if self.date_of_birth else None,
             'district_id': self.district_id,
             'mobile_number': self.mobile_number,
             'occupation': self.occupation,

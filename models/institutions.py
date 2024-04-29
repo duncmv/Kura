@@ -47,7 +47,7 @@ Classes:
             id, created_at, and updated_at attributes of the institution.
 """
 
-from datetime import datetime
+from datetime import datetime, date
 from sqlalchemy import Column, String, DATE, INTEGER, ForeignKey, orm
 from models.base_model import BaseModel, Base
 
@@ -136,7 +136,7 @@ class Institution(BaseModel, Base):
             'name': self.name,
             'pic': self.pic,
             'registration_number': self.registration_number,
-            'date_of_establishment': datetime.isoformat(self.date_of_establishment),
+            'date_of_establishment': date.isoformat(self.date_of_establishment) if self.date_of_establishment else None,
             'postal_code': self.postal_code,
             'phone_number': self.phone_number,
             'parent_company': self.parent_company,

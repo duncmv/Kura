@@ -51,9 +51,9 @@ class BaseModel:
                     self.created_at = datetime.fromisoformat(value)
                 elif key == 'updated_at':
                     self.updated_at = datetime.fromisoformat(value)
-                elif key == 'date_of_birth':
+                elif key == 'date_of_birth' and value:
                     self.date_of_birth = date.fromisoformat(value)
-                elif key == 'date_of_establishment':
+                elif key == 'date_of_establishment' and value:
                     self.date_of_birth = date.fromisoformat(value)
                 else:
                     setattr(self, key, value)

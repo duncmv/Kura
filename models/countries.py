@@ -51,7 +51,7 @@ class Country(BaseModel, Base):
             dict: A dictionary representation of the country
         """
         return {
-            '__class__': self.__.class__.__name__,
+            '__class__': self.__class__.__name__,
             'id': self.id,
             'created_at': datetime.isoformat(self.created_at),
             'updated_at': datetime.isoformat(self.updated_at),
