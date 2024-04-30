@@ -47,7 +47,7 @@ class Poll(BaseModel, Base):
             'title': self.title,
             'description': self.description,
             'ed_role': self.ed_role,
-            'endustry_of_interest': self.industry_of_interest,
+            'endustry_of_interest': self.endustry_of_interest,
             'occupation': self.occupation,
             'company_staff_only': self.company_staff_only,
             'questions': [question.to_dict() for question in self.questions]
