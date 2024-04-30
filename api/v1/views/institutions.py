@@ -55,7 +55,7 @@ def institution(institution_id=None):
         params = request.get_json(silent=True)
         if not params:
             return make_response("Not a JSON\n", 400)
-        for k in ("id", "email", "created_at", "updated_at"):
+        for k in ("__class__", "id", "email", "created_at", "updated_at"):
             params.pop(k, None)
         for k, v in params.items():
             setattr(institution, k, v)
