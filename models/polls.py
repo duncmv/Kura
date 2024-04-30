@@ -43,7 +43,6 @@ class Poll(BaseModel, Base):
             'institution': {
                 'id': self.institution.id,
                 'name': self.institution.name,
-                'pic': self.institution.pic
                 },
             'title': self.title,
             'description': self.description,
@@ -51,7 +50,5 @@ class Poll(BaseModel, Base):
             'industry_of_interest': self.industry_of_interest,
             'occupation': self.occupation,
             'company_staff_only': self.company_staff_only,
-            'publish_date': datetime.isoformat(self.publish_date),
-            'end_date': datetime.isoformat(self.end_date),
             'questions': [question.to_dict() for question in self.questions]
         }
