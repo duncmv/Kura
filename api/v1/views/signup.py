@@ -7,6 +7,7 @@ from models.users import User
 from models.institutions import Institution
 from api.v1.ext import textract
 import json
+import traceback
 from sqlalchemy.exc import IntegrityError
 
 @app_views.route('/signup', strict_slashes=False,
@@ -55,26 +56,27 @@ def signup():
     """
     params = json.load(request.files['json'])
     if params['class'] == 'user':
-        id_card = request.files['id_snippet']
-        file_path = '/tmp/' + params['email']
-        id_card.save(file_path)
         try:
+            id_card = request.files['id_snippet']
+            file_path = '/tmp/' + params['email']
+            id_card.save(file_path)
             id_details = textract.extract(file_path)
             params.update(id_details)
             params['verified'] = True
         except Exception:
-            pass
+            traceback.print_exc()
         params.pop('class')
         try:
             new = User(**params)
             new.save()
         except IntegrityError:
-            return jsonify({'error': 'User  with these credentials already exists'}), 400
+            return jsonify({'error': 'User with these credentials already exists'}), 400
     else:
         params.pop('class')
         try:
             new = Institution(**params)
             new.save()
         except IntegrityError:
+            traceback.print_exc()
             return jsonify({'error': 'Institution already exists'}), 400
     return jsonify(new.to_dict()), 201
