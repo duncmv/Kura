@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 """starts a tags route"""
 from api.v1.views import app_views
-from flask import jsonify, request, abort
+from flask import jsonify, request, abort, make_response
 from models import Storage
+from models.users import User
+from models.polls import Poll
 from models.tags import Tag
 
 
@@ -19,16 +21,21 @@ def tag(user_id, poll_id=None):
             A response with an error message and a status code of 404 if no tags are found for the user.
     """
     if request.method == 'GET':
-        tags = Storage.all(Tag)
-        if tags is None:
+        user = Storage.get(User, user_id)
+        if user is None:
             abort(404)
-        tags = [tag.poll_id for tag in tags if tag.user_id == user_id]
+        tags = [poll.to_dict() for poll in user.taged_polls]
         return jsonify(tags)
 
     if request.method == 'POST':
-        new = Tag(user_id=user_id, poll_id=poll_id)
-        new.save()
-        return jsonify(new.to_dict()), 201
+        user = Storage.get(User, user_id)
+        if user is None:
+            abort(404)
+        poll = Storage.get(Poll, poll_id)
+        if poll is None:
+            abort(404)
+        user.taged_polls.append(poll)
+        return make_response("Done\n", 201)
 
     if request.method == 'DELETE':
         for tag in Storage.all(Tag):
