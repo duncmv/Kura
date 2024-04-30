@@ -4,7 +4,7 @@ from api.v1.views import app_views
 from flask import jsonify, request, make_response, abort
 from models import Storage
 from models.choices import Choice
-
+from models.users import User
 
 @app_views.route("users/<user_id>/<answer_id>/", strict_slashes=False,
                  methods=['POST', 'DELETE'])
@@ -35,3 +35,18 @@ def choice(user_id=None, answer_id=None):
                 choice.delete()
                 return make_response("deleted\n", 200)
         abort(404)
+    
+@app_views.route('users/<user_id>/choices', strict_slashes=False, methods=['GET'])
+def choices_by_user(user_id):
+    """This route handles the retrieval of choice objects associated with a specific user.
+
+        Returns:
+            A JSON response containing a list of answer IDs chosen by the user and a status code of 200 if successful.
+
+            A response with an error message and a status code of 404 if no choices are found for the user.
+    """
+    user = Storage.get(User, user_id)
+    if user is None:
+        abort(404)
+    choices = [choice.answer_id for choice in user.choices]
+    return jsonify(choices)
