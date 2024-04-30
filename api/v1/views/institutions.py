@@ -49,7 +49,7 @@ def institution(institution_id=None):
         abort(404)
 
     if request.method == 'PUT':
-        institution = Storage.get(institution, institution_id)
+        institution = Storage.get(Institution, institution_id)
         if institution is None:
             abort(404)
         params = request.get_json(silent=True)
