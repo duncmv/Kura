@@ -32,7 +32,11 @@ def signup():
         "class": "institution",
         "email": "institution@example.com",
         "name": "ABC Institution",
-        "password": "password123"
+        "password": "password123",
+        "registration_number": "agcacg",
+        "district_id": "<valid_district_id>"
+        "legal_entity_id": "<valid_legal_entity_id>",
+        "industry_id": "<valid_industry_id>"
         }
     }
 
