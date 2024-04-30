@@ -11,7 +11,7 @@ from models.answers import Answer
 @app_views.route(
     '/polls/<poll_id>/questions',
     strict_slashes=False,
-    methods='POST'
+    methods=['POST']
     )
 def questions_by_poll(poll_id):
     """This route handles the creation of question objects for a specific poll.

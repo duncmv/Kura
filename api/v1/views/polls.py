@@ -57,8 +57,8 @@ def poll(poll_id=None):
     """
     if request.method == 'GET':
         if poll_id is None:
-            all = [poll.to_dict() for poll in Storage.all(Poll)]
-            return jsonify(all)
+            all_polls = [poll.to_dict() for poll in Storage.all(Poll)]
+            return jsonify(all_polls)
         else:
             poll = Storage.get(Poll, poll_id)
             if poll is None:
@@ -86,8 +86,16 @@ def polls_by_user(user_id):
             A JSON response containing a list of poll IDs the user has participated in and a status code of 200 if successful.
     """
     the_user = Storage.get(User, user_id)
-    voted_polls = list(set([choice.answer.question.poll for choice in the_user.choices]))
-    return jsonify([poll.to_dict() for poll in voted_polls])
+    polls_obj = list(set([choice.answer.question.poll for choice in the_user.choices]))
+    voted_polls = [poll.to_dict() for poll in polls_obj]
+    chosen_answers_ids = [choice.answer_id for choice in the_user.choices]
+    for poll in voted_polls:
+        answers = poll['questions']['answers']
+        for answer in answers:
+            answer['chosen'] = False
+            if answer['id'] in chosen_answers_ids:
+                answer['chosen'] = True
+    return jsonify(voted_polls)
 
 @app_views.route(
     '/institutions/<institution_id>/polls',
@@ -98,23 +106,23 @@ def polls_by_institution(institution_id):
     """This route handles the retrieval and creation of poll objects for a specific institution.
         For poll creation, it wll expect a json in this format:
                 {
-                     "title": <poll title>,
-                     "description": <poll description>,
-                     "questions": [
-                         {
-                             "text": <question text>,
-                             "answers": [
-                                 {
-                                     "text": <answer text>,
-                                 },
-                                 ... (additional answers)
-                             ],
-                             ... (additional question details)
-                         },
-                         ... (additional questions)
-                     ],
-                     ... (additional poll details)
-                 }
+                    "title": <poll title>,
+                    "description": <poll description>,
+                    "questions": [
+                        {
+                            "text": <question text>,
+                            "answers": [
+                                {
+                                    "text": <answer text>,
+                                },
+                                ... (additional answers)
+                            ],
+                            ... (additional question details)
+                        },
+                        ... (additional questions)
+                    ],
+                    ... (additional poll details)
+                }
         Returns:
             GET: A JSON response containing a list of poll IDs associated with the institution and a status code of 200 if successful.
             POST: A JSON response containing the details of the newly created poll and a status code of 201 if successful.

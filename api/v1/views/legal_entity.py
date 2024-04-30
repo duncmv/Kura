@@ -9,7 +9,7 @@ from models.legal_entity import LegalEntity
 @app_views.route(
     '/entities',
     strict_slashes=False,
-    methods='GET'
+    methods=['GET']
     )
 def entity():
     """Handles retrieval of legal entity objects.

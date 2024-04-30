@@ -9,7 +9,7 @@ from models.institutions import Institution
 @app_views.route(
     "/institutions",
     strict_slashes=False,
-    methods='GET'
+    methods=['GET']
     )
 @app_views.route(
     '/institutions/<institution_id>',

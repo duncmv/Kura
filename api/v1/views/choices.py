@@ -37,22 +37,18 @@ def choice(user_id=None, answer_id=None):
         user = Storage.get(User, user_id)
         if user is None:
             abort(404)
-        for choices in user.choices:
-            if choices.answer_id == answer_id:
-                return make_response("done\n", 200)
         answer = Storage.get(Answer, answer_id)
         if answer is None:
             abort(404)
-        question = Storage.get(Question, answer.question_id)
-        if question is None:
-            abort(404)
-        answer_ids = [answer.id for answer in question.answers]
+
+        # handling the case where the user has already chosen an answer for the question
+        the_question = answer.question
         for choice in user.choices:
-            if choice.answer_id in answer_ids:
-                choice.delete()
-        new_choice = Choice(user_id=user_id, answer_id=answer_id)
-        new_choice.save()
-        return make_response("done\n", 201)          
+            if choice.answer.question == the_question:
+                Storage.delete(choice)
+                Storage.new(Choice(user_id=user_id, answer_id=answer_id))
+                Storage.save()
+                return make_response("done\n", 201)
 
     if request.method == 'DELETE':
         user = Storage.get(User, user_id)
@@ -61,6 +57,7 @@ def choice(user_id=None, answer_id=None):
         for choice in user.choices:
             if choice.answer_id == answer_id:
                 choice.delete()
+                Storage.save()
                 return make_response("deleted\n", 200)
         abort(404)
     

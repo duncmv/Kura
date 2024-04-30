@@ -10,7 +10,7 @@ from models.institutions import Institution
 @app_views.route(
     '/login',
     strict_slashes=False,
-    methods='POST'
+    methods=['POST']
     )
 def login():
     """Handles the login process.

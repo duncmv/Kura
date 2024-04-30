@@ -9,7 +9,7 @@ from models.countries import Country
 @app_views.route(
     '/countries/<country_id>/districts',
     strict_slashes=False,
-    methods='GET'
+    methods=['GET']
     )
 def district_by_country(country_id):
     """This route handles the retrieval of district objects for a specific country.

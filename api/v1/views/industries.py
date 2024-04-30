@@ -9,7 +9,7 @@ from models.industries import Industry
 @app_views.route(
     '/industries',
     strict_slashes=False,
-    methods='GET'
+    methods=['GET']
     )
 def industry():
     """This route handles the retrieval of industry objects for a specific industry.

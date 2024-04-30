@@ -38,6 +38,7 @@ def tag(user_id, poll_id=None):
         if poll is None:
             abort(404)
         user.taged_polls.append(poll)
+        Storage.save()
         return make_response("Done\n", 201)
 
     if request.method == 'DELETE':

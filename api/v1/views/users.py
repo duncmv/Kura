@@ -10,7 +10,7 @@ from sqlalchemy.exc import IntegrityError
 @app_views.route(
     "/users",
     strict_slashes=False,
-    methods='GET'
+    methods=['GET']
     )
 @app_views.route(
     '/users/<user_id>',

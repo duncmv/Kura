@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """starts a signup route"""
 from api.v1.views import app_views
-from flask import jsonify, request, make_response, abort
-from models import Storage
+from flask import jsonify, request
 from models.users import User
 from models.institutions import Institution
 from api.v1.ext import textract
@@ -13,7 +12,7 @@ from sqlalchemy.exc import IntegrityError
 @app_views.route(
     '/signup',
     strict_slashes=False,
-    methods='POST'
+    methods=['POST']
     )
 def signup():
     """Handles the signup process.

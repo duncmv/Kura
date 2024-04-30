@@ -9,7 +9,7 @@ from models.answers import Answer
 @app_views.route(
     '/questions/<question_id>/answers',
     strict_slashes=False,
-    methods='POST'
+    methods=['POST']
 )
 def answers_by_question(question_id):
     """This route handles the creation of answer objects for a specific question.
@@ -33,7 +33,7 @@ def answers_by_question(question_id):
 
 
 @app_views.route(
-    '/answers/answer_id',
+    '/answers/<answer_id>',
     strict_slashes=False,
     methods=['PUT', 'DELETE']
 )
