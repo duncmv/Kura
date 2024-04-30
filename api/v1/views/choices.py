@@ -5,6 +5,8 @@ from flask import jsonify, request, make_response, abort
 from models import Storage
 from models.choices import Choice
 from models.users import User
+from models.answers import Answer
+from models.questions import Question
 
 @app_views.route("users/<user_id>/<answer_id>/", strict_slashes=False,
                  methods=['POST', 'DELETE'])
@@ -25,13 +27,32 @@ def choice(user_id=None, answer_id=None):
         return jsonify(choices)
 
     if request.method == 'POST':
-        new = Choice(user_id=user_id, answer_id=answer_id)
-        new.save()
-        return make_response("done\n", 201)
+        user = Storage.get(User, user_id)
+        if user is None:
+            abort(404)
+        for choices in user.choices:
+            if choices.answer_id == answer_id:
+                return make_response("done\n", 200)
+        answer = Storage.get(Answer, answer_id)
+        if answer is None:
+            abort(404)
+        question = Storage.get(Question, answer.question_id)
+        if question is None:
+            abort(404)
+        answer_ids = [answer.id for answer in question.answers]
+        for choice in user.choices:
+            if choice.answer_id in answer_ids:
+                choice.delete()
+        new_choice = Choice(user_id=user_id, answer_id=answer_id)
+        new_choice.save()
+        return make_response("done\n", 201)          
 
     if request.method == 'DELETE':
-        for choice in Storage.all(Choice):
-            if choice.answer_id == answer_id and choice.user_id == user_id:
+        user = Storage.get(User, user_id)
+        if user is None:
+            abort(404)
+        for choice in user.choices:
+            if choice.answer_id == answer_id:
                 choice.delete()
                 return make_response("deleted\n", 200)
         abort(404)
