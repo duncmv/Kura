@@ -39,8 +39,11 @@ def tag(user_id, poll_id=None):
         return make_response("Done\n", 201)
 
     if request.method == 'DELETE':
-        for tag in Storage.all(Tag):
-            if tag.user_id == user_id and tag.poll_id == poll_id:
-                tag.delete()
-                return jsonify({})
+        user = Storage.get(User, user_id)
+        if user is None:
+            abort(404)
+        poll = Storage.get(Poll, poll_id)
+        if poll is None:
+            abort(404)
+        user.taged_polls.remove(poll)
         abort(404)
