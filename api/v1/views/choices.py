@@ -16,7 +16,7 @@ from models.questions import Question
 @app_views.route(
     'answers/<answer_id>/',
     strict_slashes=False,
-    methods='GET'
+    methods=['GET']
     )
 def choice(user_id=None, answer_id=None):
     """This route handles the retrieval, creation, and deletion of choice objects associated with a specific user and answer.
