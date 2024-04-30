@@ -10,8 +10,5 @@ __pycache__/
 # ignore .jason files
 *.jason
 
-# Ignore any test files
-test.py
-
 #ignore env files
 venv/*
