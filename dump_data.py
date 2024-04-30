@@ -23,7 +23,6 @@ from models.users import User
 from models.choices import Choice
 from models.industries import Industry
 from models.regions import Region
-from models.sex import Sex
 from models.tags import Tag
 
 
@@ -33,7 +32,6 @@ institutions = populate['institutions']
 users = populate['users']
 entities_id = [entity.id for entity in Storage.all(LegalEntity)]
 industries_id = [industry.id for industry in Storage.all(Industry)]
-sexes_id = [sex.id for sex in Storage.all(Sex)]
 districts_id = [district.id for district in Storage.all(District)]
 
 for institution in institutions:
@@ -56,7 +54,7 @@ for user in users:
             **user,
             company_id=insts_id[random.randint(0, number_of_inst)],
             district_id=districts_id[random.randint(0, 127)],
-            sex_id=sexes_id[0]		# All are males
+            sex='Male'
         )
 	)
 

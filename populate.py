@@ -20,7 +20,6 @@ from models.regions import Region
 from models.legal_entity import LegalEntity
 from models.industries import Industry
 from models.districts import District
-from models.sex import Sex
 
 Storage.all()
 
@@ -30,11 +29,6 @@ Storage.new(uganda)
 Storage.save()
 
 uganda_id = uganda.id
-
-for sex in populate['sex']:
-    Storage.new(Sex(type=sex))
-
-Storage.save()
 
 for region in populate['regions']:
     Storage.new(Region(name=region))

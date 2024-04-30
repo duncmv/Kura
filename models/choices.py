@@ -33,7 +33,7 @@ Classes:
 
 from datetime import datetime
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String, ForeignKey, orm
+from sqlalchemy import Column, String, ForeignKey, orm, UniqueConstraint, Index
 
 
 class Choice(BaseModel, Base):
@@ -56,17 +56,6 @@ class Choice(BaseModel, Base):
         String(60),
         ForeignKey('answers.id', onupdate='CASCADE', ondelete='CASCADE'),
         primary_key=True
-        )
-
-    user = orm.relationship(
-        'User',
-        back_populates='choices',
-        viewonly=False)
-
-    answer = orm.relationship(
-        'Answer',
-        back_populates='choices',
-        viewonly=False
         )
 
     def to_dict(self):

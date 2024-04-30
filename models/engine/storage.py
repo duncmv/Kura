@@ -54,7 +54,6 @@ class PDBStorage:
         from models.tags import Tag
         from models.industries import Industry
         from models.regions import Region
-        from models.sex import Sex
 
         classes = [
             Answer,
@@ -66,7 +65,7 @@ class PDBStorage:
             Poll, Question,
             User, Choice, Tag,
             Industry,
-            Region, Sex
+            Region
             ]
 
         all_obj_dict = []
@@ -109,7 +108,6 @@ class PDBStorage:
         from models.choices import Choice
         from models.industries import Industry
         from models.regions import Region
-        from models.sex import Sex
         from models.tags import Tag
 
         Base.metadata.create_all(self.__engine)

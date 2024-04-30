@@ -51,7 +51,8 @@ class Answer(BaseModel, Base):
 
     choices = orm.relationship(
         'Choice',
-        back_populates='answer',
+        backref='answer',
+        cascade='all, delete',
         viewonly=False
         )
 

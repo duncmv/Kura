@@ -291,7 +291,7 @@
     ],
     "users": [
         {
-            "date_of_birth": "Sun, 25 Dec 1983 00:00:00 GMT",
+            "date_of_birth": "1976-02-14",
             "ed_speciality": null,
             "email": "m@dev",
             "first_name": "HAPPY",
@@ -310,7 +310,7 @@
             "verified": true
         },
         {
-            "date_of_birth": "Tue, 06 Mar 2001 00:00:00 GMT",
+            "date_of_birth": "1976-02-14",
             "ed_speciality": null,
             "email": "msrtv365@yahoo.com",
             "first_name": "AZZIAD",
@@ -329,7 +329,7 @@
             "verified": true
         },
         {
-            "date_of_birth": "Fri, 04 Oct 1996 00:00:00 GMT",
+            "date_of_birth": "1976-02-14",
             "ed_speciality": null,
             "email": "msrtv32365@yahoo.com",
             "first_name": "DUNCAN",
@@ -348,7 +348,7 @@
             "verified": true
         },
         {
-            "date_of_birth": "Sat, 14 Feb 1976 00:00:00 GMT",
+            "date_of_birth": "1976-02-14",
             "ed_speciality": null,
             "email": "msrtv3asdf65@yahoo.com",
             "first_name": "LAWRENCE",

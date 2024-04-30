@@ -19,7 +19,7 @@
                 - `first_name`: A string that represents the first name of the user.
                 - `middle_name`: A string that represents the middle name of the user.
                 - `last_name`: A string that represents the last name of the user.
-                - `sex_id`: A string that represents the
+                - `sex`: the sex of the user.
                 - `id_card_number`: A string that represents the ID card number of the user.
                 - `date_of_birth`: A date that represents the date of birth of the user.
                 - `district_id`: A string that represents the district ID of the user.
@@ -43,7 +43,7 @@
             The dictionary includes the class name, id, created_at, and updated_at attributes of the user.
 """
 
-from sqlalchemy import Column, String, DATE, FLOAT, ForeignKey, orm, BOOLEAN
+from sqlalchemy import Column, String, DATE, FLOAT, ForeignKey, orm, BOOLEAN, Enum
 from models.base_model import BaseModel, Base
 from datetime import datetime, date
 
@@ -84,10 +84,7 @@ class User(BaseModel, Base):
     middle_name = Column(String(128))
     last_name = Column(String(128))
     
-    sex_id = Column(
-        String(60),
-        ForeignKey('sexes.id')
-        )
+    sex = Column(Enum('Male', 'Female', 'Other', name='sex_type'))
 
     id_card_number = Column(String(64), nullable=True, unique=True)
 
@@ -115,8 +112,8 @@ class User(BaseModel, Base):
 
     verified = Column(BOOLEAN, default=False)
 
-    choices = orm.relationship('Choice', back_populates='user', viewonly=False)
-    taged_polls = orm.relationship('Poll', secondary='tags', viewonly=False)
+    choices = orm.relationship('Choice', backref='user', cascade='all,delete',viewonly=False)
+    taged_polls = orm.relationship('Poll', secondary='tags',cascade='all, delete', viewonly=False)
 
     def to_dict(self):
         """ Returns a dictionary of the data for this user
@@ -134,10 +131,7 @@ class User(BaseModel, Base):
             'first_name': self.first_name,
             'middle_name': self.middle_name,
             'last_name': self.last_name,
-            'sex': {
-                'id': self.sex.id,
-                'type': self.sex.type
-            },
+            'sex': self.sex,
             'id_card_number': self.id_card_number,
             'date_of_birth': date.isoformat(self.date_of_birth) if self.date_of_birth else None,
             'district_id': self.district_id,
