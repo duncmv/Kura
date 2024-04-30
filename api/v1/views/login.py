@@ -7,8 +7,11 @@ from models.users import User
 from models.institutions import Institution
 
 
-@app_views.route('/login', strict_slashes=False,
-                 methods=['POST'])
+@app_views.route(
+    '/login',
+    strict_slashes=False,
+    methods='POST'
+    )
 def login():
     """Handles the login process.
 

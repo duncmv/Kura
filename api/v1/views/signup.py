@@ -7,23 +7,28 @@ from models.users import User
 from models.institutions import Institution
 from api.v1.ext import textract
 import json
+import traceback
 from sqlalchemy.exc import IntegrityError
 
-@app_views.route('/signup', strict_slashes=False,
-                 methods=['POST'])
+@app_views.route(
+    '/signup',
+    strict_slashes=False,
+    methods='POST'
+    )
 def signup():
     """Handles the signup process.
 
     This route handles the signup process for both users and institutions.
     It expects a form containing the necessary information for signup.
     The structure of the form payload for user signup should be as follows:
-    { 'json': {
-        "class": "user",
-        "email": "user@example.com",
-        "name": "John Doe",
-        "password": "password123"
-        },
-      'id_snippet': <ID card file>
+    {
+        'json': {
+            "class": "user",
+            "email": "user@example.com",
+            "name": "John Doe",
+            "password": "password123"
+            },
+        'id_snippet': <ID card file>
     }
 
     The structure of the form payload for institution signup should be as follows:
@@ -67,18 +72,19 @@ def signup():
             params.update(id_details)
             params['verified'] = True
         except Exception:
-            pass
+            traceback.print_exc()
         params.pop('class')
         try:
             new = User(**params)
             new.save()
         except IntegrityError:
-            return jsonify({'error': 'User  with these credentials already exists'}), 400
+            return jsonify({'error': 'User with these credentials already exists'}), 400
     else:
         params.pop('class')
         try:
             new = Institution(**params)
             new.save()
         except IntegrityError:
+            traceback.print_exc()
             return jsonify({'error': 'Institution already exists'}), 400
     return jsonify(new.to_dict()), 201

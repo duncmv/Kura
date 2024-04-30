@@ -7,10 +7,16 @@ from models.users import User
 from sqlalchemy.exc import IntegrityError
 
 
-@app_views.route("/users", strict_slashes=False,
-                 methods=['GET'])
-@app_views.route('/users/<user_id>', strict_slashes=False,
-                 methods=['GET', 'DELETE', 'PUT'])
+@app_views.route(
+    "/users",
+    strict_slashes=False,
+    methods='GET'
+    )
+@app_views.route(
+    '/users/<user_id>',
+    strict_slashes=False,
+    methods=['GET', 'DELETE', 'PUT']
+    )
 def user(user_id=None):
     """Handles CRUD operations on user objects.
 
@@ -18,7 +24,7 @@ def user(user_id=None):
 
         Returns:
             GET: A JSON response containing the requested user details and a status code of 200 if successful.
-                 If no user_id is provided, it returns a list of all users.
+                If no user_id is provided, it returns a list of all users.
             DELETE: A JSON response with a status code of 200 and an empty body if successful.
             PUT: A JSON response containing the updated user details and a status code of 200 if successful.
 
@@ -30,8 +36,8 @@ def user(user_id=None):
     """
     if request.method == 'GET':
         if user_id is None:
-            all = [user.to_dict() for user in Storage.all(User)]
-            return jsonify(all)
+            all_users = [user.to_dict() for user in Storage.all(User)]
+            return jsonify(all_users)
         else:
             user = Storage.get(User, user_id)
             if user is None:

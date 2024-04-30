@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """starts a status route"""
 from api.v1.views import app_views
-from flask import jsonify, send_from_directory
+from flask import jsonify
 from models import Storage
 from models.polls import Poll
 from models.institutions import Institution
@@ -9,6 +9,7 @@ from models.users import User
 from models.districts import District
 from models.choices import Choice
 from models.legal_entity import LegalEntity
+from models.industries import Industry
 
 @app_views.route('/status', strict_slashes=False)
 def status():
@@ -25,6 +26,7 @@ def stats():
         "users": Storage.count(User),
         "districts": Storage.count(District),
         "choices": Storage.count(Choice),
-        "legal_entities": Storage.count(LegalEntity)
+        "legal_entities": Storage.count(LegalEntity),
+        "industries": Storage.count(Industry)
     }
     return jsonify(stats)

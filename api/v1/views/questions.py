@@ -8,8 +8,11 @@ from models.answers import Answer
 
 
 
-@app_views.route('/polls/<poll_id>/questions', strict_slashes=False,
-                 methods=['POST'])
+@app_views.route(
+    '/polls/<poll_id>/questions',
+    strict_slashes=False,
+    methods='POST'
+    )
 def questions_by_poll(poll_id):
     """This route handles the creation of question objects for a specific poll.
 
@@ -51,8 +54,11 @@ def questions_by_poll(poll_id):
         return make_response('done\n', 201)
 
 
-@app_views.route('/questions/question_id', strict_slashes=False,
-                 methods=['PUT', 'DELETE'])
+@app_views.route(
+    '/questions/question_id',
+    strict_slashes=False,
+    methods=['PUT', 'DELETE']
+    )
 def questions(question_id):
     """This route handles the update and deletion of question objects.
 
@@ -80,7 +86,7 @@ def questions(question_id):
         params = request.get_json(silent=True)
         if not params:
             return make_response("Not a JSON\n", 400)
-        for k in ("id", "poll_id", "city_id", "created_at", "updated_at"):
+        for k in ("id", "poll_id", "created_at", "updated_at"):
             params.pop(k, None)
         for k, v in params.items():
             setattr(question, k, v)

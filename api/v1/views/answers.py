@@ -9,7 +9,7 @@ from models.answers import Answer
 @app_views.route(
     '/questions/<question_id>/answers',
     strict_slashes=False,
-    methods=['POST']
+    methods='POST'
 )
 def answers_by_question(question_id):
     """This route handles the creation of answer objects for a specific question.
@@ -64,7 +64,7 @@ def answers(answer_id):
         params = request.get_json(silent=True)
         if not params:
             return make_response("Not a JSON\n", 400)
-        for k in ("id", "answer_id", "question_id", "created_at", "updated_at"):
+        for k in ("id", "question_id", "created_at", "updated_at"):
             params.pop(k, None)
         for k, v in params.items():
             setattr(answer, k, v)

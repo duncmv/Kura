@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """starts a industries route"""
 from api.v1.views import app_views
-from flask import jsonify, request, abort
+from flask import jsonify, abort
 from models import Storage
 from models.industries import Industry
 

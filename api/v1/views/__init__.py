@@ -18,3 +18,4 @@ from api.v1.views.legal_entity import *
 from api.v1.views.tags import *
 from api.v1.views.signup import *
 from api.v1.views.login import *
+from api.v1.views.industries import *
