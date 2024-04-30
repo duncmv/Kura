@@ -9,7 +9,8 @@ from models.tags import Tag
 
 
 @app_views.route('user/<user_id>/tags/<poll_id>', strict_slashes=False,
-                 methods=['GET', 'POST', 'DELETE'])
+                 methods=['POST', 'DELETE'])
+@app_views.route('user/<user_id>/tags', strict_slashes=False, methods=['GET'])
 def tag(user_id, poll_id=None):
     """This route handles the retrieval, creation, and deletion of tag objects associated with a specific user and poll.
 
