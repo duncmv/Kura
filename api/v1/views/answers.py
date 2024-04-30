@@ -6,8 +6,11 @@ from models import Storage
 from models.answers import Answer
 
 
-@app_views.route('/questions/<question_id>/answers', strict_slashes=False,
-                 methods=['POST'])
+@app_views.route(
+    '/questions/<question_id>/answers',
+    strict_slashes=False,
+    methods=['POST']
+)
 def answers_by_question(question_id):
     """This route handles the creation of answer objects for a specific question.
 
@@ -29,8 +32,11 @@ def answers_by_question(question_id):
         return jsonify(new.to_dict()), 201
 
 
-@app_views.route('/answers/answer_id', strict_slashes=False,
-                 methods=['PUT', 'DELETE'])
+@app_views.route(
+    '/answers/answer_id',
+    strict_slashes=False,
+    methods=['PUT', 'DELETE']
+)
 def answers(answer_id):
     """This route handles the update and deletion of answer objects.
 

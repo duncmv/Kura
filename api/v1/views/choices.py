@@ -4,12 +4,19 @@ from api.v1.views import app_views
 from flask import jsonify, request, make_response, abort
 from models import Storage
 from models.choices import Choice
+from models.answers import Answer
 
 
-@app_views.route("users/<user_id>/<answer_id>/", strict_slashes=False,
-                 methods=['POST', 'DELETE'])
-@app_views.route('answers/<answer_id>/', strict_slashes=False,
-                 methods=['GET'])
+@app_views.route(
+    "users/<user_id>/<answer_id>/",
+    strict_slashes=False,
+    methods=['POST', 'DELETE']
+    )
+@app_views.route(
+    'answers/<answer_id>/',
+    strict_slashes=False,
+    methods=['GET']
+    )
 def choice(user_id=None, answer_id=None):
     """This route handles the retrieval, creation, and deletion of choice objects associated with a specific user and answer.
 
@@ -21,8 +28,9 @@ def choice(user_id=None, answer_id=None):
             A response with an error message and a status code of 404 if no choices are found for the user and answer.
     """
     if request.method == 'GET':
-        choices = len([choice for choice in Storage.all(Choice) if choice.answer_id == answer_id])
-        return jsonify(choices)
+        the_answer = Storage.get(Answer, answer_id)
+        answer_counter = len(the_answer.choices)
+        return jsonify(answer_counter)
 
     if request.method == 'POST':
         new = Choice(user_id=user_id, answer_id=answer_id)

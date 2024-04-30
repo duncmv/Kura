@@ -7,7 +7,7 @@ from models.countries import Country
 
 
 @app_views.route('/countries', strict_slashes=False,
-                 methods=['GET', 'POST'])
+                 methods='GET')
 def country():
     """This route handles the retrieval of country objects for a specific country.
 
@@ -23,9 +23,8 @@ def country():
             A response with an error message and a status code of 404 if no
             country is found.
     """
-    if request.method == 'GET':
-        countries = Storage.all(Country)
-        if countries is None:
-            abort(404)
-        countries = [country.to_dict() for country in countries]
-        return jsonify(countries)
+    countries = Storage.all(Country)
+    if countries is None:
+        abort(404)
+    countries = [country.to_dict() for country in countries]
+    return jsonify(countries)
