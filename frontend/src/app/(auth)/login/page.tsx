@@ -29,11 +29,9 @@ const LoginPage: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        login(data.email, data.password).then((data: any) => {
-            router.push("/");
-        }).catch(() => {        
+        if (!data.email || !data.password || !(await login(data.email, data.password))) {
             setNotExsists(true);
-        });
+        }
     }
 
     return (

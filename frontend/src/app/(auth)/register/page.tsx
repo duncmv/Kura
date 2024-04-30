@@ -130,7 +130,7 @@ function Individual(props: { distList: JSX.Element[], setShowContent: React.Disp
 
         // Check if file is an image
         const isImage = (file: File) => {
-            return file.type.startsWith('image/');
+            return file.type?.startsWith('image/');
         };
 
         if (!isImage(files[0])) {

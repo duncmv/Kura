@@ -13,12 +13,15 @@ export default async function login(email: string, password: string) {
     email = email.toLocaleLowerCase();
     password = crypto.createHash('md5').update(password).digest('hex');
     axios.post('http://18.207.112.170/api/v1/login', { email, password }).then((res) => {
-        sessionStorage.setItem('user', JSON.stringify(res.data.id));
-        window.location.reload();
+        if (res.data.id) {
+            sessionStorage.setItem('user', JSON.stringify(res.data.id));
+            window.location.reload();
+        }
     }).catch((e) => {
-        alert('Failed to login'); // TODO: Better error handling
-        console.log(e);
+        return null;
     });
+
+    return null;
 }
 
 
@@ -68,19 +71,19 @@ async function getCurrentUser() {
 
 function getUserData() {
     const [userData, setUserData] = useState(Object.create(null));
-  
+
     useEffect(() => {
-      getCurrentUser().then((user) => {
+    getCurrentUser().then((user) => {
         if (user) {
-          setUserData(user);
+        setUserData(user);
         }
-      }).catch((e) => {
+    }).catch((e) => {
         setUserData(null);
-      });
+    });
     }, []);
-  
+
     return userData;
-  }
+}
 
 function signup(data: any) {
     axios.post('http://18.207.112.170/api/v1/signup', data).then((res) => {
@@ -91,4 +94,4 @@ function signup(data: any) {
     });
 }
 
-export { login, logout, getCurrentUser, getUserData, signup};
+export { login, logout, getCurrentUser, getUserData, signup, getUserById};

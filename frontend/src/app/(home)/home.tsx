@@ -2,17 +2,18 @@ import Image from 'next/image';
 import React, { ReactNode, useEffect } from 'react';
 import Header from '@/components/header';
 import Nav from './(components)/nav';
-import InstProfile from './(pages)/inst-profile';
 import Publish from './(pages)/publish';
 import Main from './(pages)/main';
 import History from './(pages)/history';
 import Bookmarks from './(pages)/bookmarks';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function HombePage({userData}: {userData: any}) {
   const isInstitution = userData.__class__ === 'Institution';
   const [tab, setTab] = useState('home');
   const [page, setPage] = useState<ReactNode>([<Main userData={userData} />]);
+  const router = useRouter();
 
   if (isInstitution) {
     useEffect(() => {
@@ -21,7 +22,7 @@ export default function HombePage({userData}: {userData: any}) {
       } else if (tab === 'publish') {
         setPage([<Publish userData={userData} setTab={setTab}/>]);
       } else if (tab === 'profile') {
-        setPage([<InstProfile userData={userData}/>]);
+        router.push(`/inst/${userData.id}`);
       }
     }, [tab, isInstitution]);
 

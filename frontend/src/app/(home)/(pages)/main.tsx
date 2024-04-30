@@ -53,6 +53,3 @@ export default function Main({ userData }: { userData: any }) {
         </>
     );
 }
-
-
-// TODO - fix the polled shows up when reloading the page

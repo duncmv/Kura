@@ -11,14 +11,16 @@ export default function History({ userData }: { userData: any }) {
     
 
     useEffect(() => {
-        // function checkRadioButtons() {
-        //     const radioButtons = document.querySelectorAll('input[type="radio"]');
-        //     radioButtons.forEach((radioButton: Element) => {
-        //         if (radioButton.id === 'RADIO_BUTTON_ID') {
-        //             (radioButton as HTMLInputElement).checked = true;
-        //         }
-        //     });
-        // }
+        axios.get(`http://18.207.112.170/api/v1/users/${userData.id}/choices`).then((res) => {
+            const checked = res.data;
+            const radioButtons = document.querySelectorAll('input[type="radio"]');
+            console.log(checked, radioButtons)
+            radioButtons.forEach((radioButton: Element) => {
+                if (checked.includes(radioButton.getAttribute('id'))) {
+                    (radioButton as HTMLInputElement).checked = true;
+                }
+        });
+    });
 
         async function fetchPolls() {
             let path = isInst ? `http://18.207.112.170/api/v1/institutions/${userData.id}/polls` : 'http://18.207.112.170/api/v1/polls';
@@ -67,5 +69,3 @@ export default function History({ userData }: { userData: any }) {
         </>
     );
 }
-
-// TODO - Check the radio buttons of the user's past answers
