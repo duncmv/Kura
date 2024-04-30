@@ -41,7 +41,7 @@ def institution(institution_id=None):
             return jsonify(institution.to_dict())
 
     if request.method == 'DELETE':
-        institution = Storage.get(institution, institution_id)
+        institution = Storage.get(Institution, institution_id)
         if institution is not None:
             Storage.delete(institution)
             Storage.save()

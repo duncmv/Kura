@@ -46,6 +46,9 @@ def tag(user_id, poll_id=None):
         poll = Storage.get(Poll, poll_id)
         if poll is None:
             abort(404)
-        user.taged_polls.remove(poll)
+        try:
+            user.taged_polls.remove(poll)
+        except ValueError:
+            return make_response('already done\n', 200)
         Storage.save()
-        abort(404)
+        return make_response("Done\n", 200)
