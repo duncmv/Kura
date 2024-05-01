@@ -13,34 +13,34 @@ import os
 
 @app_views.route('/update/<obj_id>', strict_slashes=False,
                  methods=['POST'])
-def signup(obj_id):
+def update(obj_id):
     """Handles the update process.
 
-    This route handles the update process for both users and objitutions.
+    This route handles the update process for both users and institutions.
     It expects a form containing the necessary information for update.
     The structure of the form payload for user update should be as follows:
     For a user:
     { 'json': {
         "class": "user",
-        "mobile_number": A string that represents the user's mobile number. It can store up to 14 characters.
-        "occupation": A string that represents the user's occupation. It can store up to 128 characters.
-        "ed_speciality": A string that represents the user's educational speciality. It can store up to 128 characters.
-        "job_role": A string that represents the user's job role. It can store up to 128 characters.
-        "company_id": A string that represents the ID of the company where the user works. It is a foreign key that references the 'id' column of the 'objitutions' table. It can store up to 60 characters.
-        "job_description": A string that represents a description of the user's job. It can store up to 2048 characters.
+        "mobile_number": A string that represents the user's mobile number.
+        "occupation": A string that represents the user's occupation.
+        "ed_speciality": A string that represents the user's educational speciality.
+        "job_role": A string that represents the user's job role.
+        "company_id": <valid institution_id> A string that represents the ID of the company where the user works.
+        "job_description": A string that represents a description of the user's job.
         "salary": A float that represents the user's salary.
-        "hobbies": A string that represents the user's hobbies. It can store up to 2048 characters.
+        "hobbies": A string that represents the user's hobbies.
         },
         'pic': <profile picture file>
         'id_snippet': <ID card file>
     } 
-    For an objitution:
+    For an institution:
     { 'json': {
-        "class": "objitution",
-        "postal_code": An integer that represents the postal code of the user or objitution.
-        "phone_number": A string that represents the phone number of the user or objitution. It can store up to 14 characters.
-        "parent_company": A string that represents the parent company of the user or objitution. It can store up to 128 characters.
-        "website_url": A string that represents the website URL of the user or objitution. It can store up to 128 characters.
+        "class": "institution",
+        "postal_code": An integer that represents the postal code of institution.
+        "phone_number": A string that represents the phone number of the institution. 
+        "parent_company": A string that represents the parent company of the institution.
+        "website_url": A string that represents the website URL of the institution.
         },
         'pic': <profile picture file>
     }
