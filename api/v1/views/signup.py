@@ -80,10 +80,10 @@ def signup():
         try:
             profile_pic = request.files['pic']
             filename = '/tmp/' + new.id + '.jpeg'
-            with open(filename, 'wb') as f:
-                f.write(profile_pic.read())
+            profile_pic.save(filename)
             new.pic = upload.upload_to_s3(file_name = filename, object_name = f"{new.id}.jpeg")
             os.remove(filename)
+            new.save()
         except Exception:
             traceback.print_exc()
     else:
