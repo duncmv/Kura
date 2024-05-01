@@ -12,7 +12,7 @@ export default function header ({userData = null}: {userData?: any}) {
 }
 
 function DefaultHeader () {
-  const currentPath = window.location.pathname;
+  const currentPath = window?.location.pathname;
   const showButtons = currentPath !== '/login' && currentPath !== '/register';
 
   return (
@@ -67,12 +67,9 @@ function HomeHeader ({userData}: {userData: any}) {
       <div className="--dropdown-- text-left absolute right-2 bottom-0 hidden z-50">
         <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
           <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-            {!isInst && (
-              <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Personal information</a>
-            )}
-            <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Account settings</a>
+            <p className='block w-full text-left px-4 py-2 text-sm text-gray-700 text-center'>Loged in as {userData.first_name}</p>
             <button type="submit" onClick={()=> {sessionStorage.removeItem('user'); window.location.reload();}} className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
-              Sign out
+              Log Out
             </button>
           </div>
         </div>

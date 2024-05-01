@@ -21,18 +21,21 @@ export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: bo
             setInst(res.data);
         });
 
-        axios.get(`http://18.207.112.170/api/v1/user/${userId}/tags`)
-        .then ((res) => {
-            const bookmarks = res.data.map((bookmark: any) => bookmark.id);
-            if (bookmarks.includes(pollData.id)) {
-                setMarked(true);
-            }
-        }).catch((err) => {
-            console.log(err);
-        });
+        if (!isInst) {
+            axios.get(`http://18.207.112.170/api/v1/user/${userId}/tags`)
+            .then ((res) => {
+                const bookmarks = res.data.map((bookmark: any) => bookmark.id);
+                if (bookmarks.includes(pollData.id)) {
+                    setMarked(true);
+                }
+            }).catch((err) => {
+                console.log(err);
+            });
+        }
     }, []);
 
     function handleDelete () {
+        if (pollData.institution.id !== userId) { alert("idk how u got here, but u can't delete this post cuz it isn't yours!"); return; }
         if (confirm("Are you sure you want to delete this poll?")) {
             axios.delete('http://18.207.112.170/api/v1/polls/' + pollData.id)
             .then((res) => {

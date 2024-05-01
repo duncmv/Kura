@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faClockRotateLeft, faBookmark, faArrowAltCircleUp, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faClockRotateLeft, faBookmark, faArrowAltCircleUp, faUserCircle, faGear } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 
 export default function Nav ({isInst, setTab}: {isInst: boolean, setTab: any}) {
@@ -9,11 +9,13 @@ export default function Nav ({isInst, setTab}: {isInst: boolean, setTab: any}) {
     const icons = {ind: 
                     {icons: [{name: 'home', icon: faHome, active: true},
                     {name: 'history', icon: faClockRotateLeft, active: false}, 
-                    {name: 'bookmark', icon: faBookmark, active: false}]}, 
+                    {name: 'bookmark', icon: faBookmark, active: false}, 
+                    {name: 'settings', icon: faUserCircle, active: false}]},
                   inst: 
                     {icons: [{name: 'home', icon: faHome, active: true},
                     {name: 'publish', icon: faArrowAltCircleUp, active: false},
-                    {name: 'profile', icon: faUserCircle, active: false}]}};
+                    {name: 'profile', icon: faUserCircle, active: false},
+                    {name: 'settings', icon: faGear, active: false}]}};
   
       const currIcons = isInst ? icons.inst.icons : icons.ind.icons;
       
