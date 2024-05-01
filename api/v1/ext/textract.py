@@ -96,7 +96,6 @@ def extract(file_name):
     kvs['date_of_birth'] = old_date.strftime("%Y-%m-%d")
     kvs.pop('date_of_expiry')
     kvs.pop('card_no.')
-    kvs.pop('sex')
     kvs.pop('nationality')
     kvs.pop('holders_signature')
     return kvs
