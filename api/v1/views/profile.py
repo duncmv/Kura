@@ -45,7 +45,7 @@ def update(obj_id):
         'pic': <profile picture file>
     }
 """
-    params = json.loads(request.files['json'])
+    params = json.load(request.files['json'])
     if params['class'] == 'user':
         try:
             obj = Storage.get(User, obj_id)
@@ -60,7 +60,7 @@ def update(obj_id):
                 params['verified'] = True
                 os.remove(file_path)
         except Exception:
-            traceback.print_exc()
+            pass
         params.pop('class')
         try:
             profile_pic = request.files['pic']
@@ -69,7 +69,7 @@ def update(obj_id):
             params['pic'] = upload.upload_to_s3(file_name = filename, object_name = f"{obj.id}.jpeg")
             os.remove(filename)
         except Exception:
-            traceback.print_exc()
+            pass
         obj.update(**params)
     else:
         obj = Storage.get(Institution, obj_id)
