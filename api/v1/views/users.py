@@ -10,7 +10,7 @@ from sqlalchemy.exc import IntegrityError
 @app_views.route("/users", strict_slashes=False,
                  methods=['GET'])
 @app_views.route('/users/<user_id>', strict_slashes=False,
-                 methods=['GET', 'DELETE', 'PUT'])
+                 methods=['GET', 'DELETE'])
 def user(user_id=None):
     """Handles CRUD operations on user objects.
 
@@ -45,20 +45,3 @@ def user(user_id=None):
             Storage.save()
             return jsonify({})
         abort(404)
-
-    if request.method == 'PUT':
-        user = Storage.get(User, user_id)
-        if user is None:
-            abort(404)
-        params = request.get_json(silent=True)
-        if not params:
-            return make_response("Not a JSON\n", 400)
-        for k in ("__class__", "id", "email", "created_at", "updated_at"):
-            params.pop(k, None)
-        for k, v in params.items():
-            setattr(user, k, v)
-        try:
-            user.save()
-        except IntegrityError:
-            return make_response("Credentials already exist", 400)
-        return jsonify(user.to_dict())

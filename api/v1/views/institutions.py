@@ -9,7 +9,7 @@ from models.institutions import Institution
 @app_views.route("/institutions", strict_slashes=False,
                  methods=['GET'])
 @app_views.route('/institutions/<institution_id>', strict_slashes=False,
-                 methods=['GET', 'DELETE', 'PUT'])
+                 methods=['GET', 'DELETE'])
 def institution(institution_id=None):
     """This route handles the retrieval, deletion, and updating of institution objects.
 
@@ -48,16 +48,3 @@ def institution(institution_id=None):
             return jsonify({})
         abort(404)
 
-    if request.method == 'PUT':
-        institution = Storage.get(Institution, institution_id)
-        if institution is None:
-            abort(404)
-        params = request.get_json(silent=True)
-        if not params:
-            return make_response("Not a JSON\n", 400)
-        for k in ("__class__", "id", "email", "created_at", "updated_at"):
-            params.pop(k, None)
-        for k, v in params.items():
-            setattr(institution, k, v)
-        institution.save()
-        return jsonify(institution.to_dict())
