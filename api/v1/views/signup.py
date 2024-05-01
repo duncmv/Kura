@@ -5,10 +5,11 @@ from flask import jsonify, request, make_response, abort
 from models import Storage
 from models.users import User
 from models.institutions import Institution
-from api.v1.ext import textract
+from api.v1.ext import textract, upload
 import json
 import traceback
 from sqlalchemy.exc import IntegrityError
+import os
 
 @app_views.route('/signup', strict_slashes=False,
                  methods=['POST'])
@@ -67,6 +68,7 @@ def signup():
             id_details = textract.extract(file_path)
             params.update(id_details)
             params['verified'] = True
+            os.remove(file_path)
         except Exception:
             traceback.print_exc()
         params.pop('class')
@@ -75,6 +77,15 @@ def signup():
             new.save()
         except IntegrityError:
             return jsonify({'error': 'User with these credentials already exists'}), 400
+        try:
+            profile_pic = request.files['pic']
+            filename = '/tmp/' + new.id + '.jpeg'
+            with open(filename, 'wb') as f:
+                f.write(profile_pic.read())
+            new.pic = upload.upload_to_s3(file_name = filename, object_name = f"{new.id}.jpeg")
+            os.remove(filename)
+        except Exception:
+            traceback.print_exc()
     else:
         params.pop('class')
         try:
