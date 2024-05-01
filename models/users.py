@@ -20,6 +20,7 @@ class User(BaseModel, Base):
     first_name = Column(String(128))
     middle_name = Column(String(128))
     last_name = Column(String(128))
+    sex = Column(String(10), nullable=True)
 
     id_card_number = Column(String(64), nullable=True, unique=True)
 

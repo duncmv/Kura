@@ -26,6 +26,7 @@ def signup():
         "password": "password123"
         },
       'id_snippet': <ID card file>
+      'pic': <profile picture file>
     }
 
     The structure of the form payload for institution signup should be as follows:
