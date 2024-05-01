@@ -80,7 +80,7 @@ def signup():
             return jsonify({'error': 'User with these credentials already exists'}), 400
         try:
             profile_pic = request.files['pic']
-            filename = '/tmp/' + new.id + '.jpeg'
+            filename = '/tmp/' + new.id 
             profile_pic.save(filename)
             new.pic = upload.upload_to_s3(file_name = filename, object_name = f"{new.id}.jpeg")
             os.remove(filename)
