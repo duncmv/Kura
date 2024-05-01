@@ -70,7 +70,10 @@ def update(obj_id):
             os.remove(filename)
         except Exception:
             pass
-        obj.update(**params)
+        try:
+            obj.update(**params)
+        except IntegrityError:
+            return make_response(jsonify({"error": "User already exists"}), 400)
     else:
         obj = Storage.get(Institution, obj_id)
         params.pop('class')
