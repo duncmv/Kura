@@ -28,6 +28,7 @@ class Institution(BaseModel, Base):
 
     website_url = Column(String(128))
     pic = Column(String(128), nullable=True)
+    cover = Column(String(128), nullable=True)
 
     district_id = Column(
         String(60),

@@ -43,6 +43,7 @@ def update(obj_id):
         "website_url": A string that represents the website URL of the institution.
         },
         'pic': <profile picture file>
+        'cover': <cover picture file>
     }
 """
     params = json.load(request.files['json'])
@@ -82,6 +83,14 @@ def update(obj_id):
             filename = '/tmp/' + obj.id + '.jpeg'
             profile_pic.save(filename)
             params['pic'] = upload.upload_to_s3(file_name = filename, object_name = f"{obj.id}.jpeg")
+            os.remove(filename)
+        except Exception:
+            traceback.print_exc()
+        try:
+            cover = request.files['cover']
+            filename = '/tmp/cover_' + obj.id + '.jpeg'
+            profile_pic.save(filename)
+            params['cover'] = upload.upload_to_s3(file_name = filename, object_name = f"cover_{obj.id}.jpeg")
             os.remove(filename)
         except Exception:
             traceback.print_exc()
