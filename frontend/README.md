@@ -34,7 +34,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 <!-- Inst and Ind profiles -->
 [] TODO - Inst can edit profile and cover pictures
 <!-- (home)/(pages)/main.tsx -->
-[] TODO - fix the polled shows up when reloading the page
+[done] TODO - fix the polled shows up when reloading the page
 <!-- @/(components)/poll.tsx -->
 [] TODO - Move the radio button to the right
 [] TODO - Show number of votes after voting & remove the vote button

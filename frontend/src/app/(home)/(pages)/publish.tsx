@@ -78,9 +78,9 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
             questions: poll.questions.map(question => {
                 return {
                     text: question.title,
-                    answers: [question.answers.map(answer => {
+                    answers: question.answers.map(answer => {
                         return {text: answer.text};
-                    })]
+                    })
                 };
             })
         };
@@ -98,6 +98,7 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
             alert("Published!");
         }).catch((err) => {
             console.log(err);
+            console.log(data);
         });
     }
 
@@ -295,7 +296,7 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
 
     const [currentForm, setCurrentForm] = useState(0);
     return (
-        <form className={form + ' bg-white w-[100%] sm:w-[80%] md:w-[60%] sm:mt-10 mb-10 sm:mb-20'} onSubmit={handleNext} noValidate>
+        <form className={form + ' bg-white w-[100%] sm:w-[80%] md:w-[60%] sm:mt-10 mb-10 sm:mb-20'} onSubmit={handleNext}>
             {form1}
         </form>
     );

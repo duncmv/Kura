@@ -40,7 +40,6 @@ export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: bo
             axios.delete('http://18.207.112.170/api/v1/polls/' + pollData.id)
             .then((res) => {
                 alert('Successfully deleted');
-                document.location.reload();
             })
             .catch((error) => {
                 console.log(error);
@@ -93,7 +92,7 @@ export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: bo
                         </Link>
                         <p className="--time--" title={formattedDate}>{time}</p>
                     </div>
-                    { userId && (
+                    {((!isInst) || (isInst && userId === pollData.institution.id)) && (
                         <button className="--settings--" onClick={() => document.getElementsByClassName(pollData.id + '--poll-dropdown--')[0].classList.toggle('hidden')}>
                             <FontAwesomeIcon icon={faEllipsisH} />
                         </button>
