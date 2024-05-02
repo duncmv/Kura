@@ -18,4 +18,4 @@ class Answer(BaseModel, Base):
         nullable=False
         )
 
-    choices = orm.relationship('Choice', back_populates='answer', viewonly=False)
+    choices = orm.relationship('Choice', back_populates='answer', viewonly=False, cascade='all, delete')
