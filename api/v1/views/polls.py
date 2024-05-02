@@ -134,6 +134,7 @@ def polls_by_institution(institution_id):
 
     if request.method == 'POST':
         params = request.get_json(silent=True)
+        print(params)
         if not params:
             return make_response("Not a JSON\n", 400)
         if 'title' not in params:
