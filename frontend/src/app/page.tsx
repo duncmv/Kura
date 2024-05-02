@@ -29,7 +29,8 @@ export default function Home () {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900">
+        <div className="flex h-2.5 w-full max-w-xs bg-gray-300 rounded-full overflow-hidden">
+          <div className="h-full w-9/10 bg-blue-500 animate-progress"></div>
         </div>
       </div>
     )

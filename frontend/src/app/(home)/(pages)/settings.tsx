@@ -25,7 +25,7 @@ export default function Settings ({userData}: {userData: any}) {
             {!isInst && (
                 <>
                     <div className='relative my-4 w-28 h-28 rounded-full bg-white' style={{backgroundImage: `url(${userData.pic ?? '/user-place-holder.png'})`, backgroundPosition: 'center', backgroundSize: 'cover'}}>
-                        <label htmlFor="fileInput" className='absolute top-1 right-1 text-sm cursor-pointer'>
+                        <label htmlFor="fileInput" className='absolute top-1 right-1 text-sm cursor-pointer bg-white w-5 h-5 border-black rounded-full'>
                             <FontAwesomeIcon icon={faPen}></FontAwesomeIcon>
                         </label>
                         <input id="fileInput" type='file' accept="image/*" className="hidden"/>

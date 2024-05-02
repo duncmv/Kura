@@ -14,7 +14,8 @@ export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: bo
     const [data, setData] = useState(Array);
     const [marked, setMarked] = useState(false);
     const date = new Date(pollData.created_at);
-    const formattedDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'full', timeStyle: 'short' }).format(date);
+    const userLocale = navigator.language || 'en-US';  // use the user's locale, or 'en-US' if it's not available
+    const formattedDate = new Intl.DateTimeFormat(userLocale, { dateStyle: 'full', timeStyle: 'short' }).format(date);
 
     useEffect(() => {
         axios.get('http://18.207.112.170/api/v1/institutions/' + pollData.institution.id).then((res) => {
@@ -154,10 +155,11 @@ export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: bo
     )
 }
 
-function getTime (date: string) {
+function getTime(date: string) {
     const now = new Date();
     const then = new Date(date);
-    const diff = now.getTime() - then.getTime();
+    const userOffset = then.getTimezoneOffset();
+    const diff = now.getTime() - then.getTime() + userOffset * 60 * 1000; // Add user's offset to compensate for the time difference
     const diffInMinutes = Math.floor(diff / 60000);
     const diffInHours = Math.floor(diffInMinutes / 60);
     const diffInDays = Math.floor(diffInHours / 24);
