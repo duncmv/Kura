@@ -154,4 +154,4 @@ def polls_by_institution(institution_id):
                 for answer in answer_list:
                     new_question.answers.append(Answer(**answer))
         Storage.save()
-        return jsonify(new_poll.to_dict()), 201
+        return jsonify(new_poll.id), 201
