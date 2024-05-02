@@ -31,7 +31,7 @@ export default function History({ userData }: { userData: any }) {
                     const pollResponse = await axios.get(`http://18.207.112.170/api/v1/polls/${id}`);
                     return pollResponse.data;
                 }));
-                setPolls(fetchedPolls);
+                setPolls(fetchedPolls.reverse());
                 setLoading(false);
             } catch (error) {
                 console.error(error);
@@ -61,7 +61,7 @@ export default function History({ userData }: { userData: any }) {
                 <div className="mb-20 w-full">
                     {polls.map((poll: any) => {
                         if (polled.includes(poll.id)) {
-                            return <Poll key={poll.id} pollData={poll} isInst={isInst}/>;
+                            return <Poll key={poll.id} tab="history" pollData={poll} isInst={isInst}/>;
                         }
                     })}
                 </div>

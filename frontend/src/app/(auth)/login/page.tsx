@@ -29,10 +29,25 @@ const LoginPage: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!data.email || !data.password || !(await login(data.email, data.password))) {
+        if (!data.email || !data.password) {
             setNotExsists(true);
+            return;
+        }
+    
+        try {
+            const res = await login(data.email, data.password);
+            if (res) {
+                setNotExsists(false); // Clear error message
+                router.push("/"); // Redirect after successful login
+            } else {
+                setNotExsists(true); // Show error message
+            }
+        } catch (error) {
+            console.error("Error occurred during login:", error);
+            setNotExsists(true); // Show error message
         }
     }
+    
 
     return (
         <>
