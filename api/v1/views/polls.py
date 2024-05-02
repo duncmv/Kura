@@ -144,13 +144,14 @@ def polls_by_institution(institution_id):
         questions = params.pop('questions', None)
         params['institution_id'] = institution_id
         new_poll = Poll(**params)
+        new_poll.save()
         for question in questions:
             answer_list = question.pop('answers', None)
             question['poll_id'] = new_poll.id
             new_question = Question(**question)
+            new_question.save()
             if answer_list:
                 for answer in answer_list:
-                    answer['question_id'] = new_question.id
-                    Answer(**answer)
+                    new_question.answers.append(Answer(**answer))
         Storage.save()
         return jsonify(new_poll.to_dict()), 201
