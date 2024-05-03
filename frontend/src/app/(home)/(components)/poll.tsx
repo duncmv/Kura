@@ -94,7 +94,7 @@ export default function Poll ({ pollData, isInst, tab} : { pollData?: any, isIns
                 <div className='--poll-header-- flex flex-row justify-between items-center w-[90%] relative'>
                     <div className="--publisher-- basis-3/4">
                         <Link href={'/inst/' + pollData.institution.id}>
-                            <span className='w-10 h-10 inline-block float-left border rounded-full mr-4 ' style={{backgroundImage: 'url(/inst-place-holder.png)', backgroundPosition: 'center', backgroundSize: 'cover'}}></span>
+                            <span className='w-10 h-10 inline-block float-left border rounded-full mr-4 ' style={{backgroundImage: 'url(/inst-place-holder.svg)', backgroundPosition: 'center', backgroundSize: 'cover'}}></span>
                             <h3 className={h3}>{inst.name}</h3>
                         </Link>
                         <p className="--time--" title={formattedDate}>{time}</p>

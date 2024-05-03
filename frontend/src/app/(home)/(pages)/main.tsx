@@ -42,9 +42,9 @@ export default function Main({ userData }: { userData: any }) {
 
     return (
         <>
-            {loading && <p>loading...</p>}
-            {!loading && polls.length === 0 && !isInst && <p>No polls yet, try again later.</p>}
-            {!loading && polls.length === 0 && isInst && <p>No polls yet, Create a new poll to start</p>}
+            {loading && <p className="mt-2">loading...</p>}
+            {!loading && polls.length === 0 && !isInst && <p className="mt-2">No polls yet, try again later.</p>}
+            {!loading && polls.length === 0 && isInst && <p className="mt-2">No polls yet, Create a new poll to start</p>}
             {!loading && polls.length > 0 && (
                 <div className="mb-20 w-full">
                     {polls.map((poll: any) => {

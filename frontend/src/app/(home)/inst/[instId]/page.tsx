@@ -86,7 +86,7 @@ export default function InstProfile({ params }: { params: { instId: string } }) 
                 <div className='--profile-header-- w-[100vw] h-[150px] relative'>
                     <div className='--profile-header-- bg-gray-300 h-[100%] w-[100vw]'></div>
                     <div className='--profile-header-content-- flex flex-row gap-5 items-center absolute bottom-[-50px] left-[20px]'>
-                        <div className='--profile-header-img-- bg-gray-300 rounded-full w-20 h-20' style={{ backgroundImage: `url(${instData?.pic ?? '/inst-place-holder.png'})`, backgroundPosition: 'center', backgroundSize: 'cover' }}></div>
+                        <div className='--profile-header-img-- bg-gray-300 rounded-full w-20 h-20' style={{ backgroundImage: `url(${instData?.pic ?? '/inst-place-holder.svg'})`, backgroundPosition: 'center', backgroundSize: 'cover' }}></div>
                         {!editing && 
                             <h1 className='--profile-header-name-- text-2xl font-bold mt-2'>{instData?.name ?? 'Institution'}
                                 <p className='font-normal text-sm'>Since {getSince()}</p>

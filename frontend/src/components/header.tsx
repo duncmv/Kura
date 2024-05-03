@@ -68,7 +68,7 @@ function HomeHeader ({userData}: {userData: any}) {
           // TODO: Perform search logic
         }}
       />
-      <button onClick={() => document.getElementsByClassName('--dropdown--')[0].classList.toggle('hidden')} className='w-10 h-10 inline-block float-left border rounded-full mr-4 ' style={{backgroundImage: `url(${userData?.pic ?? (isInst ? '/inst-place-holder.png' : '/user-place-holder.png')})`, backgroundPosition: 'center', backgroundSize: 'cover'}}></button>
+      <button onClick={() => document.getElementsByClassName('--dropdown--')[0].classList.toggle('hidden')} className='w-10 h-10 inline-block float-left border rounded-full mr-4 ' style={{backgroundImage: `url(${userData?.pic ?? (isInst ? '/inst-place-holder.svg' : '/user-place-holder.svg')})`, backgroundPosition: 'center', backgroundSize: 'cover'}}></button>
       <div className="--dropdown-- text-left absolute right-2 bottom-0 hidden z-50">
         <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
           <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
