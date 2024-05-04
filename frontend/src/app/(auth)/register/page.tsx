@@ -104,6 +104,7 @@ function Individual(props: { distList: JSX.Element[], setShowContent: React.Disp
 }) {
     const [selectedFiles, setSelectedFiles] = useState(Object.create({}));
     const [info, setInfo] = useState(Object.create({}));
+    const router = useRouter();
 
     // Get stored data from sessionStorage
     useEffect(() => {
@@ -160,9 +161,8 @@ function Individual(props: { distList: JSX.Element[], setShowContent: React.Disp
     }
 
     // Handle form submission
-    const handleNext = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleNext = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
         if (info.password !== info.confirm) {
             alert('Passwords do not match');
             return;
@@ -189,16 +189,18 @@ function Individual(props: { distList: JSX.Element[], setShowContent: React.Disp
             out.append('id_snippet', new Blob([id_snippet], {
                 type: 'image/*'
             }));
-            signup(out);
+            const res = await signup(out);
+            if (res) {
+                router.push("/");
+            }
         } else {
             setCurrentForm(currentForm + 1);
         }
-
     }
-    
+
     const handleBack = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-       
+
         if (currentForm - 1 < 0) {
             props.setShowContent(false);
             props.setShowInitialContent(true);

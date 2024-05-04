@@ -83,13 +83,14 @@ function getUserData() {
     return userData;
 }
 
-function signup(data: any) {
-    axios.post('http://18.207.112.170/api/v1/signup', data).then((res) => {
+async function signup(data: any) {
+    return (await axios.post('http://18.207.112.170/api/v1/signup', data).then((res) => {
         sessionStorage.setItem('user', JSON.stringify(res.data.id));
-        window.location.reload();
+        return true;
     }).catch((e) => {
         return null
-    });
+    }));
+    return null
 }
 
 export { login, logout, getCurrentUser, getUserData, signup, getUserById};

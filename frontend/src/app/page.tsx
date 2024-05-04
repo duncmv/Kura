@@ -5,6 +5,7 @@ import LandingPage from './landing';
 import { useEffect, useState } from 'react';
 import React from 'react';
 
+
 export default function Home () {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -23,8 +24,6 @@ export default function Home () {
 
     fetchUserData();
   }, []);
-
-  console.log(userData)
 
   if (loading) {
     return (
