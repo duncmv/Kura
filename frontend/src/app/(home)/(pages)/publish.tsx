@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
-import { container, h2, form, input, button, h3 } from "@/components/styleVar";
+import { form, input, button, h3 } from "@/components/styleVar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
-import { stringify } from "querystring";
-import { title } from "process";
-import { randomUUID } from "crypto";
+import { faCheckCircle, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { v4 as uuid } from "uuid";
 import axios from "axios";
 
@@ -17,6 +14,7 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
             {id: uuid(), title: '', answers: [{id: uuid(), text: ''}, {id: uuid(), text: ''}]},
         ]
     });
+    const [published, setPublished] = useState(false);
     
     useEffect(() => {
         // Get poll data from sessionStorage
@@ -95,7 +93,10 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
                 ]
             });
             sessionStorage.removeItem('poll');
-            alert("Published!");
+            setPublished(true);
+            setTimeout(() => {
+                setPublished(false);
+            }, 1000);
         }).catch((err) => {
             console.log(err);
             console.log(data);
@@ -272,9 +273,15 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
                 </div>
             </div>
             <div className="pt-10">
-                <button className={button + " float-right relative"} onClick={() => handleNext}>
-                    Publish
-                </button>
+                {published ? (
+                    <button className={button + " float-right relative bg-blue-200"}>
+                        &nbsp;&nbsp;&nbsp;<FontAwesomeIcon icon={faCheckCircle} className='text-blue-500' />&nbsp;&nbsp;&nbsp;
+                    </button>
+                ) : (
+                    <button className={button + " float-right relative"} onClick={() => handleNext}>
+                        Publish
+                    </button>
+                )}
                 <button className={button + ' float-left relative'} onClick={(e) => {
                     e.preventDefault();
                     if (confirm('Are you sure you want to clear the form?')) {

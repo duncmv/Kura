@@ -42,7 +42,11 @@ export default function Main({ userData }: { userData: any }) {
 
     return (
         <>
-            {loading && <p className="mt-2">loading...</p>}
+            {loading && (
+                <div className="flex justify-center items-center w-full h-screen">
+                    <p>Loading...</p>
+                </div>
+            )}
             {!loading && polls.length === 0 && !isInst && <p className="mt-2">No polls yet, try again later.</p>}
             {!loading && polls.length === 0 && isInst && <p className="mt-2">No polls yet, Create a new poll to start</p>}
             {!loading && polls.length > 0 && (

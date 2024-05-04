@@ -26,14 +26,15 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 <!-- The settings page -->
 [] TODO - Static Inst settings
 [] TODO - Inst can edit profile and cover pictures
-<!-- @/(components)/poll.tsx -->
-[done] TODO - Move the radio button to the right
-[] TODO - Show number of votes after voting & remove the vote button
-<!-- (home)/(pages)/history.tsx -->
-[] TODO - Check the radio buttons of the user's past answers
 <!-- @/components/header.tsx -->
 [] TODO - Perform search logic
 
+
+<!-- @/(components)/poll.tsx -->
+[done] TODO - Move the radio button to the right
+[done] TODO - Show number of votes after voting & remove the vote button
+<!-- (home)/(pages)/history.tsx -->
+[done] TODO - Check the radio buttons of the user's past answers
 <!-- Login page & Register -->
 [done] TODO - Error shows even when password@email are correct
 [done] TODO - Login & Signup sometimes show, and sometimes disappear

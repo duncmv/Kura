@@ -1,13 +1,13 @@
 import { h3, h2, button } from '../../../components/styleVar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faCircleRight, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import Question from './question';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import React from 'react';
 import Link from 'next/link';
 
-export default function Poll ({ pollData, isInst, tab} : { pollData?: any, isInst: boolean, tab?: any})  {
+export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: boolean})  {
     const time = getTime(pollData.created_at);
     const userId = JSON.parse(sessionStorage.getItem('user')!) as string;
     const [inst, setInst] = useState(Object);
@@ -18,6 +18,8 @@ export default function Poll ({ pollData, isInst, tab} : { pollData?: any, isIns
     const formattedDate = new Intl.DateTimeFormat(userLocale, { dateStyle: 'full', timeStyle: 'short' }).format(date);
     const [showIndicator, setShowIndicator] = useState(false);
     const [leftQuestions, setLeftQuestions] = useState(pollData.questions.length);
+    const [answered, setAnswered] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         axios.get('http://18.207.112.170/api/v1/institutions/' + pollData.institution.id).then((res) => {
@@ -35,7 +37,22 @@ export default function Poll ({ pollData, isInst, tab} : { pollData?: any, isIns
                 console.log(err);
             });
         }
+
+        // get the old answers and check them on the poll, if they are already answered, disable the vote button
+        if (!isInst) {
+            const pollAnswers = pollData.questions.map((question: any) => question.answers.map((answer: any) => answer.id)).flat();
+            axios.get(`http://18.207.112.170/api/v1/users/${userId}/choices`)
+            .then ((res) => {
+                const answers = res.data;
+                setAnswered(answers.filter((answer: any) => pollAnswers.includes(answer)));
+                setLoading(false);
+            })
+        } else { setLoading(false); }
     }, []);
+
+    useEffect (() => {
+        setLeftQuestions(pollData.questions.length - answered.length);
+    }, [answered]);
 
     function handleDelete () {
         if (pollData.institution.id !== userId) { alert("idk how u got here, but u can't delete this post cuz it isn't yours!"); return; }
@@ -78,9 +95,10 @@ export default function Poll ({ pollData, isInst, tab} : { pollData?: any, isIns
             .then((res) => {
                 setShowIndicator(true);
                 setLeftQuestions(leftQuestions - answers.length);
+                setData([]);
                 setTimeout(() => {
                     setShowIndicator(false);
-                }, 3000);
+                }, 1000);
             })
             .catch((err) => {
                 console.log(err);
@@ -140,23 +158,50 @@ export default function Poll ({ pollData, isInst, tab} : { pollData?: any, isIns
                         <h2 className={h2}>{pollData.title}</h2>
                         <p className="--description-- overflow-ellipsis overflow-hidden max-h-[75px] line-clamp-3">{pollData.description}</p>
                     </div>
-                    <div className="--questions--">
-                        {pollData.questions?.map((question: any) => {
-                            return <Question questionData={question} isInst={isInst} setData={setData} key={question.id} />;
-                        })}
-                    </div>
-                    {!isInst &&  userId && leftQuestions !== 0 && tab != 'history' && (
+                    {loading && (
+                        <>
+                            <div className="--question-- p-6 sm:w-[90%] mx-auto my-2 flex flex-col justify-center items-center">
+                                <div className="--options-- w-[100%] sm:w-[90%] mx-auto flex flex-col justify-center items-center">
+                                    <div className="w-full sm:w-[90%] mx-auto">
+                                    <h3 className={h3 + " mb-2 animate-pulse text-xl font-medium text-neutral-900 w-[90%] mx-auto my-2 border py-3 px-2"}>
+                                        <span className="block h-4 animate-pulse bg-neutral-400 mb-2"></span>
+                                    </h3>
+                                    <h3 className={h3 + " mb-2 animate-pulse text-xl font-medium text-neutral-900 w-[90%] mx-auto my-2 border py-3 px-2"}>
+                                        <span className="block h-4 animate-pulse bg-neutral-400 mb-2"></span>
+                                    </h3>
+                                    <h3 className={h3 + " mb-2 animate-pulse text-xl font-medium text-neutral-900 w-[90%] mx-auto my-2 border py-3 px-2"}>
+                                        <span className="block h-4 animate-pulse bg-neutral-400 mb-2"></span>
+                                    </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </>
+                    )}
+                    {!loading && (
+                        <div className="--questions--">
+                            {pollData.questions?.map((question: any) => {
+                                return <Question questionData={question} isInst={isInst} answered={answered} setData={setData} key={question.id} />;
+                            })}
+                        </div>
+                    )}
+                    {!isInst &&  userId && leftQuestions !== 0 && (
                         <div className="--poll-footer--">
-                            <button onClick={handleVote} className={button + ' float-right'}>
-                                Vote
-                            </button>
+                            {!showIndicator ? (
+                                <button onClick={handleVote} className={button + ' float-right'}>
+                                    Vote
+                                </button>
+                            ) : (
+                                <button onClick={handleVote} className={button + ' float-right bg-blue-200'}>
+                                    &nbsp;<FontAwesomeIcon icon={faCheckCircle} className='text-blue-500' />&nbsp;&nbsp;
+                                </button>
+                            )}
                         </div>
                     )}
                     {!userId && (
                         <p className='text-center text-red-400 text-bold'>Login or Signup to vote</p>
                     )}
-                    {showIndicator && (
-                        <p className='text-center text-blue-500 text-bold'>Successfully Voted</p>
+                    {leftQuestions === 0 && (
+                        <p className='text-center text-blue-400 text-bold'>Voted</p>
                     )}
                 </div>
             </div>
