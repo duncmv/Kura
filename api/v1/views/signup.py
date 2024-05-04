@@ -71,7 +71,7 @@ def signup():
             params['verified'] = True
             os.remove(file_path)
         except Exception:
-            traceback.print_exc()
+            pass
         params.pop('class')
         try:
             new = User(**params)
@@ -86,13 +86,12 @@ def signup():
             os.remove(filename)
             new.save()
         except Exception:
-            traceback.print_exc()
+            pass
     else:
         params.pop('class')
         try:
             new = Institution(**params)
             new.save()
         except IntegrityError:
-            traceback.print_exc()
             return jsonify({'error': 'Institution already exists'}), 400
     return jsonify(new.to_dict()), 201
