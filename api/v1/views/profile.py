@@ -63,6 +63,7 @@ def update(obj_id):
         except Exception:
             pass
         params.pop('class')
+        params.pop('__class__')
         try:
             profile_pic = request.files['pic']
             filename = '/tmp/' + obj.id + '.jpeg'
@@ -78,6 +79,7 @@ def update(obj_id):
     else:
         obj = Storage.get(Institution, obj_id)
         params.pop('class')
+        params.pop('__class__')
         try:
             profile_pic = request.files['pic']
             filename = '/tmp/' + obj.id + '.jpeg'
