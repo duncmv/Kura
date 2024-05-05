@@ -28,6 +28,7 @@ export default async function login(email: string, password: string) {
  */
 function logout() {
     sessionStorage.removeItem('user');
+    window.location.reload();
 }
 
 

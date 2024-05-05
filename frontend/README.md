@@ -21,10 +21,10 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 <!-- Inst and Ind profiles -->
-[-] TODO - Ind profile static
-[-] TODO - Ind can edite his data adn manage his account
+[done] TODO - Ind profile static
+[-waiting-for-duncan-] TODO - Ind can edite his data adn manage his account
 <!-- The settings page -->
-[] TODO - Static Inst settings
+[done] TODO - Static Inst settings
 [] TODO - Inst can edit profile and cover pictures
 <!-- @/components/header.tsx -->
 [] TODO - Perform search logic

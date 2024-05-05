@@ -292,6 +292,7 @@ function Institution(props: { distList: JSX.Element[], setShowContent: React.Dis
     const [industries, setIndustries] = useState(Array());
     let industryList = [];
     let entityList = [];
+    const router = useRouter();
 
     useEffect(() => {
         // Get stored data from sessionStorage
@@ -346,7 +347,7 @@ function Institution(props: { distList: JSX.Element[], setShowContent: React.Dis
     sessionStorage.setItem('institutionInfo', JSON.stringify(infoWithoutPassword));
     }
 
-    const handleNext = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleNext = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if (info.password !== info.confirm) {
@@ -367,8 +368,10 @@ function Institution(props: { distList: JSX.Element[], setShowContent: React.Dis
             out.append('json', new Blob([JSON.stringify(restInfo)], {
                 type: 'application/json'
             }));
-            console.log(restInfo);
-            signup(out);
+            const res = await signup(out);
+            if (res) {
+                router.push("/");
+            }
         } else {
             setCurrentForm(currentForm + 1);
         }

@@ -303,7 +303,7 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
 
     const [currentForm, setCurrentForm] = useState(0);
     return (
-        <form noValidate className={form + ' bg-white w-[100%] sm:w-[80%] md:w-[60%] sm:mt-10 mb-10 sm:mb-20'} onSubmit={handleNext}>
+        <form className={form + ' bg-white w-[100%] sm:w-[80%] md:w-[60%] sm:mt-10 mb-10 sm:mb-20'} onSubmit={handleNext}>
             {form1}
         </form>
     );
