@@ -26,15 +26,13 @@ export default function Settings ({userData}: {userData: any}) {
 
     const handleFileChange = (e: any) => {
         const file = e.target.files[0];
-        const reader = new FileReader();
+
+        if (!file?.type?.startsWith('image')) { alert('Please select an image'); return; }
 
         const picElement = document.getElementsByClassName('--pic--')[0] as HTMLElement;
         picElement.style.backgroundImage = `url(${URL.createObjectURL(file)})`;
 
-        reader.onloadend = () => {
-            data.pic = reader.result;
-        }
-        reader.readAsDataURL(file);
+        data.pic = file;
     };
 
     const handleChange = (e: any) => {
@@ -74,10 +72,10 @@ export default function Settings ({userData}: {userData: any}) {
                 axios.post(`http://18.207.112.170/api/v1/update/${userData.id}`, out)
                 .then((res) => {
                     setDone(true);
-                    userData.pic = data.pic;
                     setTimeout(() => {
                         setDone(false);
                     }, 2000);
+                    document.location.reload();
                 }).catch((err) => {
                     console.log(err);
                 });

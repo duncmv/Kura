@@ -20,22 +20,23 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-<!-- Inst and Ind profiles -->
-[done] TODO - Ind profile static
-[-waiting-for-duncan-] TODO - Ind can edite his data adn manage his account
-<!-- The settings page -->
-[done] TODO - Static Inst settings
-[] TODO - Inst can edit profile and cover pictures
+<!-- Several style changes -->
+[] TODO - reorganize the signup page for the individual
+[] TODO - onpage indicator when deleting a poll (for the button)
+[done] TODO - hilight the chosen answer and remove the radio button
+[done] TODO - hide the poll dropdown when clicking on another place on the screen
 <!-- @/components/header.tsx -->
 [] TODO - Perform search logic
-<!-- Several style changes -->
-[] TODO - hilight the chosen answer and remove the radio button
-[] TODO - reorganize the signup page for the individual
-[done] TODO - hide the poll dropdown when clicking on another place on the screen
-[] TODO - onpage indicator when deleting a poll (for the button)
+
+<!-- The settings page -->
+[-waiting-for-duncan-] TODO - Inst can edit profile and cover pictures
+[done] TODO - Static Inst settings
 
 
 
+<!-- Inst and Ind profiles -->
+[done] TODO - Ind can edite his data adn manage his account
+[done] TODO - Ind profile static
 <!-- @/(components)/poll.tsx -->
 [done] TODO - Move the radio button to the right
 [done] TODO - Show number of votes after voting & remove the vote button

@@ -15,14 +15,18 @@ export default function InstProfile({ params }: { params: { instId: string } }) 
     const [pollsNum, setPollsNum] = useState(0);
     const same = userData?.id === instId;
     const [editing, setEditing] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const images: any = {};
 
     async function fetchData() {
         if (same) {
             setInstData(userData);
         } else {
-            const data = await getUserById(instId);
+            let data = await getUserById(instId);
+            if (!data) {data = null;}
             setInstData(data);
         }
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -67,9 +71,38 @@ export default function InstProfile({ params }: { params: { instId: string } }) 
         }
     }
 
-    function handleSave() {
-        axios.put(`http://18.207.112.170/api/v1/institutions/${instId}`, instData)
+    const handleFileChange = (e: any) => {
+        const file = e.target.files[0];
+        const key = e.target.name;
+
+        if (!file?.type?.startsWith('image/')) { alert('Invalid file type'); return; }
+
+        const element = document.getElementById(key + '-element') as HTMLElement;
+        element.style.backgroundImage = `url(${URL.createObjectURL(file)})`;
+
+        images[key] = file;
+    }
+
+    function handleSave () {
+        if (!images.pic && !images.cover) {
+            setEditing(false);
+            return;
+        }
+
+        const out = new FormData();
+        out.append('json', new Blob([JSON.stringify({'class': 'institution'})], {
+            type: 'application/json'
+        }));
+        if (images.pic) { out.append('pic', new Blob([images.pic], {
+            type: 'image/*'
+        }));}
+        if (images.cover) { out.append('cover', new Blob([images.cover], {
+            type: 'image/*'
+        }));}
+
+        axios.post(`http://18.207.112.170/api/v1/update/${instId}`, out)
         .then ((res) => {
+            setInstData(res.data);
             setEditing(false);
             alert('Saved!');
         }).catch((e) => {
@@ -81,20 +114,42 @@ export default function InstProfile({ params }: { params: { instId: string } }) 
     return (
         <>
             <Header userData={userData} />
+            {loading && (
+                <div className='w-full h-[100vh] flex justify-center items-center'>
+                    <p className='text-2xl'>Loading...</p>
+                </div>
+            )}
+            
+            {!loading && !instData && (
+                <div className='w-full h-[100vh] flex justify-center items-center'>
+                    <p className='text-2xl'>Institution not found</p>
+                </div>
+            )}
+            
+            {!loading && instData && (
             <div onClick={() => {document.getElementsByClassName('--dropdown--')[0]?.classList.add('hidden');}} 
                 className='--profile-wrapper-- relative gap-20 flex flex-col items-center bg-gray-100 overflow-y-scroll scrollbar-hide'>
                 <div className='--profile-header-- w-[100vw] h-[150px] relative'>
-                    <div className='--profile-header-- bg-gray-300 h-[100%] w-[100vw]'></div>
+                    <div id='cover-element' className='--profile-cover-- relative bg-gray-500 h-[100%] w-[100vw]' style={{ backgroundImage: `url(${instData?.cover})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
+                        {editing && (
+                            <label htmlFor='cover' className="--settings-- absolute right-3 top-3 cursor-pointer">
+                                <FontAwesomeIcon icon={faPen} />
+                            </label>
+                        )}
+                        <input onChange={handleFileChange} type='file' accept='image/*' className='hidden' id='cover' name='cover' />
+                    </div>
                     <div className='--profile-header-content-- flex flex-row gap-5 items-center absolute bottom-[-50px] left-[20px]'>
-                        <div className='--profile-header-img-- bg-gray-300 rounded-full w-20 h-20' style={{ backgroundImage: `url(${instData?.pic ?? '/inst-place-holder.svg'})`, backgroundPosition: 'center', backgroundSize: 'cover' }}></div>
-                        {!editing && 
+                        <div id='pic-element' className='--profile-header-img-- relative bg-white border rounded-full w-20 h-20' style={{ backgroundImage: `url(${instData?.pic ?? '/inst-place-holder.svg'})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
+                            {editing && (
+                                <label htmlFor='pic' className="--settings-- absolute right-1 top-[-9px] cursor-pointer">
+                                    <FontAwesomeIcon icon={faPen} />
+                                </label>
+                            )}
+                            <input onChange={handleFileChange} type='file' accept='image/*' className='hidden' id='pic' name='pic' />
+                        </div>
                             <h1 className='--profile-header-name-- text-2xl font-bold mt-2'>{instData?.name ?? 'Institution'}
                                 <p className='font-normal text-sm'>Since {getSince()}</p>
                             </h1>
-                        }
-                        {editing && 
-                            <input type='text' className='--profile-header-name-- text-2xl px-2 w-[150px] border border-gray-500 font-bold mt-2 bg-transparent' value={instData?.name} onChange={(e) => setInstData({ ...instData, name: e.target.value })} />
-                        }
                     </div>
                     {same && !editing &&
                         <button onClick={() => {setEditing(true)}} className="--settings-- absolute right-[20px] bottom-[-35px]">
@@ -116,6 +171,7 @@ export default function InstProfile({ params }: { params: { instId: string } }) 
                     ))}
                 </div>
             </div>
+            )}
         </>
     );
 }
