@@ -225,7 +225,7 @@ function Individual(props: { distList: JSX.Element[], setShowContent: React.Disp
             </div>
             <div className='pt-10'>
                 <button className={button + ' float-right relative'} >
-                    Register
+                    &nbsp; Next &nbsp;
                     <div className='absolute top-[-25px] left-[65px] min-[640px]:left-[75px] w-[15px] h-[15px] rounded-full border'></div>
                     <div className='absolute top-[-25px] left-[40px] min-[640px]:left-[50px] w-[15px] h-[15px] rounded-full border bg-blue-300'></div>
                 </button>
@@ -238,12 +238,8 @@ function Individual(props: { distList: JSX.Element[], setShowContent: React.Disp
     const form2 = <>
         <h3 className={h3}>Personal Information</h3>
             <p className='pb-10'>All fields are required</p>
-            <div className=''>
-                <label htmlFor='name'>Name</label>
-                <input required type="text" id='name' name='name' className={input} onChange={handleInfoChange} autoComplete="name" />
-            </div>
             <div className='min-[989px]:w-[49%] min-[989px]:inline-block '>
-                <label htmlFor='district'>district</label>
+                <label htmlFor='district'>District</label>
                 <select required id='district' className={input} name='district_id' value={info.district_id} onChange={handleInfoChange} autoComplete="address-level1">
                     <option value=''>Select district</option>
                     {props.distList}

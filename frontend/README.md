@@ -21,8 +21,8 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 <!-- Several style changes -->
-[] TODO - reorganize the signup page for the individual
 [] TODO - onpage indicator when deleting a poll (for the button)
+[done] TODO - reorganize the signup page for the individual
 [done] TODO - hilight the chosen answer and remove the radio button
 [done] TODO - hide the poll dropdown when clicking on another place on the screen
 <!-- @/components/header.tsx -->
