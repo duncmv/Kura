@@ -162,7 +162,7 @@ export default function Settings ({userData}: {userData: any}) {
                 <div onClick={(e) => e.stopPropagation()} className=' bg-white p-2 max-w-[500px] w-[90%] h-[200px] flex  flex-col justify-evenly items-center rounded-md absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
                     <h2>Please Enter Your Password</h2>
                     <input onChange={handleChange} type='password' name='old_password' className='border border-gray-300 rounded-md px-2 py-1 w-[60%] bg-white text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent' />
-                    <button className={!wrong ? button + ' w-[250px] mx-auto' : button + ' w-[250px] mx-auto hover:bg-red-300 bg-red-300 focus:ring-red-200'} onClick={handleSumbit}>{wrong ? 'Wrong' : done ? 'Done' : 'Confirm'}</button>
+                    <button className={!wrong ? button + ' w-[250px] mx-auto' : button + ' w-[250px] mx-auto hover:bg-red-300 bg-red-300 focus:ring-red-200'} onClick={handleSumbit} onBlur={() => (document.getElementsByName('old_password')[0] as HTMLInputElement).value = ''}>{wrong ? 'Wrong' : done ? 'Done' : 'Confirm'}</button>
                 </div>
             </div>
         </div>

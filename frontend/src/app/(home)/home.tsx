@@ -48,7 +48,7 @@ export default function HombePage({userData}: {userData: any}) {
   return (
     <>
       <Header userData={userData} />
-      <div onClick={() => {document.getElementsByClassName('--dropdown--')[0].classList.add('hidden');}} 
+      <div onClick={() => {document.getElementsByClassName('--dropdown--')[0].classList.add('hidden'); Array.from(document.getElementsByClassName('-poll-dropdown-')).forEach(e => e.classList.add('hidden'));}} 
       className='--wrapper-- relative lg:w-[80vw] mx-auto flex flex-col items-center pb-[90px] bg-gray-100 overflow-y-scroll max-h-[100vh] h-[90vh] scrollbar-hide'>
           {page}
         <div className="--nav-wrapper-- fixed bottom-0 min-[410px]:bottom-[5vh] w-[400px]">

@@ -118,11 +118,11 @@ export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: bo
                         <p className="--time--" title={formattedDate}>{time}</p>
                     </div>
                     {((!isInst) || (isInst && userId === pollData.institution.id)) && (
-                        <button className="--settings--" onClick={() => document.getElementsByClassName(pollData.id + '--poll-dropdown--')[0].classList.toggle('hidden')}>
+                        <button className="--settings--" onClick={(e) => {document.getElementsByClassName(pollData.id + '--poll-dropdown--')[0].classList.toggle('hidden'); e.stopPropagation()}}>
                             <FontAwesomeIcon icon={faEllipsisH} />
                         </button>
                     )}
-                    <div className={pollData.id + "--poll-dropdown-- text-left absolute right-2 bottom-0 hidden"}>
+                    <div onClick={(e) => e.stopPropagation()} className={pollData.id + "--poll-dropdown-- -poll-dropdown- text-left absolute right-2 bottom-0 hidden"}>
                         <div className="origin-top-right absolute top-[-20px] right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                             <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                                 {isInst && (

@@ -28,6 +28,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 [] TODO - Inst can edit profile and cover pictures
 <!-- @/components/header.tsx -->
 [] TODO - Perform search logic
+<!-- Several style changes -->
+[] TODO - hilight the chosen answer and remove the radio button
+[] TODO - reorganize the signup page for the individual
+[done] TODO - hide the poll dropdown when clicking on another place on the screen
+[] TODO - onpage indicator when deleting a poll (for the button)
+
 
 
 <!-- @/(components)/poll.tsx -->
