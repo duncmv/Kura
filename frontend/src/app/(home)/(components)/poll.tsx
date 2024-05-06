@@ -20,6 +20,7 @@ export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: bo
     const [leftQuestions, setLeftQuestions] = useState(pollData.questions.length);
     const [answered, setAnswered] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
+    const [deleted, setDeleted] = useState(false);
 
     useEffect(() => {
         axios.get('http://18.207.112.170/api/v1/institutions/' + pollData.institution.id).then((res) => {
@@ -59,7 +60,7 @@ export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: bo
         if (confirm("Are you sure you want to delete this poll?")) {
             axios.delete('http://18.207.112.170/api/v1/polls/' + pollData.id)
             .then((res) => {
-                alert('Successfully deleted');
+                setDeleted(true);
             })
             .catch((error) => {
                 console.log(error);
@@ -108,7 +109,7 @@ export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: bo
 
     return (
         <div className='w-[100%]'>
-            <div className='--poll-wrapper-- bg-white sm:w-[70%] w-[95%] my-5 mx-auto py-4  flex flex-col items-center justify-around bg-gray-200 min-h-[200px]' style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            <div className={( deleted ? 'hidden ' : 'bg-white ') + '--poll-wrapper-- sm:w-[70%] w-[95%] my-5 mx-auto py-4  flex flex-col items-center justify-around bg-gray-200 min-h-[200px]'} style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                 <div className='--poll-header-- flex flex-row justify-between items-center w-[90%] relative'>
                     <div className="--publisher-- basis-3/4">
                         <Link href={'/inst/' + pollData.institution.id}>
