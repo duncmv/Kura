@@ -91,7 +91,7 @@ def update(obj_id):
         try:
             cover = request.files['cover']
             filename = '/tmp/cover_' + obj.id + '.jpeg'
-            profile_pic.save(filename)
+            cover.save(filename)
             params['cover'] = upload.upload_to_s3(file_name = filename, object_name = f"cover_{obj.id}.jpeg")
             os.remove(filename)
         except Exception:
