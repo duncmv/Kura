@@ -9,7 +9,7 @@ def upload_to_s3(file_name, object_name=None):
     #with open(file_name, 'rb') as file:
     #    img_test = file.read()
     #new_file = f"/tmp/{object_name}"
-    #with open(new_file, "wb") as file:
+    #with open(new_file, "w") as file:
     #    file.write(img_test)
     # Upload the file
     s3_client = boto3.client('s3')
