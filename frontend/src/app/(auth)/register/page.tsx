@@ -75,13 +75,17 @@ export default function RegisterPage() {
                                 onClick={() => handleType('individual')}
                             >
                                 <h2 className={h3}>Individual</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi facilis doloribus non eaque temporibus adipisci at. Minima maiores tempora enim. Animi deleniti laboriosam unde provident perspiciatis nostrum voluptatum tempore tenetur!</p>
+                                <p>
+                                Where your voice matters. Stay informed, share your opinions, and engage with institutions. With Kura, you can stay up-to-date on current events, participate in polls to influence decision-making, and connect directly with institutions.
+                                </p>
                             </div>
                             <div className={card2}
                                 onClick={() => handleType('institution')}
                             >
                                 <h2 className={h3}>Institution</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias recusandae vel soluta alias eveniet vitae hic temporibus dignissimos rem aliquid totam unde illum, fuga accusantium dolorum minima quo labore amet!</p>
+                                <p>
+                                Gain insights, make informed decisions, and engage with your community. With Kura, institutions have access to valuable public opinion data, enabling better decision-making and transparent engagement. Create polls, understand public sentiment, and build trust with your audience.
+                                </p>
                             </div>
                         </div>
                         <button className={button + ' w-1/2 sm:w-1/4 m-auto max-w-[200px]'} onClick={handleNext}>Next</button>
