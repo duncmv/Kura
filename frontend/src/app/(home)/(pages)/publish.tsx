@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { form, input, button, h3 } from "@/components/styleVar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
-import { v4 as uuid } from "uuid";
+import { v4 as uuid } from 'uuid';
 import axios from "axios";
 
 

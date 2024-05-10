@@ -1,24 +1,3 @@
--- Active: 1713150400757@@127.0.0.1@5432@kura_db@public
-DROP DATABASE kura_db;
-
--- Create database + user if doesn't exist
-CREATE DATABASE kura_db;
-
--- Drop the user
-DROP ROLE kura_user;
-
--- Create the user and grant privilages
-CREATE ROLE kura_user WITH LOGIN PASSWORD 'test_choices_01';
-GRANT ALL ON DATABASE kura_db TO kura_user;
-
--- switching to kura_user and kura_db
-\c kura_db kura_user
-
-
--- Dump all the countries in countries table
-INSERT INTO countries VALUES ('Uganda', '000daded-1a7c-4ca7-8f16-6aa4026fa0e7','2024-04-15 01:18:37','2024-04-15 01:18:37');
-
--- Dump all the districts in districts table
 INSERT INTO districts VALUES
 ('000daded-1a7c-4ca7-8f16-6aa4026fa0e7', 'Abim', '523b94d6-29a6-48c3-93d6-b1d50067dbd3', '2024-04-15T11:52:53.258966', '2024-04-15T11:52:53.258974'),
 ('000daded-1a7c-4ca7-8f16-6aa4026fa0e7', 'Adjumani', 'd0d6f480-b562-4d37-a335-31485df575e5', '2024-04-15T11:52:53.259122', '2024-04-15T11:52:53.259127'),
@@ -120,7 +99,6 @@ INSERT INTO districts VALUES
 ('000daded-1a7c-4ca7-8f16-6aa4026fa0e7', 'Mityana', 'ebd32450-c54d-4121-a6fc-186c2ff795ad', '2024-04-15T11:52:53.265662', '2024-04-15T11:52:53.265665'),
 ('000daded-1a7c-4ca7-8f16-6aa4026fa0e7', 'Moroto', '018a424a-38af-4dc1-b5d2-57e3a553de8e', '2024-04-15T11:52:53.265731', '2024-04-15T11:52:53.265734'),
 ('000daded-1a7c-4ca7-8f16-6aa4026fa0e7', 'Moyo', 'e40d7b9c-84dc-448c-880f-b497ec763767', '2024-04-15T11:52:53.265794', '2024-04-15T11:52:53.265797');
-
 -- Dump all the available institutions legal entities in legal_entities table
 INSERT INTO legal_entities VALUES
 ('Sole Proprietorship', 'A business owned and operated by a single individual. The owner is personally liable for all debts and obligations of the business.', '65597d99-9875-4c31-8764-59172c16eafe', '2024-04-15T15:35:20.398459', '2024-04-15T15:35:20.398464'),
@@ -135,27 +113,22 @@ INSERT INTO legal_entities VALUES
 ('Limited Liability Partnership (LLP)', 'A partnership in which some or all partners have limited liability, meaning they are not personally liable for the debts and obligations of the partnership beyond their investment in the business.', '6287b5eb-a16d-4ae3-93e9-b1568ac622c8', '2024-04-15T15:35:20.398957', '2024-04-15T15:35:20.398958'),
 ('Professional Corporation (PC)', 'A corporation formed by licensed professionals, such as doctors, lawyers, or accountants, to provide professional services. It offers limited liability protection to its shareholders.', 'aea8a7ef-873d-4a93-893b-86b7470ea1f6', '2024-04-15T15:35:20.398983', '2024-04-15T15:35:20.398984'),
 ('Benefit Corporation (B Corp)', 'A type of corporation that is legally required to consider the impact of its decisions on society, the environment, and its stakeholders, in addition to generating profit for shareholders.', 'cf83627a-a6cb-42de-a53d-858470a293ef', '2024-04-15T15:35:20.399023', '2024-04-15T15:35:20.399024');
-
 -- Dump some data in institutions table
 INSERT INTO institutions VALUES 
 ('info@examplecorp.com', 'password123', 'Example Corporation', 'Technology', '77777777', '2000-01-01', '12345', '1234567890', 'None', 'http://www.examplecorp.com', 'abb214c1-fc2d-4674-b56e-b2f45953a0ec', 'd3de8956-d472-44e6-9537-bf8b0fa84d37', 'ec77ee80-1dce-4aae-b776-0e504e8b5eeb', '2024-04-21 01:03:49.495558', '2024-04-21 01:03:49.495562'),
 ('support@exampleorg.com', 'password456', 'Example Corporation 2', 'Food', '0987654321', '1990-01-01', '54321', '9876543210', 'None', 'http://www.exampleorg.org', '251349a2-195e-4046-b9c2-15868b083c3b', 'ce769f99-34c0-4b98-9947-5d637130df4b', 'c7ec371c-1f14-4316-ae11-69bae2ca31b1', '2024-04-21 01:03:49.495788', '2024-04-21 01:03:49.495790');
-
 -- Dump some data in users table
 INSERT INTO users VALUES 
 ('john@example.com', 'password123', 'John', 'None', 'Doe', '1234567890', '1990-05-15', '51b937e9-a145-469c-9e5f-5c88df98bfc1', '1234567890', 'Engineer', 'None', 'Senior Engineer', 'ec77ee80-1dce-4aae-b776-0e504e8b5eeb', 'None', '75000.0', 'Playing guitar, hiking', 'john_pic.jpg', 'True', '2463fbfe-a6b3-44c0-accf-56f2cdff07a8', '2024-04-21 01:25:18.594517', '2024-04-21 01:25:18.594521'),
 ('jane@example.com', 'password456', 'Jane', 'None', 'Smith', '0987654321', '1990-10-20', 'b6631444-2a76-41f4-9e32-c83ce1ea2758', '9876543210', 'Designer', 'None', 'Lead Designer', 'c7ec371c-1f14-4316-ae11-69bae2ca31b1', 'None', '80000.0', 'Painting, photography', 'jane_pic.jpg', 'True', '8db748a7-5b31-446e-be34-16b557237a5b', '2024-04-21 01:25:18.594879', '2024-04-21 01:25:18.594883');
-
 -- Dump some date in polls table
 INSERT INTO polls (title, description, institution_id, id, created_at, updated_at) VALUES
 ('Employees satisfaction', 'This poll is to measure the satisfaction of the employees', 'ec77ee80-1dce-4aae-b776-0e504e8b5eeb', 'ccebcef5-5ffd-45af-8c7c-49b59b66b65d', '2024-04-21 02:59:46.713422', '2024-04-21 02:59:46.713426'),
 ('Employees survey', 'Collecting employees data', 'ec77ee80-1dce-4aae-b776-0e504e8b5eeb', 'ab3c9190-b046-4cdf-b912-718a89b1dbd0', '2024-04-21 03:03:51.909386', '2024-04-21 03:03:51.909395');
-
 -- Dump some data in questions table
 INSERT INTO questions VALUES
 ('How satisfied are you with your job?', 'ccebcef5-5ffd-45af-8c7c-49b59b66b65d', 'ef555d7c-c280-4b40-826d-8348fbedebf4', '2024-04-21 03:16:41.553361', '2024-04-21 03:16:41.553366'),
 ('Is your job role interesting to you?', 'ab3c9190-b046-4cdf-b912-718a89b1dbd0', '242afeb6-88d5-4b10-b328-90a8a726f427', '2024-04-21 03:16:41.555936', '2024-04-21 03:16:41.555939');
-
 -- Dump some date in answers table
 INSERT INTO answers VALUES
 ('Super Satisfied', 'ef555d7c-c280-4b40-826d-8348fbedebf4', '51788303-39f8-4b52-8191-02248f89fc57', '2024-04-21 03:26:20.688008', '2024-04-21 03:26:20.688012'),
@@ -165,5 +138,141 @@ INSERT INTO answers VALUES
 ('Not Satisfied', 'ef555d7c-c280-4b40-826d-8348fbedebf4', '20cb42e8-8c9e-4935-b1b5-0799a78b7c89', '2024-04-21 03:26:20.688082', '2024-04-21 03:26:20.688083'),
 ('Yes', '242afeb6-88d5-4b10-b328-90a8a726f427', '0de91c63-f1d7-4e0f-94aa-ddce5b09dd02', '2024-04-21 03:26:20.691732', '2024-04-21 03:26:20.691734'),
 ('No', '242afeb6-88d5-4b10-b328-90a8a726f427', '772513fa-8c1f-421b-a45e-d4250838e739', '2024-04-21 03:26:20.691753', '2024-04-21 03:26:20.691755');
-
-
+UPDATE districts SET region = 'North' WHERE name = 'Abim';
+UPDATE districts SET region = 'North' WHERE name = 'Adjumani';
+UPDATE districts SET region = 'North' WHERE name = 'Agago';
+UPDATE districts SET region = 'North' WHERE name = 'Alebtong';
+UPDATE districts SET region = 'North' WHERE name = 'Amolatar';
+UPDATE districts SET region = 'North' WHERE name = 'Amudat';
+UPDATE districts SET region = 'East' WHERE name = 'Amuria';
+UPDATE districts SET region = 'North' WHERE name = 'Amuru';
+UPDATE districts SET region = 'North' WHERE name = 'Apac';
+UPDATE districts SET region = 'North' WHERE name = 'Arua';
+UPDATE districts SET region = 'East' WHERE name = 'Budaka';
+UPDATE districts SET region = 'East' WHERE name = 'Bududa';
+UPDATE districts SET region = 'East' WHERE name = 'Bugiri';
+UPDATE districts SET region = 'East' WHERE name = 'Bugweri';
+UPDATE districts SET region = 'East' WHERE name = 'Buhweju';
+UPDATE districts SET region = 'Central' WHERE name = 'Buikwe';
+UPDATE districts SET region = 'East' WHERE name = 'Bukedea';
+UPDATE districts SET region = 'Central' WHERE name = 'Bukomansimbi';
+UPDATE districts SET region = 'East' WHERE name = 'Bukwa';
+UPDATE districts SET region = 'East' WHERE name = 'Bulambuli';
+UPDATE districts SET region = 'West' WHERE name = 'Buliisa';
+UPDATE districts SET region = 'West' WHERE name = 'Bundibugyo';
+UPDATE districts SET region = 'West' WHERE name = 'Bunyangabu';
+UPDATE districts SET region = 'West' WHERE name = 'Bushenyi';
+UPDATE districts SET region = 'East' WHERE name = 'Busia';
+UPDATE districts SET region = 'East' WHERE name = 'Butaleja';
+UPDATE districts SET region = 'Central' WHERE name = 'Butambala';
+UPDATE districts SET region = 'East' WHERE name = 'Butebo';
+UPDATE districts SET region = 'Central' WHERE name = 'Buvuma';
+UPDATE districts SET region = 'East' WHERE name = 'Buyende';
+UPDATE districts SET region = 'North' WHERE name = 'Dokolo';
+UPDATE districts SET region = 'Central' WHERE name = 'Gomba';
+UPDATE districts SET region = 'North' WHERE name = 'Gulu';
+UPDATE districts SET region = 'West' WHERE name = 'Hoima';
+UPDATE districts SET region = 'West' WHERE name = 'Ibanda';
+UPDATE districts SET region = 'East' WHERE name = 'Iganga';
+UPDATE districts SET region = 'West' WHERE name = 'Isingiro';
+UPDATE districts SET region = 'East' WHERE name = 'Jinja';
+UPDATE districts SET region = 'North' WHERE name = 'Kaabong';
+UPDATE districts SET region = 'West' WHERE name = 'Kabale';
+UPDATE districts SET region = 'West' WHERE name = 'Kabarole';
+UPDATE districts SET region = 'East' WHERE name = 'Kaberamaido';
+UPDATE districts SET region = 'West' WHERE name = 'Kagadi';
+UPDATE districts SET region = 'West' WHERE name = 'Kakumiro';
+UPDATE districts SET region = 'Central' WHERE name = 'Kalangala';
+UPDATE districts SET region = 'East' WHERE name = 'Kaliro';
+UPDATE districts SET region = 'Central' WHERE name = 'Kalungu';
+UPDATE districts SET region = 'Central' WHERE name = 'Kampala';
+UPDATE districts SET region = 'East' WHERE name = 'Kamuli';
+UPDATE districts SET region = 'West' WHERE name = 'Kamwenge';
+UPDATE districts SET region = 'West' WHERE name = 'Kanungu';
+UPDATE districts SET region = 'East' WHERE name = 'Kapchorwa';
+UPDATE districts SET region = 'East' WHERE name = 'Kapelebyong';
+UPDATE districts SET region = 'Central' WHERE name = 'Kasanda';
+UPDATE districts SET region = 'West' WHERE name = 'Kasese';
+UPDATE districts SET region = 'East' WHERE name = 'Katakwi';
+UPDATE districts SET region = 'Central' WHERE name = 'Kayunga';
+UPDATE districts SET region = 'West' WHERE name = 'Kibaale';
+UPDATE districts SET region = 'Central' WHERE name = 'Kiboga';
+UPDATE districts SET region = 'East' WHERE name = 'Kibuku';
+UPDATE districts SET region = 'West' WHERE name = 'Kikuube';
+UPDATE districts SET region = 'West' WHERE name = 'Kiruhura';
+UPDATE districts SET region = 'West' WHERE name = 'Kiryandongo';
+UPDATE districts SET region = 'West' WHERE name = 'Kisoro';
+UPDATE districts SET region = 'North' WHERE name = 'Kitgum';
+UPDATE districts SET region = 'North' WHERE name = 'Koboko';
+UPDATE districts SET region = 'North' WHERE name = 'Kole';
+UPDATE districts SET region = 'North' WHERE name = 'Kotido';
+UPDATE districts SET region = 'East' WHERE name = 'Kumi';
+UPDATE districts SET region = 'North' WHERE name = 'Kwania';
+UPDATE districts SET region = 'East' WHERE name = 'Kween';
+UPDATE districts SET region = 'Central' WHERE name = 'Kyankwanzi';
+UPDATE districts SET region = 'West' WHERE name = 'Kyegegwa';
+UPDATE districts SET region = 'West' WHERE name = 'Kyenjojo';
+UPDATE districts SET region = 'Central' WHERE name = 'Kyotera';
+UPDATE districts SET region = 'North' WHERE name = 'Lamwo';
+UPDATE districts SET region = 'North' WHERE name = 'Lira';
+UPDATE districts SET region = 'East' WHERE name = 'Luuka';
+UPDATE districts SET region = 'Central' WHERE name = 'Luwero';
+UPDATE districts SET region = 'Central' WHERE name = 'Lwengo';
+UPDATE districts SET region = 'Central' WHERE name = 'Lyantonde';
+UPDATE districts SET region = 'East' WHERE name = 'Manafwa';
+UPDATE districts SET region = 'North' WHERE name = 'Maracha';
+UPDATE districts SET region = 'Central' WHERE name = 'Masaka';
+UPDATE districts SET region = 'West' WHERE name = 'Masindi';
+UPDATE districts SET region = 'East' WHERE name = 'Mayuge';
+UPDATE districts SET region = 'East' WHERE name = 'Mbale';
+UPDATE districts SET region = 'West' WHERE name = 'Mbarara';
+UPDATE districts SET region = 'West' WHERE name = 'Mitooma';
+UPDATE districts SET region = 'Central' WHERE name = 'Mityana';
+UPDATE districts SET region = 'North' WHERE name = 'Moroto';
+UPDATE districts SET region = 'North' WHERE name = 'Moyo';
+UPDATE districts SET region = 'Central' WHERE name = 'Mpigi';
+UPDATE districts SET region = 'Central' WHERE name = 'Mubende';
+UPDATE districts SET region = 'Central' WHERE name = 'Mukono';
+UPDATE districts SET region = 'North' WHERE name = 'Nabilatuk';
+UPDATE districts SET region = 'North' WHERE name = 'Nakapiripirit';
+UPDATE districts SET region = 'Central' WHERE name = 'Nakaseke';
+UPDATE districts SET region = 'Central' WHERE name = 'Nakasongola';
+UPDATE districts SET region = 'East' WHERE name = 'Namayingo';
+UPDATE districts SET region = 'East' WHERE name = 'Namisindwa';
+UPDATE districts SET region = 'East' WHERE name = 'Namutumba';
+UPDATE districts SET region = 'North' WHERE name = 'Napak';
+UPDATE districts SET region = 'North' WHERE name = 'Nebbi';
+UPDATE districts SET region = 'East' WHERE name = 'Ngora';
+UPDATE districts SET region = 'West' WHERE name = 'Ntoroko';
+UPDATE districts SET region = 'West' WHERE name = 'Ntungamo';
+UPDATE districts SET region = 'North' WHERE name = 'Nwoya';
+UPDATE districts SET region = 'North' WHERE name = 'Omoro';
+UPDATE districts SET region = 'North' WHERE name = 'Otuke';
+UPDATE districts SET region = 'North' WHERE name = 'Oyam';
+UPDATE districts SET region = 'North' WHERE name = 'Pader';
+UPDATE districts SET region = 'North' WHERE name = 'Pakwach';
+UPDATE districts SET region = 'East' WHERE name = 'Pallisa';
+UPDATE districts SET region = 'Central' WHERE name = 'Rakai';
+UPDATE districts SET region = 'West' WHERE name = 'Rubanda';
+UPDATE districts SET region = 'West' WHERE name = 'Rubirizi';
+UPDATE districts SET region = 'West' WHERE name = 'Rukiga';
+UPDATE districts SET region = 'West' WHERE name = 'Rukungiri';
+UPDATE districts SET region = 'Central' WHERE name = 'Sembabule';
+UPDATE districts SET region = 'East' WHERE name = 'Serere';
+UPDATE districts SET region = 'West' WHERE name = 'Sheema';
+UPDATE districts SET region = 'East' WHERE name = 'Sironko';
+UPDATE districts SET region = 'East' WHERE name = 'Soroti';
+UPDATE districts SET region = 'East' WHERE name = 'Tororo';
+UPDATE districts SET region = 'Central' WHERE name = 'Wakiso';
+UPDATE districts SET region = 'North' WHERE name = 'Yumbe';
+UPDATE districts SET region = 'North' WHERE name = 'Zombo';
+INSERT INTO industries (id, name) VALUES ('605d1af7-ce6b-435c-b618-a14f1f990989', 'Agriculture');
+INSERT INTO industries (id, name) VALUES ('4f6e5d34-55c9-4a7b-81ab-81d5c3874e5e', 'Governance');
+INSERT INTO industries (id, name) VALUES ('f8b4b2fd-40d1-45c8-9110-f7e4b9b0f83a', 'Manufacturing');
+INSERT INTO industries (id, name) VALUES ('b1e4ca97-d467-47a9-b4a5-87dcb7073028', 'Education');
+INSERT INTO industries (id, name) VALUES ('156e533e-b9f2-49ab-86a7-61c74a1b3f8d', 'Healthcare');
+INSERT INTO industries (id, name) VALUES ('b9b756d2-70ac-4f10-af70-d34f077d3b94', 'Technology');
+INSERT INTO industries (id, name) VALUES ('fd6a642b-0530-4b58-b058-a7a4cb915f4b', 'Finance');
+INSERT INTO industries (id, name) VALUES ('88dbe632-4539-4ec8-90c4-316e060b58f1', 'Retail');
+INSERT INTO industries (id, name) VALUES ('6464160e-4b46-4d60-bcc9-b02bf6d291c5', 'Construction');
+INSERT INTO industries (id, name) VALUES ('3be26773-a4b3-47a0-9fb6-3d617ca9b47f', 'Transportation');

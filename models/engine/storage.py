@@ -22,8 +22,8 @@ class PDBStorage:
         """query on the current database session
 all objects depending of the class name cls"""
 
-        from models.answers import Answer
         from models.base_model import BaseModel
+        from models.answers import Answer
         from models.countries import Country
         from models.districts import District
         from models.institutions import Institution
@@ -31,15 +31,18 @@ all objects depending of the class name cls"""
         from models.polls import Poll
         from models.questions import Question
         from models.users import User
+        from models.choices import Choice
+        from models.tags import Tag
+        from models.industries import Industry
 
         classes = [Answer,
-                   BaseModel,
                    Country,
                    District,
                    Institution,
                    LegalEntity,
                    Poll, Question,
-                   User
+                   User, Choice, Tag,
+                   Industry
                    ]
 
         all_obj_dict = []
@@ -79,6 +82,7 @@ all objects depending of the class name cls"""
         from models.polls import Poll
         from models.questions import Question
         from models.users import User
+        from models.industries import Industry
 
         Base.metadata.create_all(self.__engine)
         Session_factory = orm.sessionmaker(bind=self.__engine,

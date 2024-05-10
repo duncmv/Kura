@@ -6,6 +6,7 @@ from models.base_model import BaseModel, Base
 from models.choices import Choice
 from models.polls import Poll
 from models.tags import Tag
+from models.choices import Choice
 
 
 class User(BaseModel, Base):
@@ -15,12 +16,13 @@ class User(BaseModel, Base):
 
     email = Column(String(128), nullable=False, unique=True)
     password = Column(String(128), nullable=False)
-
+    username = Column(String(128), unique=True)
     first_name = Column(String(128))
     middle_name = Column(String(128))
     last_name = Column(String(128))
+    sex = Column(String(10), nullable=True)
 
-    id_card_number = Column(String(64), nullable=False, unique=True)
+    id_card_number = Column(String(64), nullable=True, unique=True)
 
     date_of_birth = Column(DATE)
 
@@ -46,5 +48,5 @@ class User(BaseModel, Base):
 
     verified = Column(BOOLEAN, default=False)
 
-    answers = orm.relationship('Answer', secondary='choices', viewonly=False)
+    choices = orm.relationship('Choice', back_populates='user', cascade='all, delete', viewonly=False)
     taged_polls = orm.relationship('Poll', secondary='tags', viewonly=False)
