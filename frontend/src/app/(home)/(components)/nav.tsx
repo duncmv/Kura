@@ -25,7 +25,7 @@ export default function Nav ({isInst, setTab}: {isInst: boolean, setTab: any}) {
       useEffect(() => {
         const currIcons = isInst ? icons.inst.icons : icons.ind.icons;
         setIconState(Object.values(currIcons));
-      }, [isInst]);
+      }, []);
       
       const handleIconClick = (index: number) => {
         const updatediconState = iconState.map((icon, i) => {

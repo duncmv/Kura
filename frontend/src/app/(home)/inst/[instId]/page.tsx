@@ -1,7 +1,7 @@
 'use client';
 import React, { ReactNode, useEffect, useState } from 'react';
 import Header from '../../../../components/header';
-import { getUserData, getUserById } from '../../../../api/auth';
+import { GetUserData, getUserById } from '../../../../api/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faEllipsisH, faPen, faSave } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
@@ -9,7 +9,7 @@ import Poll from '../../(components)/poll';
 
 export default function InstProfile({ params }: { params: { instId: string } }) {
     const instId = params.instId;
-    const userData = getUserData();
+    const userData = GetUserData();
     const [instData, setInstData] = useState(Object.create(null));
     const [polls, setPolls] = useState(Array);
     const [pollsNum, setPollsNum] = useState(0);

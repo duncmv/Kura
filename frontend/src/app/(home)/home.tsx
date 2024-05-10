@@ -9,39 +9,37 @@ import Bookmarks from './(pages)/bookmarks';
 import Settings from './(pages)/settings';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function HombePage({userData}: {userData: any}) {
   const isInst = userData.__class__ === 'Institution';
   const [tab, setTab] = useState('home');
-  const [page, setPage] = useState<ReactNode>([<Main userData={userData} />]);
+  const [page, setPage] = useState<ReactNode>([<Main key={uuidv4()} userData={userData} />]);
   const router = useRouter();
 
-  if (isInst) {
-    useEffect(() => {
+  useEffect(() => {
+    if (isInst) {
       if (tab === 'home') {
-        setPage([<Main userData={userData} />]);
+        setPage([<Main key={uuidv4()} userData={userData} />]);
       } else if (tab === 'publish') {
-        setPage([<Publish userData={userData} setTab={setTab}/>]);
+        setPage([<Publish key={uuidv4()} userData={userData} setTab={setTab}/>]);
       } else if (tab === 'profile') {
         router.push(`/inst/${userData.id}`);
       } else if (tab === 'settings') {
-        setPage([<Settings userData={userData}/>]);
+        setPage([<Settings key={uuidv4()} userData={userData}/>]);
       }
-    }, [tab, isInst]);
-
-  } else {
-      useEffect(() => {
-        if (tab === 'home') {
-          setPage([<Main userData={userData} />]);
-        } else if (tab === 'history') {
-          setPage([<History userData={userData}/>]);
-        } else if (tab === 'bookmark') {
-          setPage([<Bookmarks />]);
-        } else if (tab === 'settings') {
-          setPage([<Settings userData={userData}/>]);
-        }
-      }, [tab, isInst]);
-  }
+    } else {
+      if (tab === 'home') {
+        setPage([<Main key={uuidv4()} userData={userData} />]);
+      } else if (tab === 'history') {
+        setPage([<History key={uuidv4()} userData={userData}/>]);
+      } else if (tab === 'bookmark') {
+        setPage([<Bookmarks key={uuidv4()} />]);
+      } else if (tab === 'settings') {
+        setPage([<Settings key={uuidv4()} userData={userData}/>]);
+      }
+    }
+  }, [tab, isInst]);
 
   // ...
 

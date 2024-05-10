@@ -68,7 +68,7 @@ async function getCurrentUser() {
 }
 
 
-function getUserData() {
+function GetUserData() {
     const [userData, setUserData] = useState(Object.create(null));
 
     useEffect(() => {
@@ -94,4 +94,4 @@ async function signup(data: any) {
     return null
 }
 
-export { login, logout, getCurrentUser, getUserData, signup, getUserById};
+export { login, logout, getCurrentUser, GetUserData, signup, getUserById};

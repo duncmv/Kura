@@ -231,7 +231,7 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
                                         {/* Answers here */}
                                         {question.answers.map((answer: any, idx: number) => {
                                             return (
-                                                <div className="relative">
+                                                <div key={answer.id} className="relative">
                                                     <label htmlFor={answer.id}>Answer</label>
                                                     {idx > 1 && (
                                                         <div title="Add an answer" className="w-6 h-6 absolute right-[10px] top-[5px] flex justify-center items-center rounded-full border border hover:bg-blue-300">

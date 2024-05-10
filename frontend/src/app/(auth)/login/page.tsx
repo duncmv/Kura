@@ -69,7 +69,7 @@ const LoginPage: React.FC = () => {
                             Login
                         </button>
                         <Link className={a + ' block w-[150px]'} href='/forgot-password'>Forgot Password?</Link>
-                        <p>Don't have an account? <Link className={a} href='/register'>Sign up</Link></p>
+                        <p>Don&apos;t have an account? <Link className={a} href='/register'>Sign up</Link></p>
                     </form>
                     <div className='hidden sm:block py-10 px-3 border-2 shadow-md basis-1/3'>
                         <h3 className={h3}>Privacy Terms</h3>

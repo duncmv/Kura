@@ -7,8 +7,6 @@ export default function Question (props: any) {
     const [votes, setVotes] = useState(Object);
     const [showNumbers, setShowNumbers] = useState(false);
 
-    if (!questionData) { return ; }
-
     useEffect(() => {
         // Fetch votes for each answer
         const fetchVotes = async () => {
