@@ -79,7 +79,7 @@ def update(obj_id):
     else:
         obj = Storage.get(Institution, obj_id)
         params.pop('class')
-        #params.pop('__class__')
+        params.pop('__class__')
         try:
             profile_pic = request.files['pic']
             filename = '/tmp/' + obj.id + '.jpeg'
