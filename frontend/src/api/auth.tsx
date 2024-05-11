@@ -7,11 +7,13 @@ import axios from 'axios';
  * 
  * @param email - The email of the user.
  * @param password - The password of the user.
- * @returns The user object if login is successful, otherwise null.
+ * @returns True if login is successful, otherwise null.
  */
 export default async function login(email: string, password: string) {
+    // initialize the email and password before checking
     email = email.toLocaleLowerCase();
     password = crypto.createHash('md5').update(password).digest('hex');
+    
     return (await axios.post('http://18.207.112.170/api/v1/login', { email, password }).then((res) => {
         if (res.data.id) {
             sessionStorage.setItem('user', JSON.stringify(res.data.id));
@@ -39,24 +41,31 @@ function logout() {
  * @returns The user object if found, otherwise null.
  */
 async function getUserById(id: string) {
-    let req = fetch(`http://18.207.112.170/api/v1/users/${id}`);
-    let res = await req;
+    // if it is a user then fetch the user's data, if not, fetch the institution's data
+    try {
+        let req = fetch(`http://18.207.112.170/api/v1/users/${id}`);
+        let res = await req;
 
-    if (!res.ok) {
-        req = fetch(`http://18.207.112.170/api/v1/institutions/${id}`);
-        res = await req;
+        if (!res.ok) {
+            req = fetch(`http://18.207.112.170/api/v1/institutions/${id}`);
+            res = await req;
+        }
+
+        if (res.ok) {
+            return await res.json();
+        }
+    } catch (error) {
+        console.error(error);
     }
 
-    if (res.ok) {
-        return await res.json();
-    }
+    return null;
 }
 
 
 /**
  * Get the currently logged in user.
  * 
- * @returns The user object if found, otherwise null.
+ * @returns The user object if found, otherwise throughs an error.
  */
 async function getCurrentUser() {
     let userId = sessionStorage.getItem('user') ?? '';
@@ -68,30 +77,39 @@ async function getCurrentUser() {
 }
 
 
+/**
+ * Retrieves the user data from the server.
+ * @returns The user data.
+ */
 function GetUserData() {
     const [userData, setUserData] = useState(Object.create(null));
 
     useEffect(() => {
-    getCurrentUser().then((user) => {
-        if (user) {
-        setUserData(user);
-        }
-    }).catch((e) => {
-        setUserData(null);
-    });
+        getCurrentUser().then((user) => {
+            if (user) {
+                setUserData(user);
+            }
+        }).catch((e) => {
+            setUserData(null);
+        });
     }, []);
 
     return userData;
 }
 
-async function signup(data: any) {
+/**
+ * Signs up a user by sending a POST request to the signup API endpoint.
+ * 
+ * @param {any} data - The data to be sent in the request body.
+ * @returns {Promise<boolean|null>} A promise that resolves to `true` if the signup is successful, `null` otherwise.
+ */
+async function signup(data: any): Promise<boolean|null> {
     return (await axios.post('http://18.207.112.170/api/v1/signup', data).then((res) => {
         sessionStorage.setItem('user', JSON.stringify(res.data.id));
         return true;
     }).catch((e) => {
-        return null
+        return null;
     }));
-    return null
 }
 
 export { login, logout, getCurrentUser, GetUserData, signup, getUserById};
