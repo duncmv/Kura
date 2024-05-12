@@ -1,6 +1,12 @@
 import React from "react";
-import Header from "../../components/header";
+import Header from "@/components/header";
 
+
+/**
+ * Renders the Privacy Policy page.
+ * 
+ * @returns The Privacy Policy page component.
+ */
 export default function Page() {
     return (
         <>

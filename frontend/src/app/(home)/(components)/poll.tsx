@@ -7,27 +7,38 @@ import axios from 'axios';
 import React from 'react';
 import Link from 'next/link';
 
-export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: boolean})  {
-    const time = getTime(pollData.created_at);
-    const userId = JSON.parse(sessionStorage.getItem('user')!) as string;
-    const [inst, setInst] = useState(Object);
-    const [data, setData] = useState(Array);
-    const [marked, setMarked] = useState(false);
-    const date = new Date(pollData.created_at);
+/**
+ * Renders a poll component.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {any} props.pollData - The data for the poll.
+ * @param {boolean} props.isInst - Indicates whether the user is an institution.
+ * @returns {JSX.Element} The rendered Poll component.
+ */
+export default function Poll({ pollData, isInst } : { pollData?: any, isInst: boolean}): JSX.Element  {
+    const time = getTime(pollData.created_at); // Get the formatted time since the poll was created (for the time element in the header)
+    const userId = JSON.parse(sessionStorage.getItem('user')!) as string; // Get the user ID from session storage
+    const [inst, setInst] = useState(Object); // State for storing institution data
+    const [data, setData] = useState(Array); // State for storing user's selected answers
+    const [marked, setMarked] = useState(false); // State for tracking if the poll is bookmarked
+    const date = new Date(pollData.created_at); // Convert the poll's creation date to a Date object
     const userLocale = navigator.language || 'en-US';  // use the user's locale, or 'en-US' if it's not available
-    const formattedDate = new Intl.DateTimeFormat(userLocale, { dateStyle: 'full', timeStyle: 'short' }).format(date);
-    const [showIndicator, setShowIndicator] = useState(false);
-    const [leftQuestions, setLeftQuestions] = useState(pollData.questions.length);
-    const [answered, setAnswered] = useState<any[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [deleted, setDeleted] = useState(false);
+    const formattedDate = new Intl.DateTimeFormat(userLocale, { dateStyle: 'full', timeStyle: 'short' }).format(date); // Format the date according to the user's locale (for the title attribute of the time element)
+    const [showIndicator, setShowIndicator] = useState(false); // State for showing a voting indicator
+    const [leftQuestions, setLeftQuestions] = useState(pollData.questions.length); // State for tracking the number of unanswered questions
+    const [answered, setAnswered] = useState<any[]>([]); // State for storing the user's answered questions
+    const [loading, setLoading] = useState(true); // State for tracking the loading state of the poll
+    const [deleted, setDeleted] = useState(false); // State for tracking if the poll is deleted
 
     useEffect(() => {
+        // Fetch institution data
         axios.get('http://18.207.112.170/api/v1/institutions/' + pollData.institution.id).then((res) => {
             setInst(res.data);
         });
 
         if (!isInst) {
+            // Check if the poll is bookmarked by the user
             axios.get(`http://18.207.112.170/api/v1/user/${userId}/tags`)
             .then ((res) => {
                 const bookmarks = res.data.map((bookmark: any) => bookmark.id);
@@ -39,7 +50,7 @@ export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: bo
             });
         }
 
-        // get the old answers and check them on the poll, if they are already answered, disable the vote button
+        // Get the user's old answers and check them on the poll
         if (!isInst) {
             const pollAnswers = pollData.questions.map((question: any) => question.answers.map((answer: any) => answer.id)).flat();
             axios.get(`http://18.207.112.170/api/v1/users/${userId}/choices`)
@@ -52,10 +63,12 @@ export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: bo
     }, []);
 
     useEffect (() => {
+        // Update the number of unanswered questions when the page mounts
         setLeftQuestions(pollData.questions.length - answered.length);
     }, [answered]);
 
     function handleDelete () {
+        // Delete the poll if the user is the owner
         if (pollData.institution.id !== userId) { alert("idk how u got here, but u can't delete this post cuz it isn't yours!"); return; }
         if (confirm("Are you sure you want to delete this poll?")) {
             axios.delete('http://18.207.112.170/api/v1/polls/' + pollData.id)
@@ -69,6 +82,7 @@ export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: bo
     }
 
     function handleBookmark () {
+        // Toggle the bookmark status of the poll
         if (!marked) {
             axios.post(`http://18.207.112.170/api/v1/user/${userId}/tags/${pollData.id}`)
             .then((res) => {
@@ -92,6 +106,7 @@ export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: bo
         if (!answers) { return; }
 
         for (let answer of answers) {
+            // Submit the user's selected answers
             axios.post(`http://18.207.112.170/api/v1/users/${userId}/${answer}/`)
             .then((res) => {
                 setShowIndicator(true);
@@ -211,6 +226,7 @@ export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: bo
 }
 
 function getTime(date: string) {
+    // Calculate the time difference between the current time and the given date
     const now = new Date();
     const then = new Date(date);
     const userOffset = then.getTimezoneOffset();

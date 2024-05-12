@@ -2,7 +2,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faClockRotateLeft, faBookmark, faArrowAltCircleUp, faUserCircle, faGear } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 
-export default function Nav({ isInst, setTab }: { isInst: boolean, setTab: any }) {
+/**
+ * Renders a navigation component with icons based on the user type.
+ *
+ * @param {Object} props - The component props.
+ * @param {boolean} props.isInst - Indicates whether the user is an instructor or not.
+ * @param {Function} props.setTab - A function to set the active tab.
+ * @returns {JSX.Element} The rendered navigation component.
+ */
+export default function Nav({ isInst, setTab }: { isInst: boolean, setTab: any }): JSX.Element {
   // CSS classes for styling
   const active = ' text-blue-500';
   const inactive = ' hover:text-blue-300';

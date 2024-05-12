@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
-import { card, h2, h3 } from '../components/styleVar';
-import Header from '../components/header';
+import { card, h2, h3 } from '@/components/styleVar';
+import Header from '@/components/header';
 
 export default function LandingPage () {
   const pStyles = 'lg:w-2/3 ';

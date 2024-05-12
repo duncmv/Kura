@@ -1,9 +1,9 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { button, input, a, h2, h3, form, formContainer, container, card} from '@/components/styleVar';
-import { getCurrentUser, signup } from '../../../api/auth';
+import { button, input, a, h2, h3, form, formContainer, container, card} from '../../../../../components/styleVar';
+import { getCurrentUser, signup } from '../../../../../api/auth';
 import { useRouter } from 'next/navigation';
-import Header from '@/components/header';
+import Header from '../../../../../components/header';
 import Link from 'next/link';
 import crypto from 'crypto';
 import axios from 'axios';
@@ -19,7 +19,7 @@ export default function RegisterPage() {
     const [showContent, setShowContent] = useState(false);
     const [showInitialContent, setShowInitialContent] = useState(true);
     const [districts, setDistricts] = useState(Array());
-    let distList = [];
+    let distList: any = [];
     const router = useRouter();
 
     // Get districts
@@ -289,8 +289,8 @@ function Institution(props: { distList: JSX.Element[], setShowContent: React.Dis
     const [info, setInfo] = useState(Object.create({}));
     const [entities, setEntities] = useState(Array());
     const [industries, setIndustries] = useState(Array());
-    let industryList = [];
-    let entityList = [];
+    let industryList: any = [];
+    let entityList: any = [];
     const router = useRouter();
 
     useEffect(() => {
