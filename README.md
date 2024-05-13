@@ -1,4 +1,3 @@
-
 # [KURA](https://kura-mxoi.onrender.com/)
 #### Choices with *IMPACT!*
 

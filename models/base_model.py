@@ -48,6 +48,7 @@ class BaseModel:
         """Deletes the current instance from Storage"""
         from models import Storage
         Storage.delete(self)
+        Storage.save()
 
     def to_dict(self):
         """Convert instance into dict format"""
@@ -64,3 +65,14 @@ class BaseModel:
     def __str__(self):
         """Return string representation of instance"""
         return "{}".format(self.to_dict())
+
+    def update(self, **kwargs):
+        """updates a model"""
+        from models import Storage
+        for key, value in kwargs.items():
+            ignore = ['id', 'created_at', 'updated_at', 'class']
+            if key in ignore:
+                continue
+            else:
+                setattr(self, key, value)
+        Storage.save()
