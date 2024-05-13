@@ -1,5 +1,5 @@
 
-<h1 align='center'><a href='https://kura-mxoi.onrender.com/'>KURA</a></h1>
+<h1 align='center' style="font-size: 48px;"><a href='https://kura-mxoi.onrender.com/'>KURA</a></h1>
 
 <h4 align="center">Choices with <i><b style="color: rgb(59 130 246)">IMPACT!</b></i></h4>
 <div align="center">
