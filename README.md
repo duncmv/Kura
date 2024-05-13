@@ -41,13 +41,21 @@ chmod u+x setup.sh; ./setup.sh
 	```bash
 	psql -u postgres postgres
 	```
-	- Create a PostgreSQL database for the project.
-	- Update the database configuration in the project's configuration file.
-	- Run the following command to set up the database tables:
-	  ```bash
-	  python manage.py create_tables
-	  ```
-
+	- Create the database, the user and give the user privilages for the project.
+	```postgresql
+	CREATE DATABASE kura_db;
+	CREATE ROLE kura_user WITH LOGIN PASSWORD 'test_choices_01';
+	GRANT ALL ON DATABASE kura_db TO kura_user;
+	\q
+	```
+	- got to frontend directory.
+	```bash
+	cd frontend
+	```
+	- start the application.
+	```bash
+	npm run dev
+	```
 
 ## Usage
 
