@@ -12,3 +12,6 @@ __pycache__/
 
 # Ignore any test files
 test.py
+
+#ignore env files
+venv/*

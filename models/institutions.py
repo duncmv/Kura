@@ -4,7 +4,6 @@
 from sqlalchemy import Column, String, DATE, INTEGER, ForeignKey, orm
 from models.base_model import BaseModel, Base
 from models.users import User
-from datetime import date
 
 
 class Institution(BaseModel, Base):
@@ -14,19 +13,22 @@ class Institution(BaseModel, Base):
 
     email = Column(String(128), nullable=False, unique=True)
     password = Column(String(128), nullable=False)
+    username = Column(String(128), unique=True)
 
     name = Column(String(128), nullable=False)
 
-    industry_classification = Column(String(128), nullable=False)
+    
     registration_number = Column(String(64), nullable=False, unique=True)
-    date_of_establishment = Column(DATE, nullable=False)
+    date_of_establishment = Column(DATE)
 
     postal_code = Column(INTEGER)
-    phone_number = Column(String(14), nullable=False)
+    phone_number = Column(String(14))
 
     parent_company = Column(String(128))
 
     website_url = Column(String(128))
+    pic = Column(String(128), nullable=True)
+    cover = Column(String(128), nullable=True)
 
     district_id = Column(
         String(60),
@@ -34,12 +36,12 @@ class Institution(BaseModel, Base):
         nullable=False
         )
 
-    legal_intity_id = Column(
+    legal_entity_id = Column(
         String(60),
         ForeignKey('legal_entities.id'),
         nullable=False
         )
-
+    industry_id = Column(String(60), ForeignKey('industries.id'), nullable=False)
     users = orm.relationship('User', backref='company')
 
     polls = orm.relationship(

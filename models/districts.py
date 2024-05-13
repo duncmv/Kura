@@ -13,6 +13,7 @@ class District(BaseModel, Base):
     __tablename__ = "districts"
     country_id = Column(String(60), ForeignKey('countries.id'), nullable=False)
     name = Column(String(128), nullable=False)
+    region = Column(String(10))
 
     institutions = orm.relationship('Institution',
                                     backref='district',

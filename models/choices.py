@@ -4,7 +4,7 @@ This module structures the table 'choices'
 """
 
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String, ForeignKey
+from sqlalchemy import Column, String, ForeignKey, orm
 
 
 class Choice(BaseModel, Base):
@@ -19,5 +19,8 @@ class Choice(BaseModel, Base):
     answer_id = Column(
         String(60),
         ForeignKey('answers.id', onupdate='CASCADE', ondelete='CASCADE'),
-        nullable=False
+        primary_key=True
         )
+
+    user = orm.relationship('User', back_populates='choices', viewonly=False)
+    answer = orm.relationship('Answer', back_populates='choices', viewonly=False)

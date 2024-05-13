@@ -1,4 +1,4 @@
--- Drop database
+-- Active: 1713150400757@@127.0.0.1@5432@kura_db@public
 DROP DATABASE kura_db;
 
 -- Create database + user if doesn't exist
@@ -15,45 +15,10 @@ GRANT ALL ON DATABASE kura_db TO kura_user;
 \c kura_db kura_user
 
 
---
--- Table structure for table `countries`
---
-
-CREATE TABLE countries(
-    name varchar(128) NOT NULL,
-    id varchar(60) NOT NULL,
-    created_at timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY(id)
-);
-
-
---
--- Dumping Uganda in `countries`
---
-
+-- Dump all the countries in countries table
 INSERT INTO countries VALUES ('Uganda', '000daded-1a7c-4ca7-8f16-6aa4026fa0e7','2024-04-15 01:18:37','2024-04-15 01:18:37');
 
-
---
--- Table structure for table `districts`
---
-
-CREATE TABLE districts(
-    country_id varchar(60) NOT NULL,
-    name varchar(128) NOT NULL,
-    id varchar(60) NOT NULL,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    PRIMARY KEY(id),
-    CONSTRAINT districts_country_id_fkey FOREIGN key(country_id) REFERENCES countries(id)
-);
-
-
---
--- Dumping all districts in 'districts'
---
-
+-- Dump all the districts in districts table
 INSERT INTO districts VALUES
 ('000daded-1a7c-4ca7-8f16-6aa4026fa0e7', 'Abim', '523b94d6-29a6-48c3-93d6-b1d50067dbd3', '2024-04-15T11:52:53.258966', '2024-04-15T11:52:53.258974'),
 ('000daded-1a7c-4ca7-8f16-6aa4026fa0e7', 'Adjumani', 'd0d6f480-b562-4d37-a335-31485df575e5', '2024-04-15T11:52:53.259122', '2024-04-15T11:52:53.259127'),
@@ -156,24 +121,7 @@ INSERT INTO districts VALUES
 ('000daded-1a7c-4ca7-8f16-6aa4026fa0e7', 'Moroto', '018a424a-38af-4dc1-b5d2-57e3a553de8e', '2024-04-15T11:52:53.265731', '2024-04-15T11:52:53.265734'),
 ('000daded-1a7c-4ca7-8f16-6aa4026fa0e7', 'Moyo', 'e40d7b9c-84dc-448c-880f-b497ec763767', '2024-04-15T11:52:53.265794', '2024-04-15T11:52:53.265797');
 
-
---
--- structure legal_intities table
---
-
-CREATE TABLE legal_entities(
-    name varchar(128) NOT NULL,
-    description varchar(1024),
-    id varchar(60) NOT NULL,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    PRIMARY KEY(id)
-);
-
---
--- Dump data to legal_intities table
---
-
+-- Dump all the available institutions legal entities in legal_entities table
 INSERT INTO legal_entities VALUES
 ('Sole Proprietorship', 'A business owned and operated by a single individual. The owner is personally liable for all debts and obligations of the business.', '65597d99-9875-4c31-8764-59172c16eafe', '2024-04-15T15:35:20.398459', '2024-04-15T15:35:20.398464'),
 ('General Partnership', 'A business owned and operated by two or more individuals who share the profits and liabilities of the business.', 'd3de8956-d472-44e6-9537-bf8b0fa84d37', '2024-04-15T15:35:20.398706', '2024-04-15T15:35:20.398708'),
@@ -187,3 +135,35 @@ INSERT INTO legal_entities VALUES
 ('Limited Liability Partnership (LLP)', 'A partnership in which some or all partners have limited liability, meaning they are not personally liable for the debts and obligations of the partnership beyond their investment in the business.', '6287b5eb-a16d-4ae3-93e9-b1568ac622c8', '2024-04-15T15:35:20.398957', '2024-04-15T15:35:20.398958'),
 ('Professional Corporation (PC)', 'A corporation formed by licensed professionals, such as doctors, lawyers, or accountants, to provide professional services. It offers limited liability protection to its shareholders.', 'aea8a7ef-873d-4a93-893b-86b7470ea1f6', '2024-04-15T15:35:20.398983', '2024-04-15T15:35:20.398984'),
 ('Benefit Corporation (B Corp)', 'A type of corporation that is legally required to consider the impact of its decisions on society, the environment, and its stakeholders, in addition to generating profit for shareholders.', 'cf83627a-a6cb-42de-a53d-858470a293ef', '2024-04-15T15:35:20.399023', '2024-04-15T15:35:20.399024');
+
+-- Dump some data in institutions table
+INSERT INTO institutions VALUES 
+('info@examplecorp.com', 'password123', 'Example Corporation', 'Technology', '77777777', '2000-01-01', '12345', '1234567890', 'None', 'http://www.examplecorp.com', 'abb214c1-fc2d-4674-b56e-b2f45953a0ec', 'd3de8956-d472-44e6-9537-bf8b0fa84d37', 'ec77ee80-1dce-4aae-b776-0e504e8b5eeb', '2024-04-21 01:03:49.495558', '2024-04-21 01:03:49.495562'),
+('support@exampleorg.com', 'password456', 'Example Corporation 2', 'Food', '0987654321', '1990-01-01', '54321', '9876543210', 'None', 'http://www.exampleorg.org', '251349a2-195e-4046-b9c2-15868b083c3b', 'ce769f99-34c0-4b98-9947-5d637130df4b', 'c7ec371c-1f14-4316-ae11-69bae2ca31b1', '2024-04-21 01:03:49.495788', '2024-04-21 01:03:49.495790');
+
+-- Dump some data in users table
+INSERT INTO users VALUES 
+('john@example.com', 'password123', 'John', 'None', 'Doe', '1234567890', '1990-05-15', '51b937e9-a145-469c-9e5f-5c88df98bfc1', '1234567890', 'Engineer', 'None', 'Senior Engineer', 'ec77ee80-1dce-4aae-b776-0e504e8b5eeb', 'None', '75000.0', 'Playing guitar, hiking', 'john_pic.jpg', 'True', '2463fbfe-a6b3-44c0-accf-56f2cdff07a8', '2024-04-21 01:25:18.594517', '2024-04-21 01:25:18.594521'),
+('jane@example.com', 'password456', 'Jane', 'None', 'Smith', '0987654321', '1990-10-20', 'b6631444-2a76-41f4-9e32-c83ce1ea2758', '9876543210', 'Designer', 'None', 'Lead Designer', 'c7ec371c-1f14-4316-ae11-69bae2ca31b1', 'None', '80000.0', 'Painting, photography', 'jane_pic.jpg', 'True', '8db748a7-5b31-446e-be34-16b557237a5b', '2024-04-21 01:25:18.594879', '2024-04-21 01:25:18.594883');
+
+-- Dump some date in polls table
+INSERT INTO polls (title, description, institution_id, id, created_at, updated_at) VALUES
+('Employees satisfaction', 'This poll is to measure the satisfaction of the employees', 'ec77ee80-1dce-4aae-b776-0e504e8b5eeb', 'ccebcef5-5ffd-45af-8c7c-49b59b66b65d', '2024-04-21 02:59:46.713422', '2024-04-21 02:59:46.713426'),
+('Employees survey', 'Collecting employees data', 'ec77ee80-1dce-4aae-b776-0e504e8b5eeb', 'ab3c9190-b046-4cdf-b912-718a89b1dbd0', '2024-04-21 03:03:51.909386', '2024-04-21 03:03:51.909395');
+
+-- Dump some data in questions table
+INSERT INTO questions VALUES
+('How satisfied are you with your job?', 'ccebcef5-5ffd-45af-8c7c-49b59b66b65d', 'ef555d7c-c280-4b40-826d-8348fbedebf4', '2024-04-21 03:16:41.553361', '2024-04-21 03:16:41.553366'),
+('Is your job role interesting to you?', 'ab3c9190-b046-4cdf-b912-718a89b1dbd0', '242afeb6-88d5-4b10-b328-90a8a726f427', '2024-04-21 03:16:41.555936', '2024-04-21 03:16:41.555939');
+
+-- Dump some date in answers table
+INSERT INTO answers VALUES
+('Super Satisfied', 'ef555d7c-c280-4b40-826d-8348fbedebf4', '51788303-39f8-4b52-8191-02248f89fc57', '2024-04-21 03:26:20.688008', '2024-04-21 03:26:20.688012'),
+('Very Satisfied)', 'ef555d7c-c280-4b40-826d-8348fbedebf4', 'ed0dff3d-ea24-4953-8c7d-eb2bb379dbce', '2024-04-21 03:26:20.688034', '2024-04-21 03:26:20.688036'),
+('Satisfied', 'ef555d7c-c280-4b40-826d-8348fbedebf4', '20d3c432-9b6a-4065-a530-f0436fd4a447', '2024-04-21 03:26:20.688052', '2024-04-21 03:26:20.688053'),
+('Not sure', 'ef555d7c-c280-4b40-826d-8348fbedebf4', '5b2a0db4-2242-429f-9400-1566115479ed', '2024-04-21 03:26:20.688067', '2024-04-21 03:26:20.688069'),
+('Not Satisfied', 'ef555d7c-c280-4b40-826d-8348fbedebf4', '20cb42e8-8c9e-4935-b1b5-0799a78b7c89', '2024-04-21 03:26:20.688082', '2024-04-21 03:26:20.688083'),
+('Yes', '242afeb6-88d5-4b10-b328-90a8a726f427', '0de91c63-f1d7-4e0f-94aa-ddce5b09dd02', '2024-04-21 03:26:20.691732', '2024-04-21 03:26:20.691734'),
+('No', '242afeb6-88d5-4b10-b328-90a8a726f427', '772513fa-8c1f-421b-a45e-d4250838e739', '2024-04-21 03:26:20.691753', '2024-04-21 03:26:20.691755');
+
+
