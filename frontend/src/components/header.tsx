@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 
 export default function header ({userData = null}: {userData?: any}) {  
@@ -12,8 +13,12 @@ export default function header ({userData = null}: {userData?: any}) {
 }
 
 function DefaultHeader () {
-  const currentPath = window?.location.pathname;
-  const showButtons = currentPath !== '/login' && currentPath !== '/register';
+  const [showButtons, setShowButtons] = React.useState(true);
+
+  useEffect (() => {
+    const currentPath = window.location.pathname;
+    setShowButtons(!(['/login', '/register'].includes(currentPath)));
+  }), [];
 
   return (
     <header className='w-full p-1.5 relative sm:p-2 md:p-5 border-b shadow-sm relative z-50 bg-white sticky top-0'>

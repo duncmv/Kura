@@ -12,16 +12,14 @@ import axios from 'axios';
 export default async function login(email: string, password: string) {
     email = email.toLocaleLowerCase();
     password = crypto.createHash('md5').update(password).digest('hex');
-    axios.post('http://18.207.112.170/api/v1/login', { email, password }).then((res) => {
+    return (await axios.post('http://18.207.112.170/api/v1/login', { email, password }).then((res) => {
         if (res.data.id) {
             sessionStorage.setItem('user', JSON.stringify(res.data.id));
-            window.location.reload();
+            return true;
         }
     }).catch((e) => {
         return null;
-    });
-
-    return null;
+    }));
 }
 
 

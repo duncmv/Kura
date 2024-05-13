@@ -10,7 +10,7 @@ export default function Bookmarks() {
         axios.get(`http://18.207.112.170/api/v1/user/${userId}/tags`)
         .then ((res) => {
             console.log(res.data, 'from bookmarks');
-            setBookmarks(res.data);
+            setBookmarks(res.data.reverse());
         }).catch((err) => {
             console.log(err);
         });

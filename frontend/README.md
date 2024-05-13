@@ -20,32 +20,28 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-<!-- (home)/(pages)/publish.tsx -->
-[done] TODO - Finish publish static
-[-waiting-for-duncan-] TODO - Submit form data
 <!-- Inst and Ind profiles -->
 [-] TODO - Ind profile static
-[-] TODO - Ind can edite his data
+[-] TODO - Ind can edite his data adn manage his account
 <!-- The settings page -->
-[] TODO - Static Ind setting
-[] TODO - Ind can edit his profile data
 [] TODO - Static Inst settings
-[] TODO - Inst can edit his data
-<!-- Inst and Ind profiles -->
 [] TODO - Inst can edit profile and cover pictures
-<!-- (home)/(pages)/main.tsx -->
-[done] TODO - fix the polled shows up when reloading the page
 <!-- @/(components)/poll.tsx -->
-[] TODO - Move the radio button to the right
+[done] TODO - Move the radio button to the right
 [] TODO - Show number of votes after voting & remove the vote button
 <!-- (home)/(pages)/history.tsx -->
 [] TODO - Check the radio buttons of the user's past answers
 <!-- @/components/header.tsx -->
 [] TODO - Perform search logic
-<!-- Login page & Register -->
-[] TODO - Error shows even when password@email are correct
-[] TODO - Login & Signup sometimes show, and sometimes disappear
 
+<!-- Login page & Register -->
+[done] TODO - Error shows even when password@email are correct
+[done] TODO - Login & Signup sometimes show, and sometimes disappear
+<!-- (home)/(pages)/publish.tsx -->
+[done] TODO - Finish publish static
+[done] TODO - Submit form data
+<!-- (home)/(pages)/main.tsx -->
+[done] TODO - fix the polled shows up when reloading the page
 <!-- Inst and Ind profiles -->
 [done] TODO - Static Inst profile
 [done] TODO - Profile opens when clicking the pic on the poll

@@ -7,7 +7,7 @@ import axios from 'axios';
 import React from 'react';
 import Link from 'next/link';
 
-export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: boolean})  {
+export default function Poll ({ pollData, isInst, tab} : { pollData?: any, isInst: boolean, tab?: any})  {
     const time = getTime(pollData.created_at);
     const userId = JSON.parse(sessionStorage.getItem('user')!) as string;
     const [inst, setInst] = useState(Object);
@@ -16,6 +16,8 @@ export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: bo
     const date = new Date(pollData.created_at);
     const userLocale = navigator.language || 'en-US';  // use the user's locale, or 'en-US' if it's not available
     const formattedDate = new Intl.DateTimeFormat(userLocale, { dateStyle: 'full', timeStyle: 'short' }).format(date);
+    const [showIndicator, setShowIndicator] = useState(false);
+    const [leftQuestions, setLeftQuestions] = useState(pollData.questions.length);
 
     useEffect(() => {
         axios.get('http://18.207.112.170/api/v1/institutions/' + pollData.institution.id).then((res) => {
@@ -74,7 +76,11 @@ export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: bo
         for (let answer of answers) {
             axios.post(`http://18.207.112.170/api/v1/users/${userId}/${answer}/`)
             .then((res) => {
-                console.log('Successfully voted');
+                setShowIndicator(true);
+                setLeftQuestions(leftQuestions - answers.length);
+                setTimeout(() => {
+                    setShowIndicator(false);
+                }, 3000);
             })
             .catch((err) => {
                 console.log(err);
@@ -139,7 +145,7 @@ export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: bo
                             return <Question questionData={question} isInst={isInst} setData={setData} key={question.id} />;
                         })}
                     </div>
-                    {!isInst &&  userId && (
+                    {!isInst &&  userId && leftQuestions !== 0 && tab != 'history' && (
                         <div className="--poll-footer--">
                             <button onClick={handleVote} className={button + ' float-right'}>
                                 Vote
@@ -148,6 +154,9 @@ export default function Poll ({ pollData, isInst} : { pollData?: any, isInst: bo
                     )}
                     {!userId && (
                         <p className='text-center text-red-400 text-bold'>Login or Signup to vote</p>
+                    )}
+                    {showIndicator && (
+                        <p className='text-center text-blue-500 text-bold'>Successfully Voted</p>
                     )}
                 </div>
             </div>
@@ -165,7 +174,10 @@ function getTime(date: string) {
     const diffInDays = Math.floor(diffInHours / 24);
     const diffInMonths = Math.floor(diffInDays / 30);
     const diffInYears = Math.floor(diffInMonths / 12);
-    if (diffInMinutes === 1) {
+
+    if (diffInMinutes < 1) {
+        return 'Just now';
+    } else if (diffInMinutes === 1) {
         return `${diffInMinutes} minute ago`;
     } else if (diffInMinutes < 60) {
         return `${diffInMinutes} minutes ago`;

@@ -4,9 +4,9 @@ const a = 'text-blue-500 hover:text-blue-700 active:text-blue-900 transition dur
 const h2 = 'font-bold text-lg';
 const h3 = 'font-bold text-md';
 const card = `px-5 py-10 border rounded-lg shadow-md max-w-90 lg:basis-1/3 hover:bg-blue-300
-              hover:shadow-lg transition duration-300 ease-in-out relative
-              after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full
-              after:h-1 after:bg-blue-500 after:rounded-t-lg`;
+                hover:shadow-lg transition duration-300 ease-in-out relative
+                after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full
+                after:h-1 after:bg-blue-500 after:rounded-t-lg`;
 
 const gap = 'space-x-4 sm:space-x-6 md:space-x-8 lg:space-x-10 xl:space-x-12';
 const container = 'min-h-[83vh] w-11/12 mx-auto flex flex-col justify-center overflow-hidden overflow-y-scroll scrollbar-hide';
