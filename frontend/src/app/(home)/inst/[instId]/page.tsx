@@ -1,12 +1,17 @@
 'use client';
 import React, { ReactNode, useEffect, useState } from 'react';
-import Header from '../../../../components/header';
-import { GetUserData, getUserById } from '../../../../api/auth';
+import Header from '@/components/header';
+import { GetUserData, getUserById } from '@/api/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faEllipsisH, faPen, faSave } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import Poll from '../../(components)/poll';
 
+/**
+ * Renders the profile page for an institution.
+ * @param params - The parameters containing the institution ID.
+ * @returns The rendered profile page.
+ */
 export default function InstProfile({ params }: { params: { instId: string } }) {
     const instId = params.instId;
     const userData = GetUserData();
@@ -18,6 +23,9 @@ export default function InstProfile({ params }: { params: { instId: string } }) 
     const [loading, setLoading] = useState(true);
     const images: any = {};
 
+    /**
+     * Fetches the institution data from the server.
+     */
     async function fetchData() {
         if (same) {
             setInstData(userData);
@@ -57,6 +65,10 @@ export default function InstProfile({ params }: { params: { instId: string } }) 
         });
     }, [instData]);
 
+    /**
+     * Gets the establishment year of the institution.
+     * @returns The establishment year or 'Unknown' if not available.
+     */
     function getSince(): ReactNode {
         let date: any;
         if (instData?.date_of_establishment) {
@@ -71,18 +83,26 @@ export default function InstProfile({ params }: { params: { instId: string } }) 
         }
     }
 
+    /**
+     * Handles the file change event when a file is selected.
+     * @param e - The file change event.
+     */
     const handleFileChange = (e: any) => {
         const file = e.target.files[0];
         const key = e.target.name;
 
         if (!file?.type?.startsWith('image/')) { alert('Invalid file type'); return; }
 
+        // Update the image preview instantly
         const element = document.getElementById(key + '-element') as HTMLElement;
         element.style.backgroundImage = `url(${URL.createObjectURL(file)})`;
 
         images[key] = file;
     }
 
+    /**
+     * Handles the save action when the user clicks the save button.
+     */
     function handleSave () {
         if (!images.pic && !images.cover) {
             setEditing(false);
@@ -104,9 +124,7 @@ export default function InstProfile({ params }: { params: { instId: string } }) 
         .then ((res) => {
             setInstData(res.data);
             setEditing(false);
-            alert('Saved!');
         }).catch((e) => {
-            console.log(instData)
             console.log(e);
         });
     }

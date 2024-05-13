@@ -6,6 +6,10 @@ import React, { useEffect, useState } from "react";
 import crypto from 'crypto'
 import { logout } from "@/api/auth";
 
+/**
+ * Component for managing user settings.
+ * @param userData - User data object.
+ */
 export default function Settings ({userData}: {userData: any}) {
     const [districts, setDistricts] = useState([]);
     const isInst = userData.__class__ === 'Institution';
@@ -16,6 +20,7 @@ export default function Settings ({userData}: {userData: any}) {
     const data = { ...userData };
 
     useEffect(() => {
+        // Fetch districts data from API
         axios.get('http://18.207.112.170/api/v1/countries/000daded-1a7c-4ca7-8f16-6aa4026fa0e7/districts')
         .then((response) => {
             setDistricts(response.data)
@@ -48,6 +53,7 @@ export default function Settings ({userData}: {userData: any}) {
         if (data.old_password === userData.password) {
             if (deleting) {
                 const path = isInst ? `http://18.207.112.170/api/v1/institutions/${userData.id}` : `http://18.207.112.170/api/v1/users/${userData.id}`;
+                // Delete user account
                 axios.delete(path)
                 .then((res) => {
                     sessionStorage.removeItem('user');
@@ -69,6 +75,7 @@ export default function Settings ({userData}: {userData: any}) {
                     type: 'image/*'
                 }));
 
+                // Update user information
                 axios.post(`http://18.207.112.170/api/v1/update/${userData.id}`, out)
                 .then((res) => {
                     setDone(true);
@@ -88,7 +95,7 @@ export default function Settings ({userData}: {userData: any}) {
         }
     };
 
-    const disabledStyle = 'border border-gray-300 rounded-md px-2 py-1 w-[60%] bg-gray-100 text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent cursor-not-allowed';
+    const disabledStyle = 'border border-gray-300 rounded-md px-2 py-1 w-[60%] bg-gray-100 text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent';
     const enabledStyle = 'border border-gray-300 rounded-md px-2 py-1 w-[60%] bg-white text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent';
     return (
         <div className='flex flex-col items-center w-full pb-[90px]'>
@@ -167,7 +174,11 @@ export default function Settings ({userData}: {userData: any}) {
     );
 }
 
-
+/**
+ * Formats a date string to 'YYYY-MM-DD' format.
+ * @param dateString - Date string to be formatted.
+ * @returns Formatted date string.
+ */
 const formatDate = (dateString: any) => {
     const date = new Date(dateString);
     const year = date.getFullYear();

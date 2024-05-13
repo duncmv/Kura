@@ -2,27 +2,36 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Poll from "../(components)/poll";
 
-export default function Main({ userData }: { userData: any }) {
-    let isInst= userData.__class__ === 'Institution';
+/**
+ * Main component that displays the polls.
+ * @param {Object} userData - User data object.
+ * @returns {JSX.Element} The rendered Main component.
+ */
+export default function Main({ userData }: { userData: any }): JSX.Element {
+    let isInst = userData.__class__ === 'Institution';
     const [polls, setPolls] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        /**
+         * Fetches the polls from the API.
+         */
         async function fetchPolls() {
             let path = 'http://18.207.112.170/api/v1/polls';
             try {
+                // Fetch all polls
                 const response = await axios.get(path);
                 let ids = response.data;
-                
+
                 if (!isInst) {
                     // Fetch user-polled polls
                     const userPolledResponse = await axios.get(`http://18.207.112.170/api/v1/users/${userData.id}/polls`);
                     const userPolledIds = userPolledResponse.data;
-    
+
                     // Filter out the polls the user has already participated in
                     ids = ids.filter((id: string) => !userPolledIds.includes(id));
                 }
-                
+
                 // Fetch details of the filtered polls if Individual
                 const fetchedPolls = await Promise.all(ids.map(async (id: string) => {
                     const pollResponse = await axios.get(`http://18.207.112.170/api/v1/polls/${id}`);
@@ -52,7 +61,7 @@ export default function Main({ userData }: { userData: any }) {
             {!loading && polls.length > 0 && (
                 <div className="mb-20 w-full">
                     {polls.map((poll: any) => {
-                        return <Poll key={poll.id} pollData={poll} isInst={isInst}/>;
+                        return <Poll key={poll.id} pollData={poll} isInst={isInst} />;
                     })}
                 </div>
             )}

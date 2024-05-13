@@ -3,11 +3,18 @@ import React, { useEffect, useState } from "react";
 import Poll from "../(components)/poll";
 
 
-export default function History({ userData }: { userData: any }) {
+/**
+ * Renders the History component.
+ * 
+ * @param {Object} props - The component props.
+ * @param {Object} props.userData - The user data.
+ * @returns {JSX.Element} The rendered History component.
+ */
+export default function History({ userData }: { userData: any }): JSX.Element {
     const isInst = userData.__class__ === 'Institution';
     const [loading, setLoading] = useState(true);
     const [polled, setPolled] = useState<any[]>([]);
-    
+
 
     useEffect(() => {
         async function fetchPolls() {
@@ -18,7 +25,7 @@ export default function History({ userData }: { userData: any }) {
                 const fetchedPolls = await Promise.all(ids.map(async (id: string) => {
                     const pollResponse = await axios.get(`http://18.207.112.170/api/v1/polls/${id}`);
                     return pollResponse.data;
-                }));
+                })); // Fetch all polls for the user
                 setPolled(fetchedPolls.reverse());
                 setLoading(false);
             } catch (error) {
@@ -29,8 +36,6 @@ export default function History({ userData }: { userData: any }) {
 
         fetchPolls();
     }, [userData.id, isInst]);
-
-
 
     return (
         <>

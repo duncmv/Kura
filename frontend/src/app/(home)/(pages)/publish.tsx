@@ -6,42 +6,51 @@ import { v4 as uuid } from 'uuid';
 import axios from "axios";
 
 
-export default function Publish ({userData, setTab} : {userData: any, setTab: any}) {
+/**
+ * Component for publishing a poll.
+ * @param userData - User data.
+ */
+export default function Publish({ userData }: { userData: any }) {
+    // State for the poll data
     const [poll, setPoll] = useState({
         title: '',
         desc: '',
         questions: [
-            {id: uuid(), title: '', answers: [{id: uuid(), text: ''}, {id: uuid(), text: ''}]},
+            { id: uuid(), title: '', answers: [{ id: uuid(), text: '' }, { id: uuid(), text: '' }] },
         ]
     });
+
+    // State for tracking if the poll has been published (for UI feedback)
     const [published, setPublished] = useState(false);
-    
+
     useEffect(() => {
         // Get poll data from sessionStorage
-        const poll = sessionStorage.getItem('poll');
-        if (poll) {
-            setPoll(JSON.parse(poll));
+        const pollData = sessionStorage.getItem('poll');
+        if (pollData) {
+            setPoll(JSON.parse(pollData));
         }
-    }, []); 
+    }, []);
 
-
-    // Handle input change
+    /**
+     * Handle input change for the poll data.
+     * @param event - The input change event.
+     */
     const handleDataChange = (event: { target: { name: any; value: any; }; }) => {
         const { name, value } = event.target;
         setPoll(prevPoll => {
-            if (name === 'title' || name === 'desc') {
+            if (name === 'title' || name === 'desc') { // Update the poll title or description directly
                 return {
                     ...prevPoll,
                     [name]: value
                 };
-            } else {
+            } else { // Update question or answer of the poll
                 const updatedQuestions = prevPoll.questions.map(question => {
                     if (question.id === name) {
                         return {
                             ...question,
                             title: value
                         };
-                    } else {
+                    } else { // Update answer of the question
                         const updatedAnswers = question.answers.map(answer => {
                             if (answer.id === name) {
                                 return {
@@ -66,8 +75,10 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
         });
     }
 
-
-    // Handle form submission
+    /**
+     * Handle form submission.
+     * @param e - The form submission event.
+     */
     const handleNext = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const data = {
@@ -77,48 +88,58 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
                 return {
                     text: question.title,
                     answers: question.answers.map(answer => {
-                        return {text: answer.text};
+                        return { text: answer.text };
                     })
                 };
             })
         };
-        
+
         axios.post(`http://18.207.112.170/api/v1/institutions/${userData.id}/polls`, data)
-        .then ((res) => {
-            setPoll({
-                title: '',
-                desc: '',
-                questions: [
-                    {id: uuid(), title: '', answers: [{id: uuid(), text: ''}, {id: uuid(), text: ''}]},
-                ]
+            .then((res) => {
+                setPoll({
+                    title: '',
+                    desc: '',
+                    questions: [
+                        { id: uuid(), title: '', answers: [{ id: uuid(), text: '' }, { id: uuid(), text: '' }] },
+                    ]
+                });
+                sessionStorage.removeItem('poll');
+                setPublished(true);
+                setTimeout(() => {
+                    setPublished(false);
+                }, 1000);
+            }).catch((err) => {
+                console.log(err);
+                console.log(data);
             });
-            sessionStorage.removeItem('poll');
-            setPublished(true);
-            setTimeout(() => {
-                setPublished(false);
-            }, 1000);
-        }).catch((err) => {
-            console.log(err);
-            console.log(data);
-        });
     }
 
+    /**
+     * Save the poll data to sessionStorage.
+     */
     const saveData = () => {
         sessionStorage.setItem('poll', JSON.stringify(poll));
     }
 
+    /**
+     * Add a new question to the poll.
+     */
     const addQuestion = () => {
         setPoll(prevPoll => {
             return {
                 ...prevPoll,
                 questions: [
                     ...prevPoll.questions,
-                    {id: uuid(), title: '', answers: [{id: uuid(), text: ''}, {id: uuid(), text: ''}]}
+                    { id: uuid(), title: '', answers: [{ id: uuid(), text: '' }, { id: uuid(), text: '' }] }
                 ]
             };
         });
     }
 
+    /**
+     * Remove a question from the poll.
+     * @param id - The ID of the question to remove.
+     */
     const removeQuestion = (id: String) => {
         setPoll(prevPoll => {
             return {
@@ -128,6 +149,10 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
         });
     }
 
+    /**
+     * Add a new answer to a question in the poll.
+     * @param questionId - The ID of the question to add the answer to.
+     */
     const addAnswer = (questionId: String) => {
         setPoll(prevPoll => {
             const updatedQuestions = prevPoll.questions.map(question => {
@@ -136,7 +161,7 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
                         ...question,
                         answers: [
                             ...question.answers,
-                            {id: uuid(), text: ''}
+                            { id: uuid(), text: '' }
                         ]
                     };
                 } else {
@@ -150,6 +175,11 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
         });
     }
 
+    /**
+     * Remove an answer from a question in the poll.
+     * @param questionId - The ID of the question.
+     * @param answerId - The ID of the answer to remove.
+     */
     const removeAnswer = (questionId: String, answerId: String) => {
         setPoll(prevPoll => {
             const updatedQuestions = prevPoll.questions.map(question => {
@@ -193,7 +223,6 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
                     <div className="">
                         <label htmlFor="desc">* Description</label>
                         <input
-                            required
                             type="text"
                             id="desc"
                             name="desc"
@@ -210,7 +239,7 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
                             <>
                                 {index != 0 && (
                                     <div title="Remove this question" className="w-10 h-10 flex justify-center items-center rounded-full border border hover:bg-blue-300">
-                                        <button type="button" className="focus:outline-none w-[100%] h-[100%]" onClick={() => {removeQuestion(question.id)}} onBlur={saveData}>
+                                        <button type="button" className="focus:outline-none w-[100%] h-[100%]" onClick={() => { removeQuestion(question.id) }} onBlur={saveData}>
                                             <FontAwesomeIcon icon={faMinus} />
                                         </button>
                                     </div>
@@ -235,7 +264,7 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
                                                     <label htmlFor={answer.id}>Answer</label>
                                                     {idx > 1 && (
                                                         <div title="Add an answer" className="w-6 h-6 absolute right-[10px] top-[5px] flex justify-center items-center rounded-full border border hover:bg-blue-300">
-                                                            <button type="button" onClick={() => {removeAnswer(question.id, answer.id)}} onBlur={saveData}>
+                                                            <button type="button" onClick={() => { removeAnswer(question.id, answer.id) }} onBlur={saveData}>
                                                                 <FontAwesomeIcon className="text-sm" icon={faMinus} />
                                                             </button>
                                                         </div>
@@ -308,8 +337,3 @@ export default function Publish ({userData, setTab} : {userData: any, setTab: an
         </form>
     );
 }
-
-// The structure of the data:
-/*
-    poll = {title, desc, q1: {title, ans1: {text}, ans2: {text}}, q2: {title, ans1: {text}, ans2: {text}}, ...}
-*/

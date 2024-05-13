@@ -1,9 +1,9 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { button, input, a, h2, h3, form, formContainer, container, card} from '../../../components/styleVar';
-import { getCurrentUser, signup } from '../../../api/auth';
+import { button, input, a, h2, h3, form, formContainer, container, card} from '../../../../../components/styleVar';
+import { getCurrentUser, signup } from '../../../../../api/auth';
 import { useRouter } from 'next/navigation';
-import Header from '../../../components/header';
+import Header from '../../../../../components/header';
 import Link from 'next/link';
 import crypto from 'crypto';
 import axios from 'axios';
@@ -19,7 +19,7 @@ export default function RegisterPage() {
     const [showContent, setShowContent] = useState(false);
     const [showInitialContent, setShowInitialContent] = useState(true);
     const [districts, setDistricts] = useState(Array());
-    let distList = [];
+    let distList: any = [];
     const router = useRouter();
 
     // Get districts
@@ -31,11 +31,11 @@ export default function RegisterPage() {
             .catch((err) => {
                 console.log(err);
             });
-    }, []);
-    
+    }, []); // Run once on component mount
+
     distList = districts.map((dist) => {
         return <option key={dist.id} value={dist.id}>{dist.name}</option>
-    })
+    });
 
 
     // Check if user is already logged in
@@ -66,7 +66,7 @@ export default function RegisterPage() {
     return (
         <>
             <Header/>
-            <div className={container}>
+            <div className={container + ' py-10'}>
                 {showInitialContent && ( // Render initial content if showInitialContent is true
                     <>
                         <h2 className={h2 + ' min-[1024px]:pl-[14.5vw]'}>Choose account type</h2>
@@ -94,7 +94,7 @@ export default function RegisterPage() {
                         </p>
                     </>
                 )}
-                {showContent && ( // Render content if showContent is true
+                {showContent && ( // Render content if showContent is true based on account type
                     <>
                         {type === 'individual' ? <Individual distList={distList} setShowContent={setShowContent} setShowInitialContent={setShowInitialContent} /> : <Institution distList={distList} setShowContent={setShowContent} setShowInitialContent={setShowInitialContent} />}
                     </>
@@ -286,12 +286,11 @@ function Individual(props: { distList: JSX.Element[], setShowContent: React.Disp
 
 
 function Institution(props: { distList: JSX.Element[], setShowContent: React.Dispatch<React.SetStateAction<boolean>>, setShowInitialContent: React.Dispatch<React.SetStateAction<boolean>> }) {
-    const [selectedFiles, setSelectedFiles] = useState(Object.create({}));
     const [info, setInfo] = useState(Object.create({}));
     const [entities, setEntities] = useState(Array());
     const [industries, setIndustries] = useState(Array());
-    let industryList = [];
-    let entityList = [];
+    let industryList: any = [];
+    let entityList: any = [];
     const router = useRouter();
 
     useEffect(() => {

@@ -1,24 +1,25 @@
 "use client";
-import React, { use, useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { button, input, a, h2, h3, form, formContainer, container} from '../../../components/styleVar';
-import { login, getCurrentUser } from '../../../api/auth';
+import { button, input, a, h2, h3, form, formContainer, container} from '@/components/styleVar';
+import { login, getCurrentUser } from '@/api/auth';
 import { useRouter } from 'next/navigation'
-import Header from '../../../components/header';
+import Header from '@/components/header';
 
 const LoginPage: React.FC = () => {
     const [data, setData] = useState(Object.create(null));
     const router = useRouter();
-    const [notexists, setNotExsists] = useState(false);
+    const [notexists, setNotExsists] = useState(false); // Error message
 
     // Check if user is already logged in
     getCurrentUser().then(() => {
-        setNotExsists(false);
+        setNotExsists(false); // Clear error message
         router.push("/");
     }).catch(() => {
         // Do nothing
     });
 
+    // Handle input change
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setData((prevData: any) => ({
@@ -33,7 +34,8 @@ const LoginPage: React.FC = () => {
             setNotExsists(true);
             return;
         }
-    
+
+        // Attempt to login
         try {
             const res = await login(data.email, data.password);
             if (res) {
