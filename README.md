@@ -1,10 +1,16 @@
 
 <h1 align='center'><a href='https://kura-mxoi.onrender.com/'>KURA</a></h1>
 
-#### Choices with *IMPACT!*
-<div align='center'>
-	<a href='https://github.com/ibrahimmorad/'>![Ibrahim Morad](https://img.shields.io/badge/My%20Account-ibrahimmorad-24314d.svg)</a>
+<h4 align="center">Choices with <i><b style="color: rgb(59 130 246)">IMPACT!</b></i></h4>
+<div align="center">
+<br />
+
+[![Ibrahim Morad](https://img.shields.io/badge/My%20Account-ibrahimmorad-24314d.svg)](https://github.com/ibrahimmorad)
+[![Mogamed Eladly](https://img.shields.io/badge/My%20Account-EladlyDev-552112.svg)](https://github.com/EladlyDev)
+[![duncan](https://img.shields.io/badge/My%20Account-duncmv-3a056b.svg)](https://github.com/duncmv)
+
 </div>
+
 ## [Description](#table-of-contents)
 
 [KURA](https://kura-mxoi.onrender.com/) is a polling service that helps the institutions and companies to include their employees or others in their decision-making process.
@@ -39,7 +45,7 @@ A normal user can vote on polls and get some information (what the institution a
 [![Next.js](https://img.shields.io/badge/Next.js-14.2.2-black.svg)](https://nextjs.org/)
 [![Forks](https://img.shields.io/github/forks/duncmv/Kura?style=social)](https://github.com/duncmv/Kura/network/members)
 [![Stars](https://img.shields.io/github/stars/duncmv/Kura?style=social)](https://github.com/duncmv/Kura/stargazers)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![GitHub watchers](https://img.shields.io/github/watchers/duncmv/kura)
 [![Contributors](https://img.shields.io/github/contributors/duncmv/Kura?style=social)](https://github.com/duncmv/Kura/graphs/contributors)
 
