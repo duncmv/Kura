@@ -9,6 +9,14 @@
 [![Mogamed Eladly](https://img.shields.io/badge/My%20Account-EladlyDev-552112.svg)](https://github.com/EladlyDev)
 [![duncan](https://img.shields.io/badge/My%20Account-duncmv-3a056b.svg)](https://github.com/duncmv)
 
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![GitHub Release](https://img.shields.io/github/v/release/duncmv/kura?include_prereleases&display_name=release&style=flat&logo=release&color=yellow)
+](https://github.com/duncmv/Kura/releases/)
+
+[![Forks](https://img.shields.io/github/forks/duncmv/Kura?style=social)](https://github.com/duncmv/Kura/network/members)
+[![Stars](https://img.shields.io/github/stars/duncmv/Kura?style=social)](https://github.com/duncmv/Kura/stargazers)
+![GitHub watchers](https://img.shields.io/github/watchers/duncmv/kura)
+
 </div>
 
 ## [Description](#table-of-contents)
@@ -43,11 +51,49 @@ A normal user can vote on polls and get some information (what the institution a
 [![Flask](https://img.shields.io/badge/Flask-3.0.2-1383BE.svg)](https://flask.palletsprojects.com/)
 [![React](https://img.shields.io/badge/React-18-61DAFB.svg)](https://reactjs.org/)
 [![Next.js](https://img.shields.io/badge/Next.js-14.2.2-black.svg)](https://nextjs.org/)
-[![Forks](https://img.shields.io/github/forks/duncmv/Kura?style=social)](https://github.com/duncmv/Kura/network/members)
-[![Stars](https://img.shields.io/github/stars/duncmv/Kura?style=social)](https://github.com/duncmv/Kura/stargazers)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-![GitHub watchers](https://img.shields.io/github/watchers/duncmv/kura)
-[![Contributors](https://img.shields.io/github/contributors/duncmv/Kura?style=social)](https://github.com/duncmv/Kura/graphs/contributors)
+
+### Database
+Implemented by [Ibrahim Morad](https://github.com/IbrahimMurad/)
+- We used postgresql as the database management system to store our data.
+- We used sqlalchemy as the ORM service that connects our engine to the database server and query the required data.
+- database schema is shown in the following data model.![alt text](datamodel.png) 
+> This data model is made by [sqldbm](http://sqldbm.com/Home/) ([kura-model](https://app.sqldbm.com/MySQL/DatabaseExplorer/p295076#)).
+
+
+And it consists of the following tables:
+  1. [answers](models/answers.py)
+  2. [choices](models/choices.py)
+  3. [countries](models/countries.py)
+  4. [districts](models/districts.py)
+  5. [industries](models/industries.py)
+  6. [institutions](models/institutions.py)
+  7. [legal_entities](models/legal_entity.py)
+  8. [polls](models/polls.py)
+  9. [questions](models/questions.py)
+  10. [tags](models/tags.py)
+  11. [users](models/users.py)
+
+- There is [basemodel](models/base_model.py) class that defines the id, created_at and updated_at columns for all the tables (except tags)
+- The other part of the database is the methods implemented so that the api can use the database without getting involved with the database or the ORM service. These methods are:
+
+| the method                            | syntax                             | example                                                         | description                                                              |
+| ------------------------------------- | ---------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| [get](models/engine/storage.py#97)    | ``get(class_name, id)``            | `` Storage.get(User, '6666a7d8-7d69-4c7f-a341-14997c8306c0') `` | returns the user with the given id                                       |
+| [all](models/engine/storage.py#21)    | ``all(class_name)`` <br> ``all()`` | `` Storage.all(User) `` <br> ``Storage.all()``                  | returns all the users <br> returns all the records in the whole database |
+| [count](models/engine/storage.py#101) | ``count(class_name)``              | `` Storage.count(User) ``                                       | returns the number of records in a certain table                         |
+| [new](models/engine/storage.py#56)    | `` new(object) ``                  | `` Storage.new(user1) ``                                        | adds a new record                                                        |
+| [delete](models/engine/storage.py#66) | `` delete(object) ``               | `` Storage.delete(user1) ``                                     | deletes a record                                                         |
+| [save](models/engine/storage.py#61)   | `` save() ``                       | `` Storage.save() ``                                            | commit changes                                                           |
+
+### API
+Implemented by [Duncan](https://github.com/duncmv/)
+- To DO .....
+
+
+### Frontend
+Implemented by [Mohamed Eladly](https://github.com/EladlyDev)
+- To DO .....
+
 
 ## [Installation](#table-of-contents)
 
@@ -107,4 +153,6 @@ There you can create polls if you are an [institution](#an-institution-user) or 
 5. Make a pull request and wait for you request to be accepted or commented on.
 
 ## [License](#table-of-contents)
-Specify the license under which your project is distributed.
+This project is licensed under the MIT license. Feel free to edit and distribute this template as you like.
+
+See [LICENSE](LICENSE) for more information.
