@@ -89,7 +89,79 @@ And it consists of the following tables:
 Implemented by [Duncan](https://github.com/duncmv/)
 The API is designed using Flask to handle requests from the frontend and other clients, processing data and returning responses in a structured format. By utilizing these endpoints, users can perform actions such as retrieving data, creating resources, updating information, and more.
 
-In this documentation, you will find detailed information about the available endpoints, request and response formats, authentication requirements, and usage examples to help you effectively utilize the API in your applications.
+### Key Endpoints
+
+1. `/api/v1/users`
+   - **Method:** GET
+   - **Description:** Retrieve a list of users.
+   - **Parameters:**
+     - None
+   - **Response:**
+     - JSON object containing user information.
+
+2. `/api/v1/users/{id}`
+   - **Method:** GET
+   - **Description:** Retrieve a specific user by ID.
+   - **Parameters:**
+     - `id`: The ID of the user to retrieve.
+   - **Response:**
+     - JSON object containing the user's details.
+
+3. `/api/v1/signup`
+   - **Method:** POST
+   - **Description:** Handles the sign-up process for new users.
+   - **Parameters:**
+     - Form data structure for signing up a user:
+       ```json:
+       {
+        "json": {
+           "username": "New user's username",
+           "email": "New user's email",
+           "password": "New user's password"
+       },
+       "pic": "Profile picture file",
+       "id_snippet": "ID card file"
+       ```
+       }
+   - **Response:**
+     - A response confirming the successful registration of a new user.
+
+4. `/api/v1/update/<obj_id>`
+   - **Method:** POST
+   - **Description:** Handles the update process for users and institutions.
+   - **Parameters:**
+     - `obj_id`: The ID of the object to be updated.
+     - Form data structure for updating a user:
+       ```json
+       {
+           "json": {
+               "class": "user",
+               "mobile_number": "User's mobile number",
+               "occupation": "User's occupation",
+               "ed_speciality": "User's educational speciality",
+               "job_role": "User's job role",
+               "company_id": "Valid institution ID",
+               "job_description": "Description of user's job",
+               "salary": "User's salary",
+               "hobbies": "User's hobbies"
+           },
+           "pic": "Profile picture file",
+           "id_snippet": "ID card file"
+       }
+       ```
+     - Form data structure for updating an institution:
+       ```json
+       {
+           "json": {
+               "class": "institution",
+               "postal_code": "Postal code of institution",
+               "phone_number": "Phone number of institution",
+               "parent_company": "Parent company details"
+           }
+       }
+       ```
+   - **Response:**
+     - A response indicating the success or failure of the update process.
 
 
 
