@@ -87,7 +87,12 @@ And it consists of the following tables:
 
 ### API
 Implemented by [Duncan](https://github.com/duncmv/)
-- To DO .....
+The API is designed using Flask to handle requests from the frontend and other clients, processing data and returning responses in a structured format. By utilizing these endpoints, users can perform actions such as retrieving data, creating resources, updating information, and more.
+
+In this documentation, you will find detailed information about the available endpoints, request and response formats, authentication requirements, and usage examples to help you effectively utilize the API in your applications.
+
+
+
 
 
 ### Frontend
