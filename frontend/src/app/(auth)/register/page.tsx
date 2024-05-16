@@ -1,9 +1,9 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { button, input, a, h2, h3, form, formContainer, container, card} from '../../../components/styleVar';
-import { getCurrentUser, signup } from '../../../api/auth';
+import { button, input, a, h2, h3, form, formContainer, container, card} from '../../../../../components/styleVar';
+import { getCurrentUser, signup } from '../../../../../api/auth';
 import { useRouter } from 'next/navigation';
-import Header from '../../../components/header';
+import Header from '../../../../../components/header';
 import Link from 'next/link';
 import crypto from 'crypto';
 import axios from 'axios';
@@ -19,7 +19,7 @@ export default function RegisterPage() {
     const [showContent, setShowContent] = useState(false);
     const [showInitialContent, setShowInitialContent] = useState(true);
     const [districts, setDistricts] = useState(Array());
-    let distList = [];
+    let distList: any = [];
     const router = useRouter();
 
     // Get districts
@@ -31,11 +31,11 @@ export default function RegisterPage() {
             .catch((err) => {
                 console.log(err);
             });
-    }, []);
-    
+    }, []); // Run once on component mount
+
     distList = districts.map((dist) => {
         return <option key={dist.id} value={dist.id}>{dist.name}</option>
-    })
+    });
 
 
     // Check if user is already logged in
@@ -66,7 +66,7 @@ export default function RegisterPage() {
     return (
         <>
             <Header/>
-            <div className={container}>
+            <div className={container + ' py-10'}>
                 {showInitialContent && ( // Render initial content if showInitialContent is true
                     <>
                         <h2 className={h2 + ' min-[1024px]:pl-[14.5vw]'}>Choose account type</h2>
@@ -75,13 +75,17 @@ export default function RegisterPage() {
                                 onClick={() => handleType('individual')}
                             >
                                 <h2 className={h3}>Individual</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi facilis doloribus non eaque temporibus adipisci at. Minima maiores tempora enim. Animi deleniti laboriosam unde provident perspiciatis nostrum voluptatum tempore tenetur!</p>
+                                <p>
+                                Where your voice matters. Stay informed, share your opinions, and engage with institutions. With Kura, you can stay up-to-date on current events, participate in polls to influence decision-making, and connect directly with institutions.
+                                </p>
                             </div>
                             <div className={card2}
                                 onClick={() => handleType('institution')}
                             >
                                 <h2 className={h3}>Institution</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias recusandae vel soluta alias eveniet vitae hic temporibus dignissimos rem aliquid totam unde illum, fuga accusantium dolorum minima quo labore amet!</p>
+                                <p>
+                                Gain insights, make informed decisions, and engage with your community. With Kura, institutions have access to valuable public opinion data, enabling better decision-making and transparent engagement. Create polls, understand public sentiment, and build trust with your audience.
+                                </p>
                             </div>
                         </div>
                         <button className={button + ' w-1/2 sm:w-1/4 m-auto max-w-[200px]'} onClick={handleNext}>Next</button>
@@ -90,7 +94,7 @@ export default function RegisterPage() {
                         </p>
                     </>
                 )}
-                {showContent && ( // Render content if showContent is true
+                {showContent && ( // Render content if showContent is true based on account type
                     <>
                         {type === 'individual' ? <Individual distList={distList} setShowContent={setShowContent} setShowInitialContent={setShowInitialContent} /> : <Institution distList={distList} setShowContent={setShowContent} setShowInitialContent={setShowInitialContent} />}
                     </>
@@ -282,12 +286,11 @@ function Individual(props: { distList: JSX.Element[], setShowContent: React.Disp
 
 
 function Institution(props: { distList: JSX.Element[], setShowContent: React.Dispatch<React.SetStateAction<boolean>>, setShowInitialContent: React.Dispatch<React.SetStateAction<boolean>> }) {
-    const [selectedFiles, setSelectedFiles] = useState(Object.create({}));
     const [info, setInfo] = useState(Object.create({}));
     const [entities, setEntities] = useState(Array());
     const [industries, setIndustries] = useState(Array());
-    let industryList = [];
-    let entityList = [];
+    let industryList: any = [];
+    let entityList: any = [];
     const router = useRouter();
 
     useEffect(() => {
