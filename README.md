@@ -112,17 +112,17 @@ The API is designed using Flask to handle requests from the frontend and other c
    - **Description:** Handles the sign-up process for new users.
    - **Parameters:**
      - Form data structure for signing up a user:
-       ```json:
+       ```json
        {
-        "json": {
-           "username": "New user's username",
-           "email": "New user's email",
-           "password": "New user's password"
-       },
+           "json": {
+               "username": "New user's username",
+               "email": "New user's email",
+               "password": "New user's password"
+           },
        "pic": "Profile picture file",
        "id_snippet": "ID card file"
-       ```
        }
+       ```
    - **Response:**
      - A response confirming the successful registration of a new user.
 
