@@ -1,9 +1,9 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { button, input, a, h2, h3, form, formContainer, container, card} from '../../../../../components/styleVar';
-import { getCurrentUser, signup } from '../../../../../api/auth';
+import { button, input, a, h2, h3, form, formContainer, container, card} from '../../../components/styleVar';
+import { getCurrentUser, signup } from '../../../api/auth';
 import { useRouter } from 'next/navigation';
-import Header from '../../../../../components/header';
+import Header from '../../../components/header';
 import Link from 'next/link';
 import crypto from 'crypto';
 import axios from 'axios';
