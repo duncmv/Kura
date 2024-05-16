@@ -21,7 +21,7 @@
 
 ## [Description](#table-of-contents)
 
-[KURA](https://kura-mxoi.onrender.com/) is a polling service that helps the institutions and companies to include their employees or others in their decision-making process.
+[KURA](https://kura.duncmeister.tech/) is a polling service that helps the institutions and companies to include their employees or others in their decision-making process.
 
 An institution-type user can create polls and get statistical information about votes on their own polls.
 
@@ -209,7 +209,7 @@ From there, a user can click join or sign up to register or sign in to (you know
 
 For a first visit, of course, a user needs to register, so click on join.
 
-This redirects the user to the [registration page](https://kura-mxoi.onrender.com/register).
+This redirects the user to the [registration page](https://kura.duncmeister.tech/register).
 
 #### Choose account type
 There are two types of accounts, [institution](#an-institution-user) and [individual](#an-individual-user).
